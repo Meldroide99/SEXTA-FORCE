@@ -9,18 +9,30 @@ el valor queda «propuesto» hasta que lo valides.
 | # | Tema | Lo que dicen las fuentes | Propuesta |
 |---|---|---|---|
 | A1 | Profundidad de la zona batida | 15 km para vehículos (CSIS, nov 2025); 10-15 km de dominio FPV (OSW, oct 2025); 20-25 km y 30 km a final de 2026 (Brovdi, may 2026; Lasiichuk, jul 2026) | FPV dominante 12,5 km; vehículos 20 km por defecto en «Ucrania 2026», editable hasta 30 |
-| A2 | Eficacia del FPV por radio | 20-40 % (Brovdi, 2024); 43 % de salidas con impacto en una unidad (WOTR, 2025); 60-80 % de fallos (RUSI, feb 2025); 70-80 % con guiado terminal autónomo (CSIS, mar 2025) | 30 % por defecto con EW normal; crear un tipo aparte «FPV con guiado terminal» al 75 % y menos inmune a la cúpula |
-| A3 | Alcance del FPV de fibra | 10 km (RUSI, feb 2025); 20 km en servicio (Syrskyi, abr 2025); 40 km en pruebas (jul 2025) | 20 km por defecto; 10 km para el escalón SGT si prefieres el dato de RUSI |
+| A2 | Eficacia del FPV por radio | 20-40 % (Brovdi, 2024); 43 % (WOTR, 2025); 60-80 % de fallos (RUSI, feb 2025); 70-80 % con guiado terminal (CSIS, mar 2025) | **Resuelto (D-010): 30 %.** Sigue pendiente si se crea un tipo aparte «FPV con guiado terminal» |
+| A3 | Alcance del FPV de fibra | 10 km (RUSI, feb 2025); 20 km en servicio (abr 2025); 40 km en pruebas (jul 2025) | **Resuelto (D-011): 10 km eficaces** |
 | A4 | Tiempo de sensor a golpe | 3-5 min con C2 digital (Delta, NYT ago 2026; RUSI 2023 para la artillería rusa); 15-20 min sin integración (WOTR 2025) | 4 min con enlace digital activo; 15 min sin él; 30 min si la detección llega solo por EW |
 
 ## B. Asimetrías físicas detectadas al cruzar valores
 
 | # | Asimetría | Por qué no cuadra | Propuesta |
 |---|---|---|---|
-| B1 | Bombardero pesado: 20 km de alcance con 23 min de autonomía cargado | Ida y vuelta de 40 km en 23 min exige ~105 km/h con 10 kg; no es realista | Radio de acción cargado de 8-10 km sin espera sobre el objetivo; los 20 km como alcance de enlace o en vacío |
-| B2 | FPV de fibra a 20 km con ~8 min de autonomía | A ~80 km/h, 8 min dan ~10 km; la fibra limita la velocidad | Autonomía propia del FPV de fibra (pendiente de fuente) o radio eficaz de 10 km aunque el cable dé más |
-| B3 | Detección de una persona con la térmica del Mavic 3T: 250 m | Es el cálculo por criterio de Johnson; en la práctica se detecta antes por movimiento (×3) y por contraste térmico alto | Detección base 250 m quieto, ×3 en movimiento, ×0,3-0,5 en cruce térmico. **Necesito tu experiencia aquí** |
+| B1 | Bombardero pesado: 20 km de alcance con 23 min de autonomía cargado | Ida y vuelta de 40 km en 23 min exige ~105 km/h con 10 kg | **Aplazado** (prioridad baja para Balú). Propuesta: radio de acción cargado de 8-10 km |
+| B2 | FPV de fibra a 20 km con ~8 min de autonomía | A ~80 km/h, 8 min dan ~10 km | **Resuelto con A3 (10 km)** |
+| B3 | Detección de una persona con la térmica del Mavic 3T | Cálculo por criterio de Johnson | **Resuelto (D-012): 250 m.** Pendientes los modificadores: ×3 en movimiento y ×0,3-0,5 en cruce térmico |
 | B4 | Alcance del enlace del Mavic (15 km) frente a su autonomía real (25-35 min) | Si se quieren 15 min de observación sobre el objetivo, el tránsito de ida y vuelta (~15 m/s) deja un radio útil de unos 6-7 km | Radio de trabajo 6 km con 15 min de observación; enlace máximo 15 km |
+
+## F. Artillería pesada de 155 mm (añadida el 2026-10-04)
+
+Referencia validada (D-013): obús de 52 calibres con base-bleed, **40 km**. Datos nuevos en `research/fase0/artilleria_155.json`.
+
+| # | Tema | Lo que dicen las fuentes | Propuesta |
+|---|---|---|---|
+| F1 | Alcances por munición | M777 (39 cal): 24 km HE, 30 km base-bleed o RAP, 40 km Excalibur. 52 cal: 36 km HE, 40 km base-bleed, 50 km Excalibur, 54 km V-LAP | Ofrecer en el juego HE, base-bleed y Excalibur; V-LAP fuera por escasez |
+| F2 | Excalibur bajo perturbación GNSS | Acierto del 55 % al 6 % en 2023 (informes ucranianos vía WaPo/NYT) | En zona con EW de navegación activa, Excalibur se comporta como proyectil sin guiar |
+| F3 | Supervivencia de la pieza | Ventana de 2-3 min para salir tras disparar; Lancet hasta 40-50 km; "una pieza que dispara 100 disparos al día no llega a la noche" (TWZ, sep 2026) | Penalizar quedarse en posición tras disparar; tope práctico de ~10 disparos por pieza y día |
+| F4 | Consumo de munición | Rusia: 27.000/día en 2025, >10.000 en 2026 (fuente débil); Ucrania: 4.000-6.000 de 155 mm/día (fuente débil) | Solo como referencia (no entran en el motor) |
+| F5 | Despliegue | Piezas a ~15 km de la línea; separación ≥ 500 m entre piezas (RUSI, feb 2025) | Plantilla de batería dispersa, piezas que tiran por separado |
 
 ## C. Valores de confianza baja que pesan mucho
 

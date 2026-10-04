@@ -14,7 +14,7 @@ import json, glob, os, datetime
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CATEGORIAS = {  # fichero -> orden de presentación
     "drones.json": 1, "ew_comunicaciones.json": 2, "deteccion.json": 3,
-    "fuegos.json": 4, "movimiento_logistica.json": 5,
+    "fuegos.json": 4, "artilleria_155.json": 5, "movimiento_logistica.json": 6,
 }
 
 # Duplicados entre equipos de investigación: se conserva la fila indicada como canónica.
@@ -25,6 +25,10 @@ DUPLICADOS = {
     "fuegos.fpv.tasa_fallo_pct": "drones.fpv.tasa_eficacia_pct",
     "ew.fpv.perdidas_por_ew_pct": "drones.fpv.tasa_eficacia_pct",
     "fuegos.drones.porcentaje_bajas_personal": "drones.efecto.bajas_atribuidas_pct",
+    # Artillería de 155 mm (añadida el 2026-10-04): se conserva la fila más específica o de mejor fuente.
+    "fuegos.art155.objetivo_seccion.disparos_sin_dron_n": "fuegos.ajuste_dron.proyectiles_para_destruir",
+    "ew.localizacion_a_fuego.tiempo_min": "fuegos.art155.rusia.contrabateria_ciclo_min",
+    "c2.kropyva.mision_no_planificada_min": "fuegos.art155.kropyva.deteccion_a_fuego_s",
 }
 
 # Datos que no son un parámetro del motor sino referencia para calibrar resultados y corregir en el AAR.
@@ -41,6 +45,22 @@ REFERENCIA = {
     "fuegos.artilleria.dispersion_largo_alcance_m", "sanidad.agua.ingesta_max_dia_l",
     "mando.rotacion.max_reglamentario_dias", "mando.rotacion.real_observada_dias",
     "movimiento.a_pie.jornada_normal_km", "logistica.ugv.cuota_suministro_pct",
+    "fuegos.art155.rusia.proyectiles_dia_2025_n", "fuegos.art155.rusia.proyectiles_dia_2026_n",
+    "fuegos.art155.ucrania.proyectiles_155_dia_n", "fuegos.art155.lancet.ataques_contra_artilleria_pct",
+    "fuegos.art155.drones.bajas_sistemas_pct",
+}
+
+# Decisiones de Balú (validación de la fase 0). Cada entrada fija el estado «validado» y, si procede, el valor.
+VALIDACIONES = {
+    "drones.fpv.tasa_eficacia_pct": {"fecha": "2026-10-04", "decision": "D-010",
+        "motivo": "Validado por Balú: 30 % de eficacia del FPV por radio por defecto."},
+    "drones.fpv_fibra.alcance_km": {"fecha": "2026-10-04", "decision": "D-011", "valor": 10, "rango_min": 10, "rango_max": 40,
+        "nombre": "Radio eficaz del FPV de fibra óptica",
+        "motivo": "Validado por Balú: 10 km eficaces. La bobina puede llegar a 20-40 km, pero la autonomía y la velocidad limitan el empleo real."},
+    "deteccion.termica_dron.persona_deteccion_m": {"fecha": "2026-10-04", "decision": "D-012",
+        "motivo": "Validado por Balú: 250 m para detectar una persona de pie con la térmica de un Mavic 3T."},
+    "fuegos.art155.cal52_base_bleed.alcance_km": {"fecha": "2026-10-04", "decision": "D-013",
+        "motivo": "Validado por Balú: la artillería pesada de referencia es el 155 mm de 52 calibres con base-bleed, hasta 40 km."},
 }
 
 # Correcciones de valor por defecto aplicadas tras revisar la nota de la propia fuente.
@@ -104,6 +124,13 @@ def main():
                 r[k] = a[k]
         r["uso"] = "referencia" if r["id"] in REFERENCIA else "parametro"
         r["estado"] = "propuesto"
+        if r["id"] in VALIDACIONES:
+            v = VALIDACIONES[r["id"]]
+            for k in ("valor", "rango_min", "rango_max", "nombre"):
+                if k in v:
+                    r[k] = v[k]
+            r["estado"] = "validado"
+            r["validacion"] = {"fecha": v["fecha"], "decision": v["decision"], "motivo": v["motivo"]}
         salida.append(r)
     for d in DISENO:
         d = dict(d, origen="tools/construir_reglas.py", uso="parametro", estado="propuesto")
@@ -112,7 +139,7 @@ def main():
     juego = {
         "id": "ucrania-2026",
         "nombre": "Ucrania 2026",
-        "version": "0.1.0-propuesta",
+        "version": "0.2.0-propuesta",
         "fecha": datetime.date.today().isoformat(),
         "estado": "pendiente de validación (fase 0)",
         "descripcion": "Juego de reglas por defecto. Valores de fuentes abiertas 2023-2026; cada fila lleva su fuente y su confianza.",

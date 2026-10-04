@@ -14,3 +14,8 @@ que no esté aquí no existe.
 | D-007 | 2026-10-04 | Diseño para ordenador; tableta secundaria; móvil fuera | Densidad de información a nivel SGT | Balú |
 | D-008 | 2026-10-04 | Motor e interfaz en TypeScript; herramientas de datos en Python | Un solo lenguaje para motor y página publicada; Python para investigación y generación de terreno | Claude (propuesta) |
 | D-009 | 2026-10-04 | Solo fuentes abiertas; nada de NOP, plantillas reales de la BRIPAC ni información clasificada | Seguridad | Balú |
+| D-010 | 2026-10-04 | Eficacia del FPV por radio: 30 % por defecto | Validación de la fase 0 | Balú |
+| D-011 | 2026-10-04 | FPV de fibra: radio eficaz de 10 km (la bobina puede dar 20-40 km) | Validación de la fase 0; resuelve la asimetría B2 | Balú |
+| D-012 | 2026-10-04 | Detección de una persona de pie con la térmica de un Mavic 3T: 250 m | Validación de la fase 0 | Balú |
+| D-013 | 2026-10-04 | Artillería pesada de referencia: 155 mm de 52 calibres con base-bleed, 40 km; se añade la categoría completa de 155 mm | Prioridad de Balú por encima del bombardero pesado | Balú |
+| D-014 | 2026-10-04 | Asimetría del bombardero pesado (B1): aplazada | Prioridad baja | Balú |

@@ -4,38 +4,168 @@
   "title": "Juego de reglas de SEXTA-FORCE",
   "description": "Conjunto de parámetros con los que el motor resuelve una partida. Cada partida guarda el id y la versión del juego de reglas que usó.",
   "type": "object",
-  "required": ["id", "nombre", "version", "fecha", "parametros"],
+  "required": [
+    "id",
+    "nombre",
+    "version",
+    "fecha",
+    "parametros"
+  ],
   "properties": {
-    "id": {"type": "string", "pattern": "^[a-z0-9-]+$"},
-    "nombre": {"type": "string"},
-    "version": {"type": "string"},
-    "fecha": {"type": "string"},
-    "estado": {"type": "string"},
-    "descripcion": {"type": "string"},
-    "duplicados_eliminados": {"type": "object", "additionalProperties": {"type": "string"}},
-    "parametros": {"type": "array", "items": {"$ref": "#/$defs/parametro"}}
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$"
+    },
+    "nombre": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string"
+    },
+    "fecha": {
+      "type": "string"
+    },
+    "estado": {
+      "type": "string"
+    },
+    "descripcion": {
+      "type": "string"
+    },
+    "duplicados_eliminados": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "parametros": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/parametro"
+      }
+    }
   },
   "$defs": {
     "parametro": {
       "type": "object",
-      "required": ["id", "categoria", "nombre", "valor", "unidad", "fuente", "confianza", "fase_turno", "uso", "estado"],
+      "required": [
+        "id",
+        "categoria",
+        "nombre",
+        "valor",
+        "unidad",
+        "fuente",
+        "confianza",
+        "fase_turno",
+        "uso",
+        "estado"
+      ],
       "properties": {
-        "id": {"type": "string", "pattern": "^[a-z0-9_]+(\\.[a-z0-9_]+)+$", "description": "categoria.objeto.magnitud_unidad"},
-        "categoria": {"type": "string"},
-        "nombre": {"type": "string"},
-        "valor": {"type": "number", "description": "Valor por defecto que usa el motor"},
-        "unidad": {"type": "string"},
-        "rango_min": {"type": ["number", "null"]},
-        "rango_max": {"type": ["number", "null"]},
-        "fuente": {"type": "string"},
-        "url": {"type": ["string", "null"]},
-        "fecha": {"type": ["string", "null"]},
-        "confianza": {"enum": ["alta", "media", "baja"]},
-        "fase_turno": {"enum": ["Operación", "Sensores", "EW", "Fuegos", "Maniobra", "Combate próximo", "Logística", "Mando y moral"]},
-        "nota": {"type": ["string", "null"]},
-        "uso": {"enum": ["parametro", "referencia"], "description": "parametro = lo usa el motor; referencia = calibración y AAR"},
-        "estado": {"enum": ["propuesto", "validado", "rechazado"]},
-        "origen": {"type": "string"}
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9_]+(\\.[a-z0-9_]+)+$",
+          "description": "categoria.objeto.magnitud_unidad"
+        },
+        "categoria": {
+          "type": "string"
+        },
+        "nombre": {
+          "type": "string"
+        },
+        "valor": {
+          "type": "number",
+          "description": "Valor por defecto que usa el motor"
+        },
+        "unidad": {
+          "type": "string"
+        },
+        "rango_min": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "rango_max": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "fuente": {
+          "type": "string"
+        },
+        "url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "fecha": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "confianza": {
+          "enum": [
+            "alta",
+            "media",
+            "baja"
+          ]
+        },
+        "fase_turno": {
+          "enum": [
+            "Operación",
+            "Sensores",
+            "EW",
+            "Fuegos",
+            "Maniobra",
+            "Combate próximo",
+            "Logística",
+            "Mando y moral"
+          ]
+        },
+        "nota": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "uso": {
+          "enum": [
+            "parametro",
+            "referencia"
+          ],
+          "description": "parametro = lo usa el motor; referencia = calibración y AAR"
+        },
+        "estado": {
+          "enum": [
+            "propuesto",
+            "validado",
+            "rechazado"
+          ]
+        },
+        "origen": {
+          "type": "string"
+        },
+        "validacion": {
+          "type": "object",
+          "required": [
+            "fecha",
+            "decision",
+            "motivo"
+          ],
+          "properties": {
+            "fecha": {
+              "type": "string"
+            },
+            "decision": {
+              "type": "string"
+            },
+            "motivo": {
+              "type": "string"
+            }
+          }
+        }
       }
     }
   }
