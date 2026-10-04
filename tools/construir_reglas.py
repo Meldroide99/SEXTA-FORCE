@@ -144,7 +144,8 @@ def escribir_matriz(filas):
         if r["categoria"] != cat_actual:
             cat_actual = r["categoria"]
             out += ["", f"## {cat_actual}", "", "| Uso | Parámetro | Valor | Rango | Confianza | Fuente | Nota |", "|---|---|---|---|---|---|---|"]
-        rango = "—" if r.get("rango_min") is None and r.get("rango_max") is None else f"{fmt(r.get('rango_min'))}–{fmt(r.get('rango_max'))}"
+        lo, hi = r.get("rango_min"), r.get("rango_max")
+        rango = "—" if lo is None and hi is None else (f"≤ {fmt(hi)}" if lo is None else (f"≥ {fmt(lo)}" if hi is None else f"{fmt(lo)}–{fmt(hi)}"))
         fuente = f"[{r['fuente']}]({r['url']})" if r.get("url") else r["fuente"]
         nota = (r.get("nota") or "").replace("|", "/").replace("\n", " ")
         out.append(f"| {'P' if r['uso']=='parametro' else 'R'} | {r['nombre']} <br>`{r['id']}` | {fmt(r['valor'])} {r['unidad']} | {rango} | {r['confianza']} | {fuente} ({r.get('fecha') or 's.f.'}) | {nota} |")
