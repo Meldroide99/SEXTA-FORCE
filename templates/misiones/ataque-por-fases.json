@@ -1,0 +1,52 @@
+{
+  "id": "ataque-por-fases",
+  "nombre": "Ataque por fases (7 pasos)",
+  "fuente": {
+    "autor": "Jack Watling (RUSI)",
+    "titulo": "Emergent Approaches to Combined Arms Manoeuvre in Ukraine",
+    "fecha": "2025-10-23",
+    "url": "https://www.rusi.org/explore-our-research/publications/insights-papers/emergent-approaches-combined-arms-manoeuvre-ukraine",
+    "difusion": [
+      "https://united24media.com/latest-news/drones-robots-and-a-7-phase-plan-how-ukraine-is-rewriting-the-rules-of-war-14047",
+      "https://euperspectives.eu/2026/01/ukraines-playbook-is-rewriting-the-rules-of-war/"
+    ]
+  },
+  "principio": "El jugador decide cuándo pasa de paso; el motor no lo impide. Atacar con el enemigo aún con ojos produce bajas altas por las propias reglas.",
+  "reversible": true,
+  "pasos": [
+    {"n": 1, "id": "reconocer", "nombre": "Reconocer", "turno_param": "operacion.turno.preparacion_min",
+     "que": "Localizar defensa antiaérea, rutas de abastecimiento, asentamientos y EW enemigos; antes, ganar la batalla del contra-reconocimiento",
+     "medios": ["drones ISR", "escucha electrónica", "interceptores"], "infanteria_mueve": false,
+     "indicador": {"id": "ind.enemigo_localizado_pct", "nombre": "% de PO, pilotos, EW y morteros enemigos localizados"}},
+    {"n": 2, "id": "aislar", "nombre": "Aislar", "turno_param": "operacion.turno.preparacion_min",
+     "que": "Ataque medio sobre los apoyos; minas antivehículo y munición de cráter en las rutas",
+     "medios": ["bombarderos", "artillería", "minado remoto", "FPV"], "infanteria_mueve": false,
+     "indicador": {"id": "ind.abastecimiento_enemigo_ratio", "nombre": "Abastecimiento que llega frente al que consume"}},
+    {"n": 3, "id": "degradar", "nombre": "Degradar", "turno_param": "operacion.turno.preparacion_min",
+     "que": "FPV y bombarderos sobre puestos de mando, polvorines y posiciones, guiados por los mapas térmicos del paso 1",
+     "medios": ["FPV", "bombarderos"], "infanteria_mueve": false,
+     "indicador": {"id": "ind.pc_depositos_destruidos", "nombre": "Puestos de mando y depósitos destruidos"}},
+    {"n": 4, "id": "fijar", "nombre": "Fijar", "turno_param": "operacion.turno.fijar_suprimir_min",
+     "que": "Presencia continua de FPV para que no se reorganice ni rote",
+     "medios": ["FPV"], "infanteria_mueve": true,
+     "indicador": {"id": "ind.movimientos_enemigos", "nombre": "Movimientos enemigos que se producen"}},
+    {"n": 5, "id": "suprimir", "nombre": "Suprimir", "turno_param": "operacion.turno.fijar_suprimir_min",
+     "que": "Armas de apoyo infiltradas fuera del eje, EW agresiva contra sus drones, artillería; aprovechar cruce térmico y mal tiempo",
+     "medios": ["UGV armados", "EW", "artillería", "cohetes"], "infanteria_mueve": true,
+     "indicador": {"id": "ind.drones_enemigos_operativos", "nombre": "Drones enemigos que siguen volando (ceguera)"}},
+    {"n": 6, "id": "cerrar_destruir", "nombre": "Cerrar y destruir", "turno_param": "operacion.turno.asalto_min",
+     "que": "La infantería desembarca y limpia con granadas; los vehículos apoyan con cañón",
+     "medios": ["escuadras de asalto", "vehículos"], "infanteria_mueve": true,
+     "indicador": {"id": "ind.posiciones_limpias", "nombre": "Posiciones limpias y bajas propias"}},
+    {"n": 7, "id": "consolidar", "nombre": "Consolidar", "turno_param": "operacion.turno.asalto_min",
+     "que": "Relevar a los de asalto, hacer posiciones nuevas en vez de ocupar las enemigas, seguridad",
+     "medios": ["UGV", "infantería fresca", "material de fortificación"], "infanteria_mueve": true,
+     "indicador": {"id": "ind.posicion_organizada", "nombre": "Posición organizada antes del contraataque"}}
+  ],
+  "decision_central": {"antes_de_paso": 6, "pregunta": "¿Está ya ciego el enemigo?", "indicador": "ind.drones_enemigos_operativos"},
+  "calibracion": {
+    "bajas_terreno_favorable_pct": "fuegos.asalto.tasa_bajas_terreno_favorable_pct",
+    "bajas_terreno_desfavorable_pct": "fuegos.asalto.tasa_bajas_terreno_desfavorable_pct",
+    "bajas_asalto_fallido_pct": "fuegos.asalto.tasa_bajas_asalto_fallido_pct"
+  }
+}

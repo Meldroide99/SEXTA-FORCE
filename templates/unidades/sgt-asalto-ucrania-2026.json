@@ -1,0 +1,58 @@
+{
+  "id": "sgt-asalto-ucrania-2026",
+  "nombre": "SGT de asalto (modelo Ucrania 2026)",
+  "escalon": "SGT",
+  "doctrina": "ucrania-2026",
+  "efectivos_total": 101,
+  "estado": "propuesto",
+  "fuentes": [
+    "LLAA UKR BRIPAC (documento del proyecto): compañías de asalto ucraniana (100) y rusa (110)",
+    "Russian FPV Tactics Handbook (documento del proyecto)",
+    "RAND Arroyo Center, Visualizing the Battlefield (feb 2026)",
+    "Lecciones extraídas BPAC II (dic 2025)"
+  ],
+  "nota": "Propuesta de instructor definida en el módulo M3 del plan de instrucción, no una plantilla oficial. Fuentes abiertas únicamente.",
+  "reglas": [
+    "Nada de más de 5 juntos; los grupos solo se reúnen en el asalto y la reserva espera a 300 m.",
+    "Fuego descentralizado: cada escuadra tiene su ametralladora y cada grupo su dron.",
+    "El PC es una red de nodos de 2-3 que transmiten y se mueven.",
+    "Un canal por elemento para no saturar la malla.",
+    "Todo está minado: un zapador por grupo y rutas comprobadas por dron."
+  ],
+  "elementos": [
+    {"id": "mando", "nombre": "Mando y C2", "efectivos": 8, "app6": "mando",
+     "composicion": "Capitán, 2.º jefe, 2 operadores de C2 (Starlink, ATAK, vídeo en directo), analista de inteligencia, coordinador de fuegos y 2 radios",
+     "fichas": [{"tipo": "nodo_c2", "n": 3, "efectivos": [3, 3, 2]}]},
+    {"id": "uas", "nombre": "Célula UAS", "efectivos": 22, "app6": "uas",
+     "composicion": "Jefe; 2 puestos de reconocimiento (3); 3 cálculos FPV (3); 1 puesto de bombardero ligero (3); 1 puesto de relé y FPV de fibra (3)",
+     "fichas": [{"tipo": "jefe_uas", "n": 1, "efectivos": 1}, {"tipo": "puesto_reco", "n": 2, "efectivos": 3},
+                {"tipo": "calculo_fpv", "n": 3, "efectivos": 3}, {"tipo": "puesto_bombardero", "n": 1, "efectivos": 3},
+                {"tipo": "puesto_rele_fibra", "n": 1, "efectivos": 3}]},
+    {"id": "ew", "nombre": "Célula EW / C-UAS", "efectivos": 4, "app6": "ew",
+     "composicion": "Analista de espectro, 2 operadores de detección y radiogoniometría, 1 operador de interceptación de vídeo FPV y cúpula",
+     "fichas": [{"tipo": "celula_ew", "n": 2, "efectivos": 2}]},
+    {"id": "ga1", "nombre": "Grupo de asalto 1", "efectivos": 20, "app6": "infanteria_asalto",
+     "composicion": "4 escuadras de 5 (jefe, ametralladora, radio, lanzagranadas, fusilero): 2 de asalto, 1 de consolidación, 1 de reserva. Operador de dron, tirador selecto, sanitario y zapador repartidos en las escuadras",
+     "fichas": [{"tipo": "escuadra_asalto", "n": 4, "efectivos": 5}]},
+    {"id": "ga2", "nombre": "Grupo de asalto 2", "efectivos": 20, "app6": "infanteria_asalto",
+     "composicion": "Igual que el grupo 1",
+     "fichas": [{"tipo": "escuadra_asalto", "n": 4, "efectivos": 5}]},
+    {"id": "apoyo", "nombre": "Apoyo de fuegos", "efectivos": 11, "app6": "armas_apoyo",
+     "composicion": "Binomios de contracarro, lanzagranadas automático (LAG) y ametralladora pesada; tiradores de precisión con observador; jefe",
+     "fichas": [{"tipo": "binomio_cc", "n": 2, "efectivos": 2}, {"tipo": "binomio_lag", "n": 1, "efectivos": 2},
+                {"tipo": "binomio_amp", "n": 1, "efectivos": 2}, {"tipo": "pareja_precision", "n": 1, "efectivos": 2}, {"tipo": "jefe_apoyo", "n": 1, "efectivos": 1}]},
+    {"id": "morteros", "nombre": "Morteros", "efectivos": 4, "app6": "mortero",
+     "composicion": "2 piezas que tiran por separado (contrabatería)",
+     "fichas": [{"tipo": "pieza_mortero", "n": 2, "efectivos": 2}]},
+    {"id": "aa", "nombre": "Defensa aérea", "efectivos": 3, "app6": "defensa_aerea",
+     "composicion": "Escopetas, redes, interceptores FPV y vigías",
+     "fichas": [{"tipo": "equipo_c_uas", "n": 1, "efectivos": 3}]},
+    {"id": "log", "nombre": "Suministro y evacuación", "efectivos": 9, "app6": "abastecimiento",
+     "composicion": "Grupo de 4-6 porteadores, 3 operadores de UGV y paramédico",
+     "fichas": [{"tipo": "porteadores", "n": 1, "efectivos": 5}, {"tipo": "operadores_ugv", "n": 1, "efectivos": 3}, {"tipo": "paramedico", "n": 1, "efectivos": 1}]}
+  ],
+  "agregados_posibles": ["bombarderos pesados", "ala fija", "UGV armados", "zapadores de minado remoto", "artillería del escalón superior"],
+  "alternativas": [
+    {"id": "seccion-asalto-7-watling", "nota": "Sección de 7 (2 equipos de 3 + jefe), 12-15 cargadores y 4-6 granadas; Watling, RUSI oct 2025"}
+  ]
+}
