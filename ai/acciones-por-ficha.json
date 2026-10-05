@@ -175,5 +175,10 @@
       "esperar"
     ]
   },
-  "estado": "propuesto"
+  "estado": "validado",
+  "validacion": {
+    "fecha": "2026-10-05",
+    "decision": "D-037",
+    "motivo": "Balú no modifica la lista: se acepta tal cual."
+  }
 }

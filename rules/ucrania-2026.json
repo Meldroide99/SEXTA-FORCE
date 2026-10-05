@@ -1575,7 +1575,7 @@
       "fecha": "2026-01",
       "confianza": "media",
       "fase_turno": "Fuegos",
-      "nota": "UP: alcance operativo típico de 15 a 25 km. Taifun: 15-20 km de uso generalizado. Defense News (nov 2025): a veces 25-30 km. Choca con el valor validado de 10 km (D-011): queda como referencia hasta que Balú decida (pendiente G1).",
+      "nota": "UP: alcance operativo típico de 15 a 25 km. Taifun: 15-20 km de uso generalizado. Defense News (nov 2025): a veces 25-30 km. Balú fijó 12 km como radio eficaz del juego (D-035); este dato queda como referencia.",
       "origen": "research/fase0/fpv_fibra_2026.json",
       "uso": "referencia",
       "estado": "propuesto"
@@ -1584,7 +1584,7 @@
       "id": "drones.fpv_fibra.alcance_km",
       "categoria": "Drones",
       "nombre": "Radio eficaz del FPV de fibra óptica",
-      "valor": 10,
+      "valor": 12,
       "unidad": "km",
       "rango_min": 10,
       "rango_max": 40,
@@ -1598,9 +1598,9 @@
       "uso": "parametro",
       "estado": "validado",
       "validacion": {
-        "fecha": "2026-10-04",
-        "decision": "D-011",
-        "motivo": "Validado por Balú: 10 km eficaces. La bobina puede llegar a 20-40 km, pero la autonomía y la velocidad limitan el empleo real."
+        "fecha": "2026-10-05",
+        "decision": "D-035",
+        "motivo": "Validado por Balú: 12 km eficaces (sustituye a los 10 km de D-011). Las fuentes de 2026 dan 15-25 km típicos y bobinas de hasta 40-50 km, que quedan como referencia y rango editable."
       }
     },
     {
@@ -3575,7 +3575,12 @@
       "nota": "Térmica nocturna hasta 3.000 m. El tiro récord a 5.300 m fue posible porque había línea de vista.",
       "origen": "research/fase0/tiro_directo_terreno.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-036",
+        "motivo": "Validado por Balú (apartado L): regla de línea de vista y capa de vegetación."
+      }
     },
     {
       "id": "fuegos.carro.apoyo_directo_ucrania_m",
@@ -3701,7 +3706,12 @@
       "nota": "Por defecto desactivado (D-034). Si se activa: dron propio sobre el blanco, carro parado y oculto, HE-FRAG, 4 km por defecto (máximo 8 km), error del primer disparo 50-100 m, 2-4 disparos de corrección, efecto de supresión como un mortero de 120, gasta vida del tubo.",
       "origen": "research/fase0/tiro_directo_terreno.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-036",
+        "motivo": "Validado por Balú (apartado L): regla de línea de vista y capa de vegetación."
+      }
     },
     {
       "id": "fuegos.carro.vida_tubo_disparos",
@@ -3755,7 +3765,12 @@
       "nota": "Hasta unos 4.000 m en el desierto (1991); 3.000 m como valor europeo.",
       "origen": "research/fase0/tiro_directo_terreno.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-036",
+        "motivo": "Validado por Balú (apartado L): regla de línea de vista y capa de vegetación."
+      }
     },
     {
       "id": "fuegos.carro_125.alcance_eficaz_dia_m",
@@ -3773,7 +3788,12 @@
       "nota": "Datos originales de hacia el año 2000. La mayoría de tripulaciones se detiene para tirar. Es el techo del arma: la línea de vista suele cortar antes.",
       "origen": "research/fase0/tiro_directo_terreno.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-036",
+        "motivo": "Validado por Balú (apartado L): regla de línea de vista y capa de vegetación."
+      }
     },
     {
       "id": "fuegos.carro_125.alcance_eficaz_noche_m",
@@ -3791,7 +3811,12 @@
       "nota": "T-72 o T-64 sin térmica. Con térmica (T-90, Agava-2) identifica a unos 2,5 km.",
       "origen": "research/fase0/tiro_directo_terreno.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-036",
+        "motivo": "Validado por Balú (apartado L): regla de línea de vista y capa de vegetación."
+      }
     },
     {
       "id": "fuegos.carro_125.alcance_misil_m",
@@ -3809,7 +3834,12 @@
       "nota": "Unos 14 s de vuelo a 5 km; necesita línea de vista continua todo el vuelo.",
       "origen": "research/fase0/tiro_directo_terreno.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-036",
+        "motivo": "Validado por Balú (apartado L): regla de línea de vista y capa de vegetación."
+      }
     },
     {
       "id": "fuegos.carro_atgm.pk_reducida_mas_alla_m",
@@ -4228,7 +4258,12 @@
       "nota": "El misil Konkurs del BMP-2 llega a 4.000 m.",
       "origen": "research/fase0/tiro_directo_terreno.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-036",
+        "motivo": "Validado por Balú (apartado L): regla de línea de vista y capa de vegetación."
+      }
     },
     {
       "id": "fuegos.vci_30mm.alcance_personal_m",
@@ -5539,7 +5574,12 @@
       "nota": "En desenfilada de casco solo asoma la torre (unos 1,0 m).",
       "origen": "research/fase0/tiro_directo_terreno.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-036",
+        "motivo": "Validado por Balú (apartado L): regla de línea de vista y capa de vegetación."
+      }
     },
     {
       "id": "terreno.altura.de_pie_m",
@@ -5557,7 +5597,12 @@
       "nota": "Observador y blanco.",
       "origen": "research/fase0/tiro_directo_terreno.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-036",
+        "motivo": "Validado por Balú (apartado L): regla de línea de vista y capa de vegetación."
+      }
     },
     {
       "id": "terreno.altura.desenfilada_casco_m",
@@ -5575,7 +5620,12 @@
       "nota": "En desenfilada de torre no se le puede batir.",
       "origen": "research/fase0/tiro_directo_terreno.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-036",
+        "motivo": "Validado por Balú (apartado L): regla de línea de vista y capa de vegetación."
+      }
     },
     {
       "id": "terreno.altura.rodilla_m",
@@ -5593,7 +5643,12 @@
       "nota": "Observador y blanco.",
       "origen": "research/fase0/tiro_directo_terreno.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-036",
+        "motivo": "Validado por Balú (apartado L): regla de línea de vista y capa de vegetación."
+      }
     },
     {
       "id": "terreno.altura.tumbado_m",
@@ -5611,7 +5666,12 @@
       "nota": "Observador y blanco.",
       "origen": "research/fase0/tiro_directo_terreno.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-036",
+        "motivo": "Validado por Balú (apartado L): regla de línea de vista y capa de vegetación."
+      }
     },
     {
       "id": "terreno.altura.visor_carro_m",
@@ -5629,7 +5689,12 @@
       "nota": "Observador.",
       "origen": "research/fase0/tiro_directo_terreno.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-036",
+        "motivo": "Validado por Balú (apartado L): regla de línea de vista y capa de vegetación."
+      }
     },
     {
       "id": "terreno.altura.visor_vci_m",
@@ -5647,7 +5712,12 @@
       "nota": "Observador.",
       "origen": "research/fase0/tiro_directo_terreno.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-036",
+        "motivo": "Validado por Balú (apartado L): regla de línea de vista y capa de vegetación."
+      }
     },
     {
       "id": "terreno.los.paso_muestreo_m",
@@ -5665,7 +5735,12 @@
       "nota": "El rayo se comprueba cada 20 m entre el ojo del tirador y el punto más alto visible del blanco. Por encima de 3 km se resta la curvatura terrestre (0,067·d² m, d en km).",
       "origen": "research/fase0/tiro_directo_terreno.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-036",
+        "motivo": "Validado por Balú (apartado L): regla de línea de vista y capa de vegetación."
+      }
     },
     {
       "id": "terreno.proteccion.tierra_frontal_cm",
@@ -5683,7 +5758,12 @@
       "nota": "El follaje oculta pero no protege: no da bonificación de protección.",
       "origen": "research/fase0/tiro_directo_terreno.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-036",
+        "motivo": "Validado por Balú (apartado L): regla de línea de vista y capa de vegetación."
+      }
     },
     {
       "id": "terreno.urbano.tope_los_a_pie_m",
@@ -5701,7 +5781,12 @@
       "nota": "Los edificios son opacos; la vista solo existe a lo largo de las calles. Los vehículos ven hasta el final de la calle.",
       "origen": "research/fase0/tiro_directo_terreno.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-036",
+        "motivo": "Validado por Balú (apartado L): regla de línea de vista y capa de vegetación."
+      }
     },
     {
       "id": "terreno.vegetacion.altura_bosque_m",
@@ -5719,7 +5804,12 @@
       "nota": "Si el rayo pasa por encima de las copas no se corta; si las atraviesa, se aplica la visibilidad del tipo de bosque.",
       "origen": "research/fase0/tiro_directo_terreno.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-036",
+        "motivo": "Validado por Balú (apartado L): regla de línea de vista y capa de vegetación."
+      }
     },
     {
       "id": "terreno.vegetacion.borde_tiro_m",
@@ -5737,7 +5827,12 @@
       "nota": "El linde del bosque o de la lesosmuga es la posición de tiro natural.",
       "origen": "research/fase0/tiro_directo_terreno.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-036",
+        "motivo": "Validado por Balú (apartado L): regla de línea de vista y capa de vegetación."
+      }
     },
     {
       "id": "terreno.vegetacion.bosque_conifera_m",
@@ -5755,7 +5850,12 @@
       "nota": "Igual todo el año. Conífera abierta: 91-137 m.",
       "origen": "research/fase0/tiro_directo_terreno.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-036",
+        "motivo": "Validado por Balú (apartado L): regla de línea de vista y capa de vegetación."
+      }
     },
     {
       "id": "terreno.vegetacion.bosque_hoja_m",
@@ -5773,7 +5873,12 @@
       "nota": "Robledal 23 m, frondosas mixtas 38 m.",
       "origen": "research/fase0/tiro_directo_terreno.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-036",
+        "motivo": "Validado por Balú (apartado L): regla de línea de vista y capa de vegetación."
+      }
     },
     {
       "id": "terreno.vegetacion.bosque_sin_hoja_m",
@@ -5791,7 +5896,12 @@
       "nota": "Sin hoja la visibilidad se multiplica por 1,5-3.",
       "origen": "research/fase0/tiro_directo_terreno.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-036",
+        "motivo": "Validado por Balú (apartado L): regla de línea de vista y capa de vegetación."
+      }
     },
     {
       "id": "terreno.vegetacion.conifera_abierta_m",
@@ -5809,7 +5919,12 @@
       "nota": null,
       "origen": "research/fase0/tiro_directo_terreno.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-036",
+        "motivo": "Validado por Balú (apartado L): regla de línea de vista y capa de vegetación."
+      }
     },
     {
       "id": "terreno.vegetacion.cultivo_alto_m",
@@ -5827,7 +5942,12 @@
       "nota": "Trigo 1 m (mayo a julio), remolacha 0,5 m, colza 0,6 m.",
       "origen": "research/fase0/tiro_directo_terreno.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-036",
+        "motivo": "Validado por Balú (apartado L): regla de línea de vista y capa de vegetación."
+      }
     },
     {
       "id": "terreno.vegetacion.factor_fuego_a_traves",
@@ -5845,7 +5965,12 @@
       "nota": "El follaje oculta pero no protege: se permite fuego de zona con este factor y sin bonificación de protección.",
       "origen": "research/fase0/tiro_directo_terreno.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-036",
+        "motivo": "Validado por Balú (apartado L): regla de línea de vista y capa de vegetación."
+      }
     },
     {
       "id": "terreno.vegetacion.lesosmuga_altura_m",
@@ -5863,7 +5988,12 @@
       "nota": "Con hoja corta siempre la línea de vista por el sotobosque; sin hoja deja pasar la vista si mide 15 m de ancho o menos, con la detección a la mitad.",
       "origen": "research/fase0/tiro_directo_terreno.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-036",
+        "motivo": "Validado por Balú (apartado L): regla de línea de vista y capa de vegetación."
+      }
     },
     {
       "id": "terreno.vegetacion.lesosmuga_ancho_m",
@@ -5881,7 +6011,12 @@
       "nota": "3-5 hileras. Las franjas históricas de Dokuchaev miden 40-46 m y están separadas 700-1.370 m (Kovalenko et al., 2021).",
       "origen": "research/fase0/tiro_directo_terreno.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-036",
+        "motivo": "Validado por Balú (apartado L): regla de línea de vista y capa de vegetación."
+      }
     },
     {
       "id": "terreno.vegetacion.lesosmuga_separacion_m",
@@ -5899,7 +6034,12 @@
       "nota": "700-1.370 m en las franjas históricas; 400-1.000 m en general (estimación). Fija el tramo visible máximo en llanura.",
       "origen": "research/fase0/tiro_directo_terreno.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-036",
+        "motivo": "Validado por Balú (apartado L): regla de línea de vista y capa de vegetación."
+      }
     },
     {
       "id": "terreno.vegetacion.trigo_m",
@@ -5917,7 +6057,12 @@
       "nota": "Tapa al tirador tumbado o de rodillas.",
       "origen": "research/fase0/tiro_directo_terreno.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-036",
+        "motivo": "Validado por Balú (apartado L): regla de línea de vista y capa de vegetación."
+      }
     },
     {
       "id": "terreno.visibilidad.los_max_posicion_elegida_m",

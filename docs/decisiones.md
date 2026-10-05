@@ -39,3 +39,6 @@ que no esté aquí no existe.
 | D-032 | 2026-10-05 | Órdenes inmediatas: se ejecutan el mismo turno; una unidad sin enlace sigue sin recibir órdenes nuevas | Decisión de Balú (apartado E) | Balú |
 | D-033 | 2026-10-05 | El alcance del tiro directo es el menor entre el alcance eficaz del arma y la línea de vista calculada sobre el terreno, con la vegetación (bosque, lesosmugas, cultivos según estación) y los edificios | Corrección de Balú | Balú |
 | D-034 | 2026-10-05 | Rechazado el «carro como artillería» a 9 km como valor de juego; el tiro indirecto de carro queda como opción excepcional desactivada por defecto | Corrección de Balú | Balú |
+| D-035 | 2026-10-05 | FPV de fibra: radio eficaz de 12 km (sustituye a los 10 km de D-011) | Validación del apartado G1 | Balú |
+| D-036 | 2026-10-05 | Regla de línea de vista y capa de vegetación del apartado L, con sus valores (bosque, lesosmugas, cultivos, urbano, alturas del ojo, alcances de las armas) | Validación del apartado L | Balú |
+| D-037 | 2026-10-05 | Lista de acciones por tipo de ficha para todos los jefes (jugador, IA del juego, Claude), sin cambios | Validación del apartado K | Balú |

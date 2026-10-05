@@ -1,4 +1,4 @@
-# Fase 0 · Decisiones de validación (A-F cerradas el 2026-10-05; G-L propuestas)
+# Fase 0 · Decisiones de validación (A-F, G1, K y L cerradas el 2026-10-05; G2-G7, H, I y J pendientes)
 
 Cruce de la matriz de parámetros (`docs/fase0/matriz-parametros.md`): conflictos entre fuentes, asimetrías
 físicas y valores de confianza baja que cambian el resultado del juego. Para cada punto hay una propuesta;
@@ -10,7 +10,7 @@ el valor queda «propuesto» hasta que lo valides.
 |---|---|---|---|
 | A1 | Profundidad de la zona batida | 15 km para vehículos (CSIS, nov 2025); 10-15 km de dominio FPV (OSW, oct 2025); 20-25 km y 30 km a final de 2026 (Brovdi, may 2026; Lasiichuk, jul 2026) | **Resuelto (D-015): FPV 12,5 km; vehículos 20 km por defecto, editable hasta 30** |
 | A2 | Eficacia del FPV por radio | 20-40 % (Brovdi, 2024); 43 % (WOTR, 2025); 60-80 % de fallos (RUSI, feb 2025); 70-80 % con guiado terminal (CSIS, mar 2025) | **Resuelto (D-010): 30 %.** Tipo aparte «FPV con guiado terminal» al 75 % (D-028) |
-| A3 | Alcance del FPV de fibra | 10 km (RUSI, feb 2025); 20 km en servicio (abr 2025); 40 km en pruebas (jul 2025) | **Resuelto (D-011): 10 km eficaces** |
+| A3 | Alcance del FPV de fibra | 10 km (RUSI, feb 2025); 20 km en servicio (abr 2025); 40 km en pruebas (jul 2025) | **Resuelto (D-011): 10 km eficaces; actualizado a 12 km (D-035)** |
 | A4 | Tiempo de sensor a golpe | 3-5 min con C2 digital (Delta, NYT ago 2026; RUSI 2023 para la artillería rusa); 15-20 min sin integración (WOTR 2025) | **Resuelto (D-016): 4 min con enlace digital; 15 min sin él; 30 min solo por EW** |
 
 ## B. Asimetrías físicas detectadas al cruzar valores
@@ -18,7 +18,7 @@ el valor queda «propuesto» hasta que lo valides.
 | # | Asimetría | Por qué no cuadra | Propuesta |
 |---|---|---|---|
 | B1 | Bombardero pesado: 20 km de alcance con 23 min de autonomía cargado | Ida y vuelta de 40 km en 23 min exige ~105 km/h con 10 kg | **Aplazado** (prioridad baja para Balú). Propuesta: radio de acción cargado de 8-10 km |
-| B2 | FPV de fibra a 20 km con ~8 min de autonomía | A ~80 km/h, 8 min dan ~10 km | **Resuelto con A3 (10 km)** |
+| B2 | FPV de fibra a 20 km con ~8 min de autonomía | A ~80 km/h, 8 min dan ~10 km | **Resuelto con A3 (hoy 12 km, D-035)** |
 | B3 | Detección de una persona con la térmica del Mavic 3T | Cálculo por criterio de Johnson | **Resuelto (D-012): 250 m.** Modificadores resueltos (D-029): ×3 en movimiento y ×0,3-0,5 en cruce térmico |
 | B4 | Alcance del enlace del Mavic (15 km) frente a su autonomía real (25-35 min) | Si se quieren 15 min de observación sobre el objetivo, el tránsito de ida y vuelta (~15 m/s) deja un radio útil de unos 6-7 km | **Resuelto (D-017): radio de trabajo 6 km con 15 min de observación; enlace máximo 15 km** |
 
@@ -65,7 +65,7 @@ media y buscar fuentes de 2025-2026 en la fase 0. **Decidido (D-030).**
 
 | # | Tema | Lo que dicen las fuentes | Propuesta |
 |---|---|---|---|
-| G1 | Radio eficaz | Tu valor validado es 10 km (D-011). En 2026 las fuentes dan 15-25 km como típico (Ukrainska Pravda, ene 2026) y bobinas de 40-50 km en nicho (TWZ, oct 2025) | Mantener **10 km** por defecto en compañía y dejar **15 km** como opción del escenario «Ucrania 2026 avanzado» |
+| G1 | Radio eficaz | Tu valor validado es 10 km (D-011). En 2026 las fuentes dan 15-25 km como típico (Ukrainska Pravda, ene 2026) y bobinas de 40-50 km en nicho (TWZ, oct 2025) | **Resuelto (D-035): 12 km eficaces** (rango editable 10-40) |
 | G2 | Autonomía con carga | 8-12 min el KVN ruso con 2-4 kg; 16-21 min los ucranianos de 10 pulgadas; 35 min con bobina de 50 km | **20 min** (rango 8-35) |
 | G3 | Velocidad | Crucero 50-85 km/h; ataque 80-110 km/h (fabricantes) | **65 km/h** de crucero y **90 km/h** en ataque; una misión de 10 km tarda unos 9 min |
 | G4 | Emboscada posado junto a la ruta | De horas a más de un día (Oboronka, nov 2025); hasta 48 h según un fabricante | **12 h** por defecto, máximo 24 h |
@@ -139,11 +139,11 @@ Umbrales con fuente: 40 % defensor y 20 % atacante (FM 105-5 vía Dupuy Institut
 
 Detalle, duraciones y fuentes en `templates/misiones/`.
 
-## K. Órdenes de la IA enemiga
+## K. Órdenes de la IA enemiga — **resuelto (D-037): lista aceptada sin cambios**
 
 No tienes que dar nada técnico. Lo único que necesito es que revises **qué acciones puede hacer cada ficha** (`ai/acciones-por-ficha.md`): el juego solo acepta órdenes de esa lista, y sirve igual para ti, para la IA del juego y para Claude. Hay 19 acciones (moverse rápido o oculto, ocultarse, observar, fuego, suprimir, asaltar, lanzar dron, emboscar con fibra, perturbar, detectar, minar, desminar, fortificar, abastecer, evacuar, relevar, replegarse y esperar) repartidas en 18 tipos de ficha. Dime si quitas o añades alguna.
 
-## L. Tiro directo, terreno y vegetación (corrección de Balú, 2026-10-05)
+## L. Tiro directo, terreno y vegetación (corrección de Balú, 2026-10-05) — **validado (D-036)**
 
 **Decisión de Balú (D-033):** el alcance del tiro directo depende sobre todo del terreno, y los árboles y la vegetación también lo limitan. **D-034:** los 9 km de «carro como artillería» quedan rechazados.
 

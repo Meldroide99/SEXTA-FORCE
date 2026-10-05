@@ -1,4 +1,4 @@
-# Acciones por tipo de ficha (propuesta de la fase 0)
+# Acciones por tipo de ficha (validada por Balú, D-037)
 
 Esto es lo único que el juego permite ordenar, sea quien sea el jefe (tú, la IA del juego o Claude). Una orden fuera de esta tabla se rechaza.
 
