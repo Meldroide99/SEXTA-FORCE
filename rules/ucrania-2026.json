@@ -1,9 +1,9 @@
 {
   "id": "ucrania-2026",
   "nombre": "Ucrania 2026",
-  "version": "0.2.2-propuesta",
+  "version": "0.3.0",
   "fecha": "2026-10-05",
-  "estado": "pendiente de validación (fase 0)",
+  "estado": "validación de parámetros de la fase 0 cerrada (5 oct 2026): decisiones clave validadas; el resto son valores por defecto propuestos y editables",
   "descripcion": "Juego de reglas por defecto. Valores de fuentes abiertas 2023-2026; cada fila lleva su fuente y su confianza.",
   "duplicados_eliminados": {
     "ew.fibra_optica.alcance_km": "drones.fpv_fibra.alcance_km",
@@ -86,8 +86,59 @@
       "fase_turno": "Sensores",
       "nota": "Dato del fabricante: 'hasta 96%'; se despliega en unos 15 s. Kyiv Post muestra en vídeo capas rusas que fallan: el calor se acumula, la silueta sigue viéndose y funcionan sobre todo contra térmicas de baja calidad. Maurin (WOTR, 2026) cita los ponchos térmicos como clave de la posición CRAB. Para el simulador: ×0,3 quieto y ×0,7 en movimiento (estimación sin fuente directa).",
       "origen": "research/fase0/deteccion.json",
+      "uso": "referencia",
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-021",
+        "motivo": "Validado por Balú (C4): el 96 % es dato de fabricante; queda como referencia y el motor usa los factores ×0,3 quieto y ×0,7 en movimiento."
+      }
+    },
+    {
+      "id": "deteccion.camuflaje.poncho_factor_movimiento",
+      "categoria": "Detección y sensores",
+      "nombre": "Factor de firma térmica con poncho antitérmico, en movimiento",
+      "valor": 0.7,
+      "unidad": "factor",
+      "rango_min": 0.5,
+      "rango_max": 1,
+      "fuente": "Decisión de diseño de la fase 0 (pendiente C4)",
+      "url": null,
+      "fecha": "2026-10",
+      "confianza": "baja",
+      "fase_turno": "Sensores",
+      "nota": "En movimiento el poncho se abre y el contraste del cuerpo se ve por los bordes.",
+      "origen": "tools/construir_reglas.py",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-021",
+        "motivo": "Validado por Balú (C4): firma térmica ×0,7 con poncho antitérmico, en movimiento."
+      }
+    },
+    {
+      "id": "deteccion.camuflaje.poncho_factor_quieto",
+      "categoria": "Detección y sensores",
+      "nombre": "Factor de firma térmica con poncho antitérmico, quieto",
+      "valor": 0.3,
+      "unidad": "factor",
+      "rango_min": 0.1,
+      "rango_max": 0.5,
+      "fuente": "Decisión de diseño de la fase 0 (pendiente C4)",
+      "url": null,
+      "fecha": "2026-10",
+      "confianza": "baja",
+      "fase_turno": "Sensores",
+      "nota": "Multiplica la distancia de detección térmica.",
+      "origen": "tools/construir_reglas.py",
+      "uso": "parametro",
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-021",
+        "motivo": "Validado por Balú (C4): firma térmica ×0,3 con poncho antitérmico, quieto."
+      }
     },
     {
       "id": "deteccion.camuflaje.red_multiespectral_reduccion_pct",
@@ -270,6 +321,29 @@
       "estado": "propuesto"
     },
     {
+      "id": "deteccion.senuelos.contactos_falsos_por_senuelo",
+      "categoria": "Detección y sensores",
+      "nombre": "Contactos falsos que genera cada señuelo en la imagen enemiga",
+      "valor": 1,
+      "unidad": "contacto",
+      "rango_min": 0,
+      "rango_max": 1,
+      "fuente": "Decisión de diseño de la fase 0 (pendiente C3)",
+      "url": null,
+      "fecha": "2026-10",
+      "confianza": "media",
+      "fase_turno": "Sensores",
+      "nota": "El enemigo gasta sensores o munición en confirmarlo o batirlo; un sensor más preciso (térmica cercana, identificación) lo descarta.",
+      "origen": "tools/construir_reglas.py",
+      "uso": "parametro",
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-020",
+        "motivo": "Validado por Balú (C3): cada señuelo genera un contacto falso que el enemigo tiene que confirmar o batir."
+      }
+    },
+    {
       "id": "deteccion.senuelos.reduccion_dano_pct",
       "categoria": "Detección y sensores",
       "nombre": "Reducción del daño a sistemas propios desplegando 3 señuelos por cada medio real",
@@ -284,8 +358,13 @@
       "fase_turno": "Sensores",
       "nota": "Las cifras vienen de un análisis chino citado indirectamente y no verificable. Con 1 señuelo por medio real: +40% de supervivencia. Con 3 por medio real: +70% de consumo de munición enemiga y −50% de daño propio. Ejemplo: Rusia reclamó 44 HIMARS destruidos cuando solo se habían entregado 16 (2022). RUSI (2025) confirma el uso extenso de posiciones falsas y señuelo, sin dar porcentajes. Ninguna fuente fiable da el porcentaje de ataques absorbidos por señuelos.",
       "origen": "research/fase0/deteccion.json",
-      "uso": "parametro",
-      "estado": "propuesto"
+      "uso": "referencia",
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-020",
+        "motivo": "Validado por Balú (C3): sin porcentaje fijo; el señuelo se modela como contacto falso en la imagen enemiga. Este dato queda como referencia."
+      }
     },
     {
       "id": "deteccion.supervivencia.posicion_oculta_dias",
@@ -340,6 +419,52 @@
       "origen": "research/fase0/deteccion.json",
       "uso": "parametro",
       "estado": "propuesto"
+    },
+    {
+      "id": "deteccion.termica_dron.factor_cruce_termico",
+      "categoria": "Detección y sensores",
+      "nombre": "Factor de detección térmica durante el cruce térmico (amanecer y atardecer)",
+      "valor": 0.4,
+      "unidad": "factor",
+      "rango_min": 0.3,
+      "rango_max": 0.5,
+      "fuente": "Decisión de diseño de la fase 0 (pendiente B3)",
+      "url": null,
+      "fecha": "2026-10",
+      "confianza": "baja",
+      "fase_turno": "Sensores",
+      "nota": "Cuerpo y fondo casi a la misma temperatura; dura unos 20 min dos veces al día.",
+      "origen": "tools/construir_reglas.py",
+      "uso": "parametro",
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-029",
+        "motivo": "Validado por Balú: en el cruce térmico (amanecer y atardecer) la detección térmica baja a ×0,3-0,5."
+      }
+    },
+    {
+      "id": "deteccion.termica_dron.factor_movimiento",
+      "categoria": "Detección y sensores",
+      "nombre": "Factor de detección térmica de una persona en movimiento",
+      "valor": 3,
+      "unidad": "factor",
+      "rango_min": 2,
+      "rango_max": 4,
+      "fuente": "Decisión de diseño de la fase 0 (pendiente B3)",
+      "url": null,
+      "fecha": "2026-10",
+      "confianza": "baja",
+      "fase_turno": "Sensores",
+      "nota": "Multiplica los 250 m base: 750 m. El movimiento atrae la vista del operador.",
+      "origen": "tools/construir_reglas.py",
+      "uso": "parametro",
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-029",
+        "motivo": "Validado por Balú: una persona en movimiento se detecta a ×3 la distancia base (750 m)."
+      }
     },
     {
       "id": "deteccion.termica_dron.persona_deteccion_m",
@@ -1420,7 +1545,7 @@
     {
       "id": "ew.fpv.acierto_con_guiado_terminal_pct",
       "categoria": "EW y comunicaciones",
-      "nombre": "Tasa de acierto de un FPV con guiado terminal autónomo (resiste la pérdida de enlace en los metros finales)",
+      "nombre": "Tasa de acierto del FPV con guiado terminal (tipo aparte, aguanta la EW en los últimos metros)",
       "valor": 75,
       "unidad": "%",
       "rango_min": 70,
@@ -1433,7 +1558,12 @@
       "nota": "Sin IA (inteligencia artificial) el acierto es del 10-20 %; con guiado terminal autónomo, del 70-80 %. La autonomía actúa en los últimos 100-1000 m, que es justo donde la cúpula de trinchera corta el enlace. Probable solape con el equipo de drones.",
       "origen": "research/fase0/ew_comunicaciones.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-028",
+        "motivo": "Validado por Balú: tipo aparte «FPV con guiado terminal», 75 % de acierto; más caro y escaso que el FPV normal."
+      }
     },
     {
       "id": "ew.fpv.frecuencia_control_mhz",
@@ -1847,7 +1977,12 @@
       "nota": "Artilleros rusos y ucranianos separan piezas >500 m y mantienen depósitos de munición ocultos y separados de la posición de fuego. Escasez: una brigada con 18 km de frente tenía 4 obuses operativos. No se halló cifra oficial de piezas por batería en 2025-2026.",
       "origen": "research/fase0/artilleria_155.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-027",
+        "motivo": "Validado por Balú (F5): piezas separadas al menos 500 m y que tiran por separado."
+      }
     },
     {
       "id": "fuegos.art155.caesar.entrada_en_posicion_min",
@@ -1960,7 +2095,12 @@
       "nota": "RTX: 52 cal hasta 50 km. Archer 'más de 50 km'. CAESAR demostró impactos directos a 46 km con Excalibur (MoD UA).",
       "origen": "research/fase0/artilleria_155.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-023",
+        "motivo": "Validado por Balú (F1): munición disponible en el juego (HE, base-bleed, RAP y Excalibur)."
+      }
     },
     {
       "id": "fuegos.art155.cal52_he_estandar.alcance_km",
@@ -1978,7 +2118,12 @@
       "nota": "PzH 2000 con DM121 boat-tail (inerte, prueba): 35.882 m. Wikipedia M795: versión ER en 52 cal 34-36 km. rango_min 30 = estimación sin fuente directa para HE plano en condiciones reales.",
       "origen": "research/fase0/artilleria_155.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-023",
+        "motivo": "Validado por Balú (F1): munición disponible en el juego (HE, base-bleed, RAP y Excalibur)."
+      }
     },
     {
       "id": "fuegos.art155.cal52_vlap.alcance_km",
@@ -1995,8 +2140,13 @@
       "fase_turno": "Fuegos",
       "nota": "KNDS: V-LAP 'up to 54 km'. Récord PzH 2000 con Assegai M2005 V-LAP: 66.943 m (Alkantpan, 2019, condiciones de prueba). Munición escasa; no consta empleo masivo en Ucrania.",
       "origen": "research/fase0/artilleria_155.json",
-      "uso": "parametro",
-      "estado": "propuesto"
+      "uso": "referencia",
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-023",
+        "motivo": "Validado por Balú (F1): V-LAP fuera del juego por escasez; queda como referencia."
+      }
     },
     {
       "id": "fuegos.art155.doctrina.neutralizacion_bajas_pct",
@@ -2068,7 +2218,12 @@
       "nota": "Informes internos ucranianos: 55% (ene 2023) -> 6% (ago 2023), ~3.000 disparos; WaPo: >50% -> <10% tras meses de EW. Datos de meses finales incompletos. Ucrania abandonó en gran medida su uso.",
       "origen": "research/fase0/artilleria_155.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-024",
+        "motivo": "Validado por Balú (F2): en zona con perturbación GNSS el Excalibur se comporta como proyectil sin guiar."
+      }
     },
     {
       "id": "fuegos.art155.he_un_disparo.radio_bajas_m",
@@ -2230,7 +2385,12 @@
       "nota": "Wikipedia M777: base-bleed 30 km. Comandante ucraniano (TWZ, sep 2026): M795 a 30 km 'o más' con unidad base-bleed. Wikipedia M795 da 28,7-37 km para M795E1 según tubo.",
       "origen": "research/fase0/artilleria_155.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-023",
+        "motivo": "Validado por Balú (F1): munición disponible en el juego (HE, base-bleed, RAP y Excalibur)."
+      }
     },
     {
       "id": "fuegos.art155.m777_excalibur.alcance_km",
@@ -2248,7 +2408,12 @@
       "nota": "Fabricante: 39 cal hasta 40 km. Único modo de que un 39 cal alcance ~40 km; ver vulnerabilidad a perturbación GNSS.",
       "origen": "research/fase0/artilleria_155.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-023",
+        "motivo": "Validado por Balú (F1): munición disponible en el juego (HE, base-bleed, RAP y Excalibur)."
+      }
     },
     {
       "id": "fuegos.art155.m777_he_m795.alcance_km",
@@ -2266,7 +2431,12 @@
       "nota": "Army Technology: 24,7 km con munición no asistida; Wikipedia: M795 23,5 km, M107 21 km. TWZ (sep 2026, 7.ª Bda Art. GN) cita M107 a 14-18 km en uso real.",
       "origen": "research/fase0/artilleria_155.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-023",
+        "motivo": "Validado por Balú (F1): munición disponible en el juego (HE, base-bleed, RAP y Excalibur)."
+      }
     },
     {
       "id": "fuegos.art155.m777_rap_m549a1.alcance_km",
@@ -2284,7 +2454,12 @@
       "nota": "'30 km with rocket-assisted rounds'. RAP reduce carga explosiva y aumenta dispersión frente a HE estándar.",
       "origen": "research/fase0/artilleria_155.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-023",
+        "motivo": "Validado por Balú (F1): munición disponible en el juego (HE, base-bleed, RAP y Excalibur)."
+      }
     },
     {
       "id": "fuegos.art155.no_guiado.dispersion_24km_m",
@@ -2320,7 +2495,12 @@
       "nota": "Típico 'hasta 10 disparos' por pieza al día (3-5 de reglaje). Una pieza que dispare 100 en un día 'no sobrevive hasta la noche' (rango_max = umbral de supervivencia). Piezas a ~15 km del frente; el mismo mando afirma que el 95% de los golpes los hacen drones.",
       "origen": "research/fase0/artilleria_155.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-025",
+        "motivo": "Validado por Balú (F3): tope práctico de unos 10 disparos por pieza y día."
+      }
     },
     {
       "id": "fuegos.art155.rusia.contrabateria_ciclo_min",
@@ -2356,7 +2536,12 @@
       "nota": "Fuente ucraniana oficial. Ago 2024: >44.000/día; abr 2025: 23.000 tras ataques en profundidad, luego 27-28.000. Todos los calibres (no solo 152/155).",
       "origen": "research/fase0/artilleria_155.json",
       "uso": "referencia",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-026",
+        "motivo": "Validado por Balú (F4): consumo de todo el frente, solo como referencia; el motor no lo usa."
+      }
     },
     {
       "id": "fuegos.art155.rusia.proyectiles_dia_2026_n",
@@ -2374,7 +2559,12 @@
       "nota": "'Over 10,000 artillery rounds per day'. Columna de opinión sin fuente primaria detallada; indica caída fuerte respecto a 2025 por sustitución por drones y ataques a logística. Validar con ISW/RUSI.",
       "origen": "research/fase0/artilleria_155.json",
       "uso": "referencia",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-026",
+        "motivo": "Validado por Balú (F4): consumo de todo el frente, solo como referencia; el motor no lo usa."
+      }
     },
     {
       "id": "fuegos.art155.ucrania.distancia_piezas_frente_km",
@@ -2392,7 +2582,12 @@
       "nota": "Comandante 7.ª Bda Art. GN: piezas ~15 km atrás, batiendo 10 km o más en profundidad enemiga. Franja de muerte por drones 15-20 km a cada lado previsto para 2025 (Brovdi, vía New Geopolitics). Con BB a 40 km la pieza puede retrasarse fuera de la zona FPV pero no de Lancet.",
       "origen": "research/fase0/artilleria_155.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-027",
+        "motivo": "Validado por Balú (F5): baterías a unos 15 km de la línea."
+      }
     },
     {
       "id": "fuegos.art155.ucrania.proyectiles_155_dia_n",
@@ -2410,7 +2605,12 @@
       "nota": "4.000-6.000 de 155 mm/día, hasta 9.000 en picos; PGZ (Polonia) las considera infladas. Total Ucrania todos los calibres: 14.600/día (Syrskyi, ago 2024). Ratio Ucrania:Rusia 1:1,8 en jul 2025 (LIGA.net), lo que implicaría ~15.000/día todos los calibres (cálculo propio).",
       "origen": "research/fase0/artilleria_155.json",
       "uso": "referencia",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-026",
+        "motivo": "Validado por Balú (F4): consumo de todo el frente, solo como referencia; el motor no lo usa."
+      }
     },
     {
       "id": "fuegos.art155.ucrania.ventana_desplazamiento_min",
@@ -2428,7 +2628,12 @@
       "nota": "2-3 min tras el fuego. Matiz RUSI (feb 2025): piezas en posiciones excavadas pueden disparar periodos prolongados por la protección frente a contrabatería, pero se mueven periódicamente por bombas planeadoras.",
       "origen": "research/fase0/artilleria_155.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-025",
+        "motivo": "Validado por Balú (F3): la pieza tiene que moverse en 3 min tras disparar o queda expuesta a contrabatería y Lancet."
+      }
     },
     {
       "id": "fuegos.artilleria.dispersion_largo_alcance_m",
@@ -2847,11 +3052,11 @@
     {
       "id": "fuegos.supresion.duracion_tras_cese_min",
       "categoria": "Fuegos y efectos",
-      "nombre": "Duración de la supresión después de que cesa el fuego de artillería",
-      "valor": 2,
-      "unidad": "min",
-      "rango_min": null,
-      "rango_max": null,
+      "nombre": "Duración de la supresión después de que cesa el fuego (turnos cortos)",
+      "valor": 1,
+      "unidad": "turno",
+      "rango_min": 0,
+      "rango_max": 2,
       "fuente": "Wikipedia, Suppressive fire; Cranny-Evans (RUSI), Russia's Artillery War in Ukraine; ATP 3-21.90",
       "url": "https://en.wikipedia.org/wiki/Suppressive_fire",
       "fecha": "2023-08",
@@ -2860,7 +3065,12 @@
       "nota": "Wikipedia: el efecto dura 'about 2 minutes' tras cesar el fuego de artillería. ATP 3-21.90: la supresión 'only last[s] as long as the fires continue'. RUSI: los primeros 45-60 s de una misión llevan a la infantería a cubrirse; 12 obuses de 122 mm necesitan 600 disparos en 15 min para batir 33 ha. Un proyectil de arma ligera solo suprime a menos de 1 m de su trayectoria. No se encontró una cifra doctrinal de la reducción del fuego propio.",
       "origen": "research/fase0/fuegos.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-022",
+        "motivo": "Validado por Balú (C5): la supresión dura mientras cae el fuego y un turno corto más."
+      }
     },
     {
       "id": "fuegos.tiempo_respuesta_con_uav_min",
@@ -3315,7 +3525,7 @@
     {
       "id": "movimiento.infiltracion.perdidas_esperadas_frac",
       "categoria": "Movimiento, logística y sanidad",
-      "nombre": "Fracción de bajas que se espera en un grupo de infiltración",
+      "nombre": "Tolerancia a bajas de la IA «Rusia 2026» en infiltración (fracción que acepta perder antes de abandonar)",
       "valor": 0.67,
       "unidad": "fracción (0-1)",
       "rango_min": null,
@@ -3328,7 +3538,12 @@
       "nota": "Cita recogida por la prensa: hasta 300 soldados al día entrando en Pokrovsk \"en grupos de tres con la expectativa de que dos sean destruidos\". Es una declaración de parte, no una estadística, y vale como orden de magnitud. Los rusos también aprovechan el mal tiempo, que limita a los drones FPV (de visión en primera persona).",
       "origen": "research/fase0/movimiento_logistica.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-019",
+        "motivo": "Validado por Balú (C2): no es regla de combate; es la tolerancia a bajas de la IA enemiga con perfil «Rusia 2026»."
+      }
     },
     {
       "id": "movimiento.infiltracion.tamano_grupo",

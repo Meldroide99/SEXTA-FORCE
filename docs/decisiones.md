@@ -23,3 +23,16 @@ que no esté aquí no existe.
 | D-016 | 2026-10-05 | Tiempo de sensor a golpe (A4): 4 min con enlace digital (Delta), 15 min sin él, 30 min si la detección es solo por EW | Validación de la fase 0 | Balú |
 | D-017 | 2026-10-05 | Mavic (B4): radio de trabajo de 6 km con 15 min de observación; enlace máximo de 15 km | Validación de la fase 0 | Balú |
 | D-018 | 2026-10-05 | Movimiento encubierto bajo drones (C1): 1 km/h; el jugador elige cada turno entre «rápido y visible» o «lento y oculto» | Validación de la fase 0 | Balú |
+| D-019 | 2026-10-05 | Bajas en la infiltración rusa (C2): no es regla de combate; solo tolerancia a bajas de la IA con perfil «Rusia 2026» | Validación de la fase 0 | Balú |
+| D-020 | 2026-10-05 | Señuelos (C3): cada señuelo es un contacto falso en la imagen enemiga; sin porcentaje fijo de reducción del daño | Validación de la fase 0 | Balú |
+| D-021 | 2026-10-05 | Poncho antitérmico (C4): firma térmica ×0,3 quieto y ×0,7 en movimiento; el 96 % del fabricante queda como referencia | Validación de la fase 0 | Balú |
+| D-022 | 2026-10-05 | Supresión (C5): mientras cae el fuego y un turno corto más | Validación de la fase 0 | Balú |
+| D-023 | 2026-10-05 | Munición de 155 mm (F1): HE, base-bleed, RAP y Excalibur; V-LAP fuera por escasez | Validación de la fase 0 | Balú |
+| D-024 | 2026-10-05 | Excalibur bajo perturbación GNSS (F2): se comporta como proyectil sin guiar | Validación de la fase 0 | Balú |
+| D-025 | 2026-10-05 | Supervivencia de la pieza (F3): moverse en 3 min tras disparar; tope práctico de ~10 disparos por pieza y día | Validación de la fase 0 | Balú |
+| D-026 | 2026-10-05 | Consumo de munición de todo el frente (F4): solo referencia | Validación de la fase 0 | Balú |
+| D-027 | 2026-10-05 | Despliegue de artillería (F5): baterías a ~15 km de la línea, piezas a ≥ 500 m y tiro por separado | Validación de la fase 0 | Balú |
+| D-028 | 2026-10-05 | FPV con guiado terminal: tipo aparte, 75 % de acierto, más caro y escaso | Validación de la fase 0 | Balú |
+| D-029 | 2026-10-05 | Detección térmica: ×3 en movimiento (750 m) y ×0,3-0,5 en el cruce térmico | Validación de la fase 0 | Balú |
+| D-030 | 2026-10-05 | Fuentes de EW de 2022-2023 (Pole-21, Silok, Kropyva): se mantienen con confianza media hasta tener fuentes de 2025-2026 | Validación de la fase 0 | Balú |
+| D-031 | 2026-10-05 | Cierre de la validación de parámetros de la fase 0: juego de reglas «Ucrania 2026» v0.3.0; los valores no validados uno a uno quedan como valores por defecto editables | Validación de la fase 0 | Balú |
