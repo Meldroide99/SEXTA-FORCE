@@ -1,9 +1,9 @@
 {
   "id": "ucrania-2026",
   "nombre": "Ucrania 2026",
-  "version": "0.4.0-propuesta",
+  "version": "0.5.0",
   "fecha": "2026-10-05",
-  "estado": "fase 0: validación de parámetros cerrada el 5 oct 2026 (v0.3.0); apartado E (fibra, apoyos, moral) propuesto y pendiente de validar",
+  "estado": "fase 0: todas las decisiones de parámetros validadas el 5 oct 2026 (v0.5.0); los valores no validados uno a uno son valores por defecto editables",
   "descripcion": "Juego de reglas por defecto. Valores de fuentes abiertas 2023-2026; cada fila lleva su fuente y su confianza.",
   "duplicados_eliminados": {
     "ew.fibra_optica.alcance_km": "drones.fpv_fibra.alcance_km",
@@ -1619,7 +1619,12 @@
       "nota": "Beshket 16 min (4 kg), Deadliner Q1 al menos 20 min (2 kg), Vyriy Opto 10 21 min (1 kg, bobina de 20 km). KVN ruso 8-12 min con 2-4 kg (GUR). Ptashka 35 min con bobina de 50 km (Militarnyi, ago 2026). El 20 es la mediana elegida para el juego, no una cifra de fuente. A más carga, menos autonomía; no hay datos publicados por longitud de bobina.",
       "origen": "research/fase0/fpv_fibra_2026.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-038",
+        "motivo": "Validado por Balú (apartado G)."
+      }
     },
     {
       "id": "drones.fpv_fibra.barrera_cortacables_pct",
@@ -1714,7 +1719,7 @@
     {
       "id": "drones.fpv_fibra.cuota_fpv_pct",
       "categoria": "Drones",
-      "nombre": "Porcentaje de los FPV que son de fibra",
+      "nombre": "Porcentaje de los FPV ucranianos que son de fibra",
       "valor": 15,
       "unidad": "%",
       "rango_min": 10,
@@ -1726,8 +1731,36 @@
       "fase_turno": "Logística",
       "nota": "UP (ene 2026): no más del 15 % en el lado ucraniano. Forbes (jul 2025): unos 10 %. Euromaidan (sep 2026): la Guardia Nacional pasó del 20 % al 70 %. Rusia lleva ventaja: conviene un valor por bando.",
       "origen": "research/fase0/fpv_fibra_2026.json",
-      "uso": "referencia",
-      "estado": "propuesto"
+      "uso": "parametro",
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-038",
+        "motivo": "Validado por Balú (apartado G)."
+      }
+    },
+    {
+      "id": "drones.fpv_fibra.cuota_rusia_pct",
+      "categoria": "Drones",
+      "nombre": "Porcentaje de los FPV rusos que son de fibra",
+      "valor": 30,
+      "unidad": "%",
+      "rango_min": 15,
+      "rango_max": 70,
+      "fuente": "Estimación de la fase 0 a partir de Ukrainska Pravda (ene 2026: Rusia por delante en fibra)",
+      "url": "https://www.pravda.com.ua/eng/articles/2026/01/25/8017810/",
+      "fecha": "2026-01",
+      "confianza": "baja",
+      "fase_turno": "Logística",
+      "nota": "Ninguna fuente da la cifra rusa; UP dice que Rusia lleva ventaja en producción de fibra. Editable por escenario.",
+      "origen": "research/fase0/fpv_fibra_2026.json",
+      "uso": "parametro",
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-038",
+        "motivo": "Validado por Balú (apartado G)."
+      }
     },
     {
       "id": "drones.fpv_fibra.espera_emboscada_h",
@@ -1736,16 +1769,44 @@
       "valor": 12,
       "unidad": "h",
       "rango_min": 3,
-      "rango_max": 48,
+      "rango_max": 24,
       "fuente": "Oboronka/Mezha, '\"Waiting drones\" on the roads: how dangerous are Russian UAVs in standby mode?'",
       "url": "https://oboronka.mezha.ua/en/droni-zhduni-yak-pracyuyut-novi-rosiyski-droni-306465/",
       "fecha": "2025-11",
       "confianza": "media",
       "fase_turno": "Sensores",
-      "nota": "Desde horas hasta más de un día, posados a pocos metros de la carretera tras reconocer la ruta con un Mavic; se despliegan 20-40 km detrás del frente y saturan tramos de 100-300 m. Forbes (mar 2026): varias horas. Fabricante del Beshket: hasta 48 h.",
+      "nota": "Desde horas hasta más de un día, posados a pocos metros de la carretera tras reconocer la ruta con un Mavic; se despliegan 20-40 km detrás del frente y saturan tramos de 100-300 m. Forbes (mar 2026): varias horas. Fabricante del Beshket: hasta 48 h. Máximo de juego: 24 h (D-038).",
       "origen": "research/fase0/fpv_fibra_2026.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-038",
+        "motivo": "Validado por Balú (apartado G)."
+      }
+    },
+    {
+      "id": "drones.fpv_fibra.factor_red_antidron",
+      "categoria": "Drones",
+      "nombre": "Factor de impacto de un FPV contra un tramo protegido con red o barrera cortacables",
+      "valor": 0.5,
+      "unidad": "factor",
+      "rango_min": 0.2,
+      "rango_max": 0.8,
+      "fuente": "Estimación de la fase 0 (sin datos publicados de eficacia de redes)",
+      "url": "https://www.pravda.com.ua/eng/news/2026/05/18/8035246/",
+      "fecha": "2026-05",
+      "confianza": "baja",
+      "fase_turno": "Fuegos",
+      "nota": "Reduce la probabilidad de impacto a la mitad; no la anula.",
+      "origen": "research/fase0/fpv_fibra_2026.json",
+      "uso": "parametro",
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-038",
+        "motivo": "Validado por Balú (apartado G)."
+      }
     },
     {
       "id": "drones.fpv_fibra.peso_bobina_10km_kg",
@@ -1781,7 +1842,12 @@
       "nota": "El instructor: 40-50 % es lo mejor que se puede lograr (cable cortado por artillería o por FPV propios, viento, ruta). TWZ (may 2025): unos 50 %. Es un techo para tripulaciones buenas. No le afecta la EW.",
       "origen": "research/fase0/fpv_fibra_2026.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-038",
+        "motivo": "Validado por Balú (apartado G)."
+      }
     },
     {
       "id": "drones.fpv_fibra.redes_carretera_km",
@@ -1817,7 +1883,12 @@
       "nota": "A 60-85 km/h, 10 km llevan 7-10 min, más 1-2 min de búsqueda. Con 20 min de autonomía queda margen para merodear pero no para volver.",
       "origen": "research/fase0/fpv_fibra_2026.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-038",
+        "motivo": "Validado por Balú (apartado G)."
+      }
     },
     {
       "id": "drones.fpv_fibra.velocidad_crucero_kmh",
@@ -1835,7 +1906,12 @@
       "nota": "Deadliner 60-70, Vyriy 60, Zhakh 60, KVN 50-80, Ptashka 85 km/h. La bobina los hace más lentos y menos maniobrables que los de radio (Kyiv Independent, TWZ), sin cifra publicada.",
       "origen": "research/fase0/fpv_fibra_2026.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-038",
+        "motivo": "Validado por Balú (apartado G)."
+      }
     },
     {
       "id": "drones.fpv_fibra.velocidad_max_kmh",
@@ -1853,7 +1929,12 @@
       "nota": "Cifras de fabricante, no medidas en combate. El KVN ruso declara 100-140 km/h, probablemente sin carga.",
       "origen": "research/fase0/fpv_fibra_2026.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-038",
+        "motivo": "Validado por Balú (apartado G)."
+      }
     },
     {
       "id": "drones.fpv_fibra.vulnerabilidad_ew_pct",
@@ -4317,7 +4398,12 @@
       "nota": "Movilizados recientes, unidades rehechas.",
       "origen": "research/fase0/mando_moral.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-040",
+        "motivo": "Validado por Balú (apartado I, modelo de moral por cohesión)."
+      }
     },
     {
       "id": "mando.moral.cohesion_inicial_regular",
@@ -4335,7 +4421,12 @@
       "nota": "Valor por defecto.",
       "origen": "research/fase0/mando_moral.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-040",
+        "motivo": "Validado por Balú (apartado I, modelo de moral por cohesión)."
+      }
     },
     {
       "id": "mando.moral.cohesion_inicial_veterana",
@@ -4353,7 +4444,12 @@
       "nota": "Regular 65, bisoña 50.",
       "origen": "research/fase0/mando_moral.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-040",
+        "motivo": "Validado por Balú (apartado I, modelo de moral por cohesión)."
+      }
     },
     {
       "id": "mando.moral.dotacion_brigadas_ua_pct",
@@ -4389,7 +4485,12 @@
       "nota": "Solo autodefensa; repliegue obligatorio hacia el punto de evacuación; ignora órdenes 1 turno.",
       "origen": "research/fase0/mando_moral.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-040",
+        "motivo": "Validado por Balú (apartado I, modelo de moral por cohesión)."
+      }
     },
     {
       "id": "mando.moral.factor_fuego_suprimido",
@@ -4407,7 +4508,12 @@
       "nota": "Solo puede mantener o replegarse a cubierta adyacente.",
       "origen": "research/fase0/mando_moral.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-040",
+        "motivo": "Validado por Balú (apartado I, modelo de moral por cohesión)."
+      }
     },
     {
       "id": "mando.moral.factor_fuego_tocado",
@@ -4425,7 +4531,12 @@
       "nota": "Ninguna fuente pública cuantifica cuánto reduce la supresión el fuego propio; el estudio de Rowland (Stress of Battle) no estaba accesible.",
       "origen": "research/fase0/mando_moral.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-040",
+        "motivo": "Validado por Balú (apartado I, modelo de moral por cohesión)."
+      }
     },
     {
       "id": "mando.moral.fuerza_min_combate_pct",
@@ -4443,7 +4554,12 @@
       "nota": "Precedente directo de un modelo determinista.",
       "origen": "research/fase0/mando_moral.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-040",
+        "motivo": "Validado por Balú (apartado I, modelo de moral por cohesión)."
+      }
     },
     {
       "id": "mando.moral.fuerza_min_ofensiva_pct",
@@ -4461,7 +4577,12 @@
       "nota": "Juego de guerra C-WAM del US Army: por debajo del 50 % la unidad solo defiende; por debajo del 30 % sale del combate.",
       "origen": "research/fase0/mando_moral.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-040",
+        "motivo": "Validado por Balú (apartado I, modelo de moral por cohesión)."
+      }
     },
     {
       "id": "mando.moral.penal_aislamiento_dia",
@@ -4479,7 +4600,12 @@
       "nota": "El máximo es mando.rotacion.max_reglamentario_dias (60 días, orden de Syrskyi de abril de 2026).",
       "origen": "research/fase0/mando_moral.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-040",
+        "motivo": "Validado por Balú (apartado I, modelo de moral por cohesión)."
+      }
     },
     {
       "id": "mando.moral.penal_bajas_por_pct",
@@ -4497,7 +4623,12 @@
       "nota": "Un 10 % de bajas en un turno resta 20 puntos.",
       "origen": "research/fase0/mando_moral.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-040",
+        "motivo": "Validado por Balú (apartado I, modelo de moral por cohesión)."
+      }
     },
     {
       "id": "mando.moral.penal_dron_sin_cuaa",
@@ -4515,7 +4646,12 @@
       "nota": "Estrés por amenaza persistente de drones (Prim Care Companion CNS Disord, nov 2025).",
       "origen": "research/fase0/mando_moral.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-040",
+        "motivo": "Validado por Balú (apartado I, modelo de moral por cohesión)."
+      }
     },
     {
       "id": "mando.moral.penal_heridos_sin_evacuar",
@@ -4533,7 +4669,12 @@
       "nota": "Basado en los retrasos de evacuación (RUSI 2025, ASPI 2025).",
       "origen": "research/fase0/mando_moral.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-040",
+        "motivo": "Validado por Balú (apartado I, modelo de moral por cohesión)."
+      }
     },
     {
       "id": "mando.moral.penal_perdida_jefe",
@@ -4551,7 +4692,12 @@
       "nota": "Una sola vez; la unidad no puede asaltar durante 1 turno. No hay estudio que cuantifique la pérdida del jefe.",
       "origen": "research/fase0/mando_moral.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-040",
+        "motivo": "Validado por Balú (apartado I, modelo de moral por cohesión)."
+      }
     },
     {
       "id": "mando.moral.penal_sin_enlace",
@@ -4569,7 +4715,12 @@
       "nota": "Ligado a las mallas de Starlink y radio: 'la conexión no se negocia' (LLAA BRIPAC).",
       "origen": "research/fase0/mando_moral.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-040",
+        "motivo": "Validado por Balú (apartado I, modelo de moral por cohesión)."
+      }
     },
     {
       "id": "mando.moral.penal_supresion",
@@ -4587,7 +4738,12 @@
       "nota": "Además, la unidad queda 'Suprimida' ese turno aunque su cohesión sea alta.",
       "origen": "research/fase0/mando_moral.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-040",
+        "motivo": "Validado por Balú (apartado I, modelo de moral por cohesión)."
+      }
     },
     {
       "id": "mando.moral.prisioneros_defensor_abierto_pct",
@@ -4623,7 +4779,12 @@
       "nota": "20-50 % en zona urbana frente a un 8 % en terreno abierto (145 batallas, 1943-2008). Para una unidad 'Rota' y rodeada.",
       "origen": "research/fase0/mando_moral.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-040",
+        "motivo": "Validado por Balú (apartado I, modelo de moral por cohesión)."
+      }
     },
     {
       "id": "mando.moral.ratio_prisioneros_muertos_ru_pct",
@@ -4641,7 +4802,12 @@
       "nota": "Unos 80 prisioneros frente a unos 5.000 muertos (Dobropillia, ago-oct 2025). Un solo episodio: 'Roto' en el perfil ruso lleva a quedarse o morir, casi nunca a rendirse.",
       "origen": "research/fase0/mando_moral.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-040",
+        "motivo": "Validado por Balú (apartado I, modelo de moral por cohesión)."
+      }
     },
     {
       "id": "mando.moral.recuperacion_reabastecido",
@@ -4659,7 +4825,12 @@
       "nota": "Una vez por reabastecimiento completo.",
       "origen": "research/fase0/mando_moral.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-040",
+        "motivo": "Validado por Balú (apartado I, modelo de moral por cohesión)."
+      }
     },
     {
       "id": "mando.moral.recuperacion_relevo",
@@ -4677,7 +4848,12 @@
       "nota": "El relevo pone a cero los días en posición.",
       "origen": "research/fase0/mando_moral.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-040",
+        "motivo": "Validado por Balú (apartado I, modelo de moral por cohesión)."
+      }
     },
     {
       "id": "mando.moral.recuperacion_sin_contacto",
@@ -4695,7 +4871,12 @@
       "nota": "Solo se sube un estado por turno; una unidad Rota necesita 2 turnos sin contacto y un jefe presente para volver a Tocada.",
       "origen": "research/fase0/mando_moral.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-040",
+        "motivo": "Validado por Balú (apartado I, modelo de moral por cohesión)."
+      }
     },
     {
       "id": "mando.moral.retraso_casevac_h",
@@ -4713,7 +4894,12 @@
       "nota": "De horas a varios días. Texty (may 2026): 2-3 días a pie por 3-15 km. ASPI (ago 2025): heridos aislados más de un mes hasta su rescate con UGV.",
       "origen": "research/fase0/mando_moral.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-040",
+        "motivo": "Validado por Balú (apartado I, modelo de moral por cohesión)."
+      }
     },
     {
       "id": "mando.moral.supresion_por_impacto_s",
@@ -4749,7 +4935,12 @@
       "nota": "Al 20 % el atacante se detiene casi siempre. Uso: con 20 % o más de bajas una unidad no puede ejecutar 'Cerrar y destruir'.",
       "origen": "research/fase0/mando_moral.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-040",
+        "motivo": "Validado por Balú (apartado I, modelo de moral por cohesión)."
+      }
     },
     {
       "id": "mando.moral.umbral_neutralizado_pct",
@@ -4767,7 +4958,12 @@
       "nota": "Doctrina de EE. UU.: suprimido 3 %, neutralizado 10 %, destruido 30 %. Dupuy advierte que no tienen base histórica: referencia de juego.",
       "origen": "research/fase0/mando_moral.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-040",
+        "motivo": "Validado por Balú (apartado I, modelo de moral por cohesión)."
+      }
     },
     {
       "id": "mando.moral.umbral_rotacion_asalto_ru_pct",
@@ -4785,7 +4981,12 @@
       "nota": "El ritmo de asaltos rusos baja hasta que la unidad acumula un 30 % de bajas y se rota. La coerción ('obnulenie') eleva su tolerancia. Perfil de IA 'Rusia 2026'.",
       "origen": "research/fase0/mando_moral.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-040",
+        "motivo": "Validado por Balú (apartado I, modelo de moral por cohesión)."
+      }
     },
     {
       "id": "mando.moral.umbral_roto",
@@ -4803,7 +5004,12 @@
       "nota": "Ver umbral de Tocado.",
       "origen": "research/fase0/mando_moral.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-040",
+        "motivo": "Validado por Balú (apartado I, modelo de moral por cohesión)."
+      }
     },
     {
       "id": "mando.moral.umbral_rotura_defensor_pct",
@@ -4821,7 +5027,12 @@
       "nota": "FM 105-5: al 40 % la probabilidad de rotura del defensor se acerca al 100 %. Clark (43 batallones de la II GM): solo el 35 % rompió tras más del 40 %. La rotura rara vez depende solo de las bajas: por eso el modelo suma varios factores.",
       "origen": "research/fase0/mando_moral.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-040",
+        "motivo": "Validado por Balú (apartado I, modelo de moral por cohesión)."
+      }
     },
     {
       "id": "mando.moral.umbral_suprimido",
@@ -4839,7 +5050,12 @@
       "nota": "Ver umbral de Tocado.",
       "origen": "research/fase0/mando_moral.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-040",
+        "motivo": "Validado por Balú (apartado I, modelo de moral por cohesión)."
+      }
     },
     {
       "id": "mando.moral.umbral_tocado",
@@ -4857,7 +5073,12 @@
       "nota": "Firme ≥ 60; Tocado 40-59; Suprimido 20-39; Roto < 20.",
       "origen": "research/fase0/mando_moral.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-040",
+        "motivo": "Validado por Balú (apartado I, modelo de moral por cohesión)."
+      }
     },
     {
       "id": "mando.ordenes.retardo_min",

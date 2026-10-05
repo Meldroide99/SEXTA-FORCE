@@ -1,7 +1,7 @@
 {
   "id": "infiltracion-por-fases",
   "nombre": "Infiltración por fases (modelo ruso 2025-2026)",
-  "estado": "propuesto",
+  "estado": "validado",
   "principio": "Muchos grupos de 1-3 que se filtran por los huecos, se acumulan en la retaguardia y golpean los puestos de drones y la logística; se asumen pérdidas muy altas.",
   "pasos": [
     {
@@ -88,5 +88,10 @@
         "https://www.twz.com/news-features/inside-the-fight-to-stop-russias-biggest-advance-in-a-year"
       ]
     }
-  ]
+  ],
+  "validacion": {
+    "fecha": "2026-10-05",
+    "decision": "D-041",
+    "motivo": "Validado por Balú."
+  }
 }

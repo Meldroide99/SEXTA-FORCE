@@ -1,4 +1,4 @@
-# Fase 0 · Decisiones de validación (A-F, G1, K y L cerradas el 2026-10-05; G2-G7, H, I y J pendientes)
+# Fase 0 · Decisiones de validación (todas cerradas el 2026-10-05)
 
 Cruce de la matriz de parámetros (`docs/fase0/matriz-parametros.md`): conflictos entre fuentes, asimetrías
 físicas y valores de confianza baja que cambian el resultado del juego. Para cada punto hay una propuesta;
@@ -61,7 +61,7 @@ media y buscar fuentes de 2025-2026 en la fase 0. **Decidido (D-030).**
 | Secuencias de defensa, infiltración y reconocimiento | Propuestas: apartado J |
 | Qué órdenes puede dar la IA a cada ficha | Propuesta: apartado K |
 
-## G. FPV de fibra óptica (fuentes 2025-2026)
+## G. FPV de fibra óptica (fuentes 2025-2026) — **validado (D-035, D-038)**
 
 | # | Tema | Lo que dicen las fuentes | Propuesta |
 |---|---|---|---|
@@ -75,7 +75,7 @@ media y buscar fuentes de 2025-2026 en la fase 0. **Decidido (D-030).**
 
 Lo que no publica nadie: cuántas misiones fallan por cable enganchado o roto. Va metido en el 45 % de G5.
 
-## H. Paquete de apoyos tipo
+## H. Paquete de apoyos tipo — **validado (D-039)**
 
 Ninguna fuente publica plantillas de apoyo por compañía (RUSI omite a propósito esas cifras). Las cantidades son estimaciones; las distancias, tiempos y cargas tienen fuente. Detalle en `templates/apoyos/`.
 
@@ -101,7 +101,7 @@ Ninguna fuente publica plantillas de apoyo por compañía (RUSI omite a propósi
 
 Referencias de escala: los drones hacen el 70-95 % de los golpes (TWZ, sep 2026); 25.143 misiones de UGV en agosto de 2026 (MoD); los asaltos mecanizados rusos pierden en torno al 87 % de los blindados (ISW, dic 2025).
 
-## I. Modelo de moral (propuesta)
+## I. Modelo de moral — **validado (D-040)**
 
 Cada unidad tiene una **cohesión de 0 a 100** que se recalcula en la fase de mando y moral. Inicial: veterana 80, regular 65, bisoña 50.
 
@@ -128,7 +128,7 @@ Cada unidad tiene una **cohesión de 0 a 100** que se recalcula en la fase de ma
 
 Umbrales con fuente: 40 % defensor y 20 % atacante (FM 105-5 vía Dupuy Institute), rotación rusa al 30 % (RUSI, feb 2025), por debajo del 50 % solo defiende y del 30 % sale del combate (C-WAM, US Army), 60 días de permanencia (orden de Syrskyi, abr 2026). Los puntos y los factores de fuego son estimación: no hay estudio público que diga cuánto reduce la supresión el fuego.
 
-## J. Secuencias por tipo de operación (propuesta)
+## J. Secuencias por tipo de operación — **validado (D-041)**
 
 | Operación | Pasos |
 |---|---|

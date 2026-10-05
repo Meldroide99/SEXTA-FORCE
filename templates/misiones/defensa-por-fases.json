@@ -1,7 +1,7 @@
 {
   "id": "defensa-por-fases",
   "nombre": "Defensa por fases (modelo ucraniano 2025-2026)",
-  "estado": "propuesto",
+  "estado": "validado",
   "principio": "Ceder terreno a cambio de bajas: la zona de muerte de drones desgasta al atacante antes del contacto; posiciones de 2-3 hombres muy dispersas; contraataque con reservas cuando el enemigo culmina.",
   "pasos": [
     {
@@ -154,5 +154,10 @@
       "que": "Asfixia logística y asalto (Kursk, marzo 2025)",
       "fuente": "https://euromaidanpress.com/2025/03/09/forbes-russia-deploys-elite-rubicon-drone-unit-and-fresh-north-koreans-to-cut-ukraines-supply-lines-in-kursk/"
     }
-  ]
+  ],
+  "validacion": {
+    "fecha": "2026-10-05",
+    "decision": "D-041",
+    "motivo": "Validado por Balú."
+  }
 }

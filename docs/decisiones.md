@@ -42,3 +42,8 @@ que no esté aquí no existe.
 | D-035 | 2026-10-05 | FPV de fibra: radio eficaz de 12 km (sustituye a los 10 km de D-011) | Validación del apartado G1 | Balú |
 | D-036 | 2026-10-05 | Regla de línea de vista y capa de vegetación del apartado L, con sus valores (bosque, lesosmugas, cultivos, urbano, alturas del ojo, alcances de las armas) | Validación del apartado L | Balú |
 | D-037 | 2026-10-05 | Lista de acciones por tipo de ficha para todos los jefes (jugador, IA del juego, Claude), sin cambios | Validación del apartado K | Balú |
+| D-038 | 2026-10-05 | FPV de fibra G2-G7: 20 min de autonomía, 65 km/h de crucero y 90 en el ataque, emboscada de 12 h (máx. 24), 45 % de impacto, 15 % de los FPV ucranianos y 30 % de los rusos son de fibra, la red o barrera reduce el impacto a la mitad | Validación de la fase 0 | Balú |
+| D-039 | 2026-10-05 | Paquetes de apoyo tipo para el ataque de compañía y de sección (templates/apoyos) | Validación de la fase 0 | Balú |
+| D-040 | 2026-10-05 | Modelo de moral por cohesión 0-100 con estados Firme, Tocado, Suprimido y Roto, umbrales y factores del apartado I | Validación de la fase 0 | Balú |
+| D-041 | 2026-10-05 | Secuencias por pasos de defensa (ucraniana y variante rusa), infiltración rusa y reconocimiento (templates/misiones) | Validación de la fase 0 | Balú |
+| D-042 | 2026-10-05 | Cierre de la validación de parámetros de la fase 0: juego de reglas «Ucrania 2026» v0.5.0 | Validación de la fase 0 | Balú |

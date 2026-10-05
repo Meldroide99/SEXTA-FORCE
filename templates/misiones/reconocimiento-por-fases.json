@@ -1,7 +1,7 @@
 {
   "id": "reconocimiento-por-fases",
   "nombre": "Reconocimiento por fases (compañía o sección en campo saturado de drones)",
-  "estado": "propuesto",
+  "estado": "validado",
   "principio": "Primero el aire y el espectro; la tierra solo confirma lo que el aire no ve. Cada contacto se entrega a un tirador en minutos.",
   "pasos": [
     {
@@ -110,5 +110,10 @@
         "https://smallwarsjournal.com/2025/12/09/the-reconnaissance-reality-gap-western-doctrine-vs-the-ukrainian-battlefield/"
       ]
     }
-  ]
+  ],
+  "validacion": {
+    "fecha": "2026-10-05",
+    "decision": "D-041",
+    "motivo": "Validado por Balú."
+  }
 }
