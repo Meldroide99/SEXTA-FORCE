@@ -20,7 +20,7 @@ el valor queda «propuesto» hasta que lo valides.
 | B1 | Bombardero pesado: 20 km de alcance con 23 min de autonomía cargado | Ida y vuelta de 40 km en 23 min exige ~105 km/h con 10 kg | **Aplazado** (prioridad baja para Balú). Propuesta: radio de acción cargado de 8-10 km |
 | B2 | FPV de fibra a 20 km con ~8 min de autonomía | A ~80 km/h, 8 min dan ~10 km | **Resuelto con A3 (10 km)** |
 | B3 | Detección de una persona con la térmica del Mavic 3T | Cálculo por criterio de Johnson | **Resuelto (D-012): 250 m.** Pendientes los modificadores: ×3 en movimiento y ×0,3-0,5 en cruce térmico |
-| B4 | Alcance del enlace del Mavic (15 km) frente a su autonomía real (25-35 min) | Si se quieren 15 min de observación sobre el objetivo, el tránsito de ida y vuelta (~15 m/s) deja un radio útil de unos 6-7 km | Radio de trabajo 6 km con 15 min de observación; enlace máximo 15 km |
+| B4 | Alcance del enlace del Mavic (15 km) frente a su autonomía real (25-35 min) | Si se quieren 15 min de observación sobre el objetivo, el tránsito de ida y vuelta (~15 m/s) deja un radio útil de unos 6-7 km | **Resuelto (D-017): radio de trabajo 6 km con 15 min de observación; enlace máximo 15 km** |
 
 ## F. Artillería pesada de 155 mm (añadida el 2026-10-04)
 
@@ -38,7 +38,7 @@ Referencia validada (D-013): obús de 52 calibres con base-bleed, **40 km**. Dat
 
 | # | Parámetro | Valor | Propuesta |
 |---|---|---|---|
-| C1 | Movimiento táctico encubierto bajo drones | 1 km/h (estimación); ~5 km/día efectivos en la zona batida (RBC, ago 2026) | Aceptar 1 km/h y que el jugador elija entre «rápido y visible» o «lento y oculto» |
+| C1 | Movimiento táctico encubierto bajo drones | 1 km/h (estimación); ~5 km/día efectivos en la zona batida (RBC, ago 2026) | **Resuelto (D-018): 1 km/h; el jugador elige «rápido y visible» o «lento y oculto»** |
 | C2 | Bajas esperadas en la infiltración rusa | 2 de cada 3 (declaración de prensa, nov 2025) | Solo para el perfil de IA «Rusia 2026» como tolerancia a bajas, no como regla de combate |
 | C3 | Efecto de los señuelos | −50 % de daño con 3 señuelos por medio real (fuente indirecta) | Modelar el señuelo como contacto falso en la imagen enemiga, sin porcentaje fijo |
 | C4 | Reducción de firma con poncho antitérmico y redes | 90-96 % (fabricantes) | ×0,3 quieto y ×0,7 en movimiento |

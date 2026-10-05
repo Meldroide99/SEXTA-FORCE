@@ -73,6 +73,14 @@ VALIDACIONES = {
         "motivo": "Validado por Balú (A4): 15 min sin integración digital."},
     "drones.sensor_tirador.solo_ew_min": {"fecha": "2026-10-05", "decision": "D-016",
         "motivo": "Validado por Balú (A4): 30 min si el objetivo solo se ha detectado por EW (hay que confirmarlo con otro sensor antes de batirlo)."},
+    # B4 · Radio de trabajo del Mavic (D-017)
+    "drones.reco_multirrotor.alcance_km": {"fecha": "2026-10-05", "decision": "D-017",
+        "motivo": "Validado por Balú (B4): enlace máximo de 15 km; limita el vuelo, no el trabajo útil."},
+    "drones.reco_multirrotor.radio_trabajo_km": {"fecha": "2026-10-05", "decision": "D-017",
+        "motivo": "Validado por Balú (B4): radio de trabajo de 6 km para observar 15 min sobre el objetivo; más allá, solo pasadas rápidas."},
+    # C1 · Movimiento encubierto bajo drones (D-018)
+    "movimiento.tactico.sigilo_antidron_kmh": {"fecha": "2026-10-05", "decision": "D-018",
+        "motivo": "Validado por Balú (C1): 1 km/h en movimiento encubierto. Cada turno el jugador elige «rápido y visible» o «lento y oculto»."},
 }
 
 def aplicar_validacion(r):
@@ -123,6 +131,10 @@ DISENO = [
      "valor": 30, "unidad": "min", "rango_min": 15, "rango_max": 60, "fuente": "Decisión de diseño de la fase 0 (pendiente A4)", "url": None,
      "fecha": "2026-10", "confianza": "baja", "fase_turno": "Fuegos",
      "nota": "Una localización solo por radiogoniometría tiene error de cientos de metros; hace falta confirmar con dron u otro sensor antes de batir."},
+    {"id": "drones.reco_multirrotor.radio_trabajo_km", "categoria": "Drones", "nombre": "Radio de trabajo del multirrotor de reconocimiento con 15 min de observación sobre el objetivo",
+     "valor": 6, "unidad": "km", "rango_min": 4, "rango_max": 8, "fuente": "Cálculo de la fase 0 (pendiente B4): autonomía 25-35 min, tránsito a ~15 m/s", "url": None,
+     "fecha": "2026-10", "confianza": "media", "fase_turno": "Sensores",
+     "nota": "Más allá de este radio el dron solo hace pasadas rápidas; el enlace máximo (15 km) limita el vuelo, no el trabajo útil."},
 ]
 
 def cargar():
@@ -160,7 +172,7 @@ def main():
     juego = {
         "id": "ucrania-2026",
         "nombre": "Ucrania 2026",
-        "version": "0.2.1-propuesta",
+        "version": "0.2.2-propuesta",
         "fecha": datetime.date.today().isoformat(),
         "estado": "pendiente de validación (fase 0)",
         "descripcion": "Juego de reglas por defecto. Valores de fuentes abiertas 2023-2026; cada fila lleva su fuente y su confianza.",

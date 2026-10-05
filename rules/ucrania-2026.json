@@ -1,7 +1,7 @@
 {
   "id": "ucrania-2026",
   "nombre": "Ucrania 2026",
-  "version": "0.2.1-propuesta",
+  "version": "0.2.2-propuesta",
   "fecha": "2026-10-05",
   "estado": "pendiente de validación (fase 0)",
   "descripcion": "Juego de reglas por defecto. Valores de fuentes abiertas 2023-2026; cada fila lleva su fuente y su confianza.",
@@ -1056,7 +1056,12 @@
       "nota": "El fabricante da 15 km en norma FCC y 8 km en norma CE, sin obstáculos. Kyiv Post (2024-02) da unos 15 km en combate. La EW y el relieve lo reducen mucho. Velocidad máxima 21 m/s (unos 75 km/h), viento máximo 12 m/s.",
       "origen": "research/fase0/drones.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-017",
+        "motivo": "Validado por Balú (B4): enlace máximo de 15 km; limita el vuelo, no el trabajo útil."
+      }
     },
     {
       "id": "drones.reco_multirrotor.altitud_m",
@@ -1111,6 +1116,29 @@
       "origen": "research/fase0/drones.json",
       "uso": "parametro",
       "estado": "propuesto"
+    },
+    {
+      "id": "drones.reco_multirrotor.radio_trabajo_km",
+      "categoria": "Drones",
+      "nombre": "Radio de trabajo del multirrotor de reconocimiento con 15 min de observación sobre el objetivo",
+      "valor": 6,
+      "unidad": "km",
+      "rango_min": 4,
+      "rango_max": 8,
+      "fuente": "Cálculo de la fase 0 (pendiente B4): autonomía 25-35 min, tránsito a ~15 m/s",
+      "url": null,
+      "fecha": "2026-10",
+      "confianza": "media",
+      "fase_turno": "Sensores",
+      "nota": "Más allá de este radio el dron solo hace pasadas rápidas; el enlace máximo (15 km) limita el vuelo, no el trabajo útil.",
+      "origen": "tools/construir_reglas.py",
+      "uso": "parametro",
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-017",
+        "motivo": "Validado por Balú (B4): radio de trabajo de 6 km para observar 15 min sobre el objetivo; más allá, solo pasadas rápidas."
+      }
     },
     {
       "id": "drones.sensor_tirador.con_delta_min",
@@ -3336,7 +3364,12 @@
       "nota": "Estimación sin fuente directa. Ninguna fuente fiable da km/h para el movimiento por saltos o reptando bajo drones. El máximo es el doctrinal nocturno campo a través (1,6 km/h). Lo he bajado por las paradas para ocultarse y la observación permanente. Encaja con el dato de RBC (unos 5 km/día efectivos). Debe calibrarse con el uso.",
       "origen": "research/fase0/movimiento_logistica.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-018",
+        "motivo": "Validado por Balú (C1): 1 km/h en movimiento encubierto. Cada turno el jugador elige «rápido y visible» o «lento y oculto»."
+      }
     },
     {
       "id": "movimiento.vehiculos.distancia_limite_km",
