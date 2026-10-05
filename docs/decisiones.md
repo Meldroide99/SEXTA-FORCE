@@ -19,3 +19,5 @@ que no esté aquí no existe.
 | D-012 | 2026-10-04 | Detección de una persona de pie con la térmica de un Mavic 3T: 250 m | Validación de la fase 0 | Balú |
 | D-013 | 2026-10-04 | Artillería pesada de referencia: 155 mm de 52 calibres con base-bleed, 40 km; se añade la categoría completa de 155 mm | Prioridad de Balú por encima del bombardero pesado | Balú |
 | D-014 | 2026-10-04 | Asimetría del bombardero pesado (B1): aplazada | Prioridad baja | Balú |
+| D-015 | 2026-10-05 | Zona batida (A1): dominio FPV hasta 12,5 km de la línea; vehículos y logística batidos hasta 20 km por defecto (editable hasta 30) | Validación de la fase 0 | Balú |
+| D-016 | 2026-10-05 | Tiempo de sensor a golpe (A4): 4 min con enlace digital (Delta), 15 min sin él, 30 min si la detección es solo por EW | Validación de la fase 0 | Balú |

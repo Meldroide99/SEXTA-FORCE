@@ -39,5 +39,5 @@ de pelotón a grupo táctico, basado en la práctica rusa y ucraniana de 2025-20
 ## Documentos clave
 
 - `docs/hoja-de-ruta.md`: qué se construye y en qué fases.
-- `docs/fase0/matriz-parametros.md`: los 193 valores de la fase 0 con sus fuentes.
+- `docs/fase0/matriz-parametros.md`: los 194 valores de la fase 0 con sus fuentes.
 - `docs/fase0/pendientes-validacion.md`: conflictos y asimetrías a decidir antes de programar.

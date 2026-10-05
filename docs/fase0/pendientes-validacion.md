@@ -8,10 +8,10 @@ el valor queda «propuesto» hasta que lo valides.
 
 | # | Tema | Lo que dicen las fuentes | Propuesta |
 |---|---|---|---|
-| A1 | Profundidad de la zona batida | 15 km para vehículos (CSIS, nov 2025); 10-15 km de dominio FPV (OSW, oct 2025); 20-25 km y 30 km a final de 2026 (Brovdi, may 2026; Lasiichuk, jul 2026) | FPV dominante 12,5 km; vehículos 20 km por defecto en «Ucrania 2026», editable hasta 30 |
+| A1 | Profundidad de la zona batida | 15 km para vehículos (CSIS, nov 2025); 10-15 km de dominio FPV (OSW, oct 2025); 20-25 km y 30 km a final de 2026 (Brovdi, may 2026; Lasiichuk, jul 2026) | **Resuelto (D-015): FPV 12,5 km; vehículos 20 km por defecto, editable hasta 30** |
 | A2 | Eficacia del FPV por radio | 20-40 % (Brovdi, 2024); 43 % (WOTR, 2025); 60-80 % de fallos (RUSI, feb 2025); 70-80 % con guiado terminal (CSIS, mar 2025) | **Resuelto (D-010): 30 %.** Sigue pendiente si se crea un tipo aparte «FPV con guiado terminal» |
 | A3 | Alcance del FPV de fibra | 10 km (RUSI, feb 2025); 20 km en servicio (abr 2025); 40 km en pruebas (jul 2025) | **Resuelto (D-011): 10 km eficaces** |
-| A4 | Tiempo de sensor a golpe | 3-5 min con C2 digital (Delta, NYT ago 2026; RUSI 2023 para la artillería rusa); 15-20 min sin integración (WOTR 2025) | 4 min con enlace digital activo; 15 min sin él; 30 min si la detección llega solo por EW |
+| A4 | Tiempo de sensor a golpe | 3-5 min con C2 digital (Delta, NYT ago 2026; RUSI 2023 para la artillería rusa); 15-20 min sin integración (WOTR 2025) | **Resuelto (D-016): 4 min con enlace digital; 15 min sin él; 30 min solo por EW** |
 
 ## B. Asimetrías físicas detectadas al cruzar valores
 

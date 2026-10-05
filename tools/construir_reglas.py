@@ -61,7 +61,29 @@ VALIDACIONES = {
         "motivo": "Validado por Balú: 250 m para detectar una persona de pie con la térmica de un Mavic 3T."},
     "fuegos.art155.cal52_base_bleed.alcance_km": {"fecha": "2026-10-04", "decision": "D-013",
         "motivo": "Validado por Balú: la artillería pesada de referencia es el 155 mm de 52 calibres con base-bleed, hasta 40 km."},
+    # A1 · Profundidad de la zona batida (D-015)
+    "drones.zona_muerte.fpv_profundidad_km": {"fecha": "2026-10-05", "decision": "D-015",
+        "motivo": "Validado por Balú (A1): franja de dominio FPV de 12,5 km desde la línea de contacto."},
+    "drones.zona_muerte.vehiculos_profundidad_km": {"fecha": "2026-10-05", "decision": "D-015", "valor": 20, "rango_min": 15, "rango_max": 30,
+        "motivo": "Validado por Balú (A1): 20 km por defecto para vehículos y logística, editable hasta 30 km (previsión para finales de 2026)."},
+    # A4 · Tiempo de sensor a golpe (D-016)
+    "drones.sensor_tirador.con_delta_min": {"fecha": "2026-10-05", "decision": "D-016",
+        "motivo": "Validado por Balú (A4): 4 min de detección a golpe con enlace digital activo (Delta)."},
+    "drones.sensor_tirador.sin_digital_min": {"fecha": "2026-10-05", "decision": "D-016",
+        "motivo": "Validado por Balú (A4): 15 min sin integración digital."},
+    "drones.sensor_tirador.solo_ew_min": {"fecha": "2026-10-05", "decision": "D-016",
+        "motivo": "Validado por Balú (A4): 30 min si el objetivo solo se ha detectado por EW (hay que confirmarlo con otro sensor antes de batirlo)."},
 }
+
+def aplicar_validacion(r):
+    if r["id"] in VALIDACIONES:
+        v = VALIDACIONES[r["id"]]
+        for k in ("valor", "rango_min", "rango_max", "nombre"):
+            if k in v:
+                r[k] = v[k]
+        r["estado"] = "validado"
+        r["validacion"] = {"fecha": v["fecha"], "decision": v["decision"], "motivo": v["motivo"]}
+    return r
 
 # Correcciones de valor por defecto aplicadas tras revisar la nota de la propia fuente.
 AJUSTES = {
@@ -97,6 +119,10 @@ DISENO = [
     {"id": "logistica.ugv.distancia_espera_km", "categoria": "Movimiento, logística y sanidad", "nombre": "Distancia a la que esperan los UGV respecto a las posiciones avanzadas",
      "valor": 3.5, "unidad": "km", "rango_min": 2, "rango_max": 5, "fuente": "Watling (RUSI), Emergent Approaches", "url": WATLING,
      "fecha": "2025-10", "confianza": "alta", "fase_turno": "Logística", "nota": "Se pilotan desde la retaguardia de la brigada; evacuación y abastecimiento."},
+    {"id": "drones.sensor_tirador.solo_ew_min", "categoria": "Drones", "nombre": "Tiempo de detección a golpe cuando el objetivo solo se ha detectado por EW",
+     "valor": 30, "unidad": "min", "rango_min": 15, "rango_max": 60, "fuente": "Decisión de diseño de la fase 0 (pendiente A4)", "url": None,
+     "fecha": "2026-10", "confianza": "baja", "fase_turno": "Fuegos",
+     "nota": "Una localización solo por radiogoniometría tiene error de cientos de metros; hace falta confirmar con dron u otro sensor antes de batir."},
 ]
 
 def cargar():
@@ -124,22 +150,17 @@ def main():
                 r[k] = a[k]
         r["uso"] = "referencia" if r["id"] in REFERENCIA else "parametro"
         r["estado"] = "propuesto"
-        if r["id"] in VALIDACIONES:
-            v = VALIDACIONES[r["id"]]
-            for k in ("valor", "rango_min", "rango_max", "nombre"):
-                if k in v:
-                    r[k] = v[k]
-            r["estado"] = "validado"
-            r["validacion"] = {"fecha": v["fecha"], "decision": v["decision"], "motivo": v["motivo"]}
-        salida.append(r)
+        salida.append(aplicar_validacion(r))
     for d in DISENO:
         d = dict(d, origen="tools/construir_reglas.py", uso="parametro", estado="propuesto")
-        salida.append(d)
+        salida.append(aplicar_validacion(d))
+    faltan = set(VALIDACIONES) - {r["id"] for r in salida}
+    assert not faltan, f"Validaciones sin fila: {faltan}"
     salida.sort(key=lambda r: (r["categoria"], r["id"]))
     juego = {
         "id": "ucrania-2026",
         "nombre": "Ucrania 2026",
-        "version": "0.2.0-propuesta",
+        "version": "0.2.1-propuesta",
         "fecha": datetime.date.today().isoformat(),
         "estado": "pendiente de validación (fase 0)",
         "descripcion": "Juego de reglas por defecto. Valores de fuentes abiertas 2023-2026; cada fila lleva su fuente y su confianza.",

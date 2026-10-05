@@ -1,8 +1,8 @@
 {
   "id": "ucrania-2026",
   "nombre": "Ucrania 2026",
-  "version": "0.2.0-propuesta",
-  "fecha": "2026-10-04",
+  "version": "0.2.1-propuesta",
+  "fecha": "2026-10-05",
   "estado": "pendiente de validación (fase 0)",
   "descripcion": "Juego de reglas por defecto. Valores de fuentes abiertas 2023-2026; cada fila lleva su fuente y su confianza.",
   "duplicados_eliminados": {
@@ -1128,7 +1128,12 @@
       "nota": "Con Delta el ciclo bajó de unos 20 min a 3-5 min, integrando vídeo de drones, interceptaciones de radio e imagen de satélite. No he encontrado cifras específicas de Kropyva (que es sobre todo para el control de fuegos de artillería).",
       "origen": "research/fase0/drones.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-016",
+        "motivo": "Validado por Balú (A4): 4 min de detección a golpe con enlace digital activo (Delta)."
+      }
     },
     {
       "id": "drones.sensor_tirador.sin_digital_min",
@@ -1146,7 +1151,35 @@
       "nota": "WOTR da una media de unos 15 min desde la petición hasta el impacto FPV, frente a menos de 5 min de un mortero. La espera por frecuencia libre puede llegar a media hora o incluso horas. NV/NYT da unos 20 min antes de Delta. El Ejército canadiense da 5-7 min de vuelo hasta el objetivo tras cruzar el límite anterior propio.",
       "origen": "research/fase0/drones.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-016",
+        "motivo": "Validado por Balú (A4): 15 min sin integración digital."
+      }
+    },
+    {
+      "id": "drones.sensor_tirador.solo_ew_min",
+      "categoria": "Drones",
+      "nombre": "Tiempo de detección a golpe cuando el objetivo solo se ha detectado por EW",
+      "valor": 30,
+      "unidad": "min",
+      "rango_min": 15,
+      "rango_max": 60,
+      "fuente": "Decisión de diseño de la fase 0 (pendiente A4)",
+      "url": null,
+      "fecha": "2026-10",
+      "confianza": "baja",
+      "fase_turno": "Fuegos",
+      "nota": "Una localización solo por radiogoniometría tiene error de cientos de metros; hace falta confirmar con dron u otro sensor antes de batir.",
+      "origen": "tools/construir_reglas.py",
+      "uso": "parametro",
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-016",
+        "motivo": "Validado por Balú (A4): 30 min si el objetivo solo se ha detectado por EW (hay que confirmarlo con otro sensor antes de batirlo)."
+      }
     },
     {
       "id": "drones.zona_muerte.fpv_profundidad_km",
@@ -1164,13 +1197,18 @@
       "nota": "Franja de 10-15 km en la que los drones eliminan toda actividad enemiga. Coincide con el alcance típico del FPV por radio (10-15 km, según Kostenko). Militarnyi (2025-06) situaba la zona gris en 5-7 km y los FPV llegando a 25-30 km.",
       "origen": "research/fase0/drones.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-015",
+        "motivo": "Validado por Balú (A1): franja de dominio FPV de 12,5 km desde la línea de contacto."
+      }
     },
     {
       "id": "drones.zona_muerte.vehiculos_profundidad_km",
       "categoria": "Drones",
       "nombre": "Profundidad de la 'kill zone' para vehículos y logística",
-      "valor": 25,
+      "valor": 20,
       "unidad": "km",
       "rango_min": 15,
       "rango_max": 30,
@@ -1182,7 +1220,12 @@
       "nota": "Brovdi habla de 25 km o más a cada lado del frente. El general Lasiichuk (7.º Cuerpo de Asalto Aéreo, 2026-07) da 20-25 km y prevé 30 km a finales de 2026. Según el FT (2026-02), apenas hay transporte en unos 15 km cerca del frente. The War Zone (2025-10) dice que no existe 'retaguardia' en 30 km.",
       "origen": "research/fase0/drones.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-015",
+        "motivo": "Validado por Balú (A1): 20 km por defecto para vehículos y logística, editable hasta 30 km (previsión para finales de 2026)."
+      }
     },
     {
       "id": "com.hf_mochila.alcance_km",
