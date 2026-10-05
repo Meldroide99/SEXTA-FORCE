@@ -1,10 +1,10 @@
 # Fase 0 · Reglas del turno
 
-Cómo resuelve el motor cada turno, en lenguaje claro. Todas las cifras salen del juego de reglas «Ucrania 2026» v0.5.0 y se pueden cambiar en el panel de parámetros; entre paréntesis va el nombre del parámetro cuando ayuda a localizarlo. Lo marcado **[propuesta]** es nuevo y necesita tu visto bueno.
+Cómo resuelve el motor cada turno, en lenguaje claro. Todas las cifras salen del juego de reglas «Ucrania 2026» v0.6.0 y se pueden cambiar en el panel de parámetros. **Validado por Balú el 5 de octubre de 2026 (D-043 a D-047).**
 
 ## 0. Fundamentos
 
-**Mapa.** [propuesta] El terreno es una rejilla de 10 m (relieve y capa de vegetación y obstáculos), pero las fichas se mueven en coordenadas continuas, sin hexágonos. Las distancias, la línea de vista y los alcances se miden en metros reales.
+**Mapa** (D-043). El terreno es una rejilla de 10 m (relieve y capa de vegetación y obstáculos) con curvas de nivel cada 10 m, y las fichas se mueven en coordenadas continuas, sin hexágonos. Las distancias, la línea de vista y los alcances se miden en metros reales.
 
 **Tiempo.** La duración del turno depende del paso de la operación: 120 min en reconocer, aislar y degradar; 15 min en fijar y suprimir; 10 min en cerrar y destruir y en consolidar. Se puede cambiar.
 
@@ -30,7 +30,7 @@ Para cada sensor y cada ficha enemiga dentro de su alcance:
 1. **Línea de vista** (D-033): rayo sobre el relieve más la capa de vegetación, desde la altura del sensor hasta la parte visible del blanco. Un dron a 150 m de altura ve por encima de casi todo, pero bajo el dosel del bosque solo detecta la mitad de las personas con térmica. Si no hay línea de vista, no hay detección (salvo escucha electrónica, radar, sonido o fogonazo).
 2. **Distancia base de detección** por sensor y tipo de blanco. Ejemplos: térmica de Mavic, persona 250 m y vehículo 680 m; ojo de día, individuos a 1.500 m y silueta a 600 m; de noche a simple vista ×0,14; radar de vigilancia, personal a 6 km.
 3. **Modificadores de la distancia:** moverse ×3; poncho ×0,3 quieto y ×0,7 moviéndose; cruce térmico ×0,4; niebla (la térmica rinde 4 veces más que el ojo); disparar de noche, el fogonazo se ve a 1.750 m.
-4. **Tirada:** la probabilidad de detectar en el turno es alta dentro de la distancia modificada y cae a cero fuera. [propuesta] 90 % hasta la mitad de la distancia, bajando en línea recta hasta 0 en la distancia completa.
+4. **Tirada** (D-044): 90 % por turno hasta la mitad de la distancia modificada, bajando en línea recta hasta el 20 % en la distancia completa; más allá, 0.
 5. **Resultado:** un contacto con posición, tipo estimado (detectado o reconocido), certeza y hora. El contacto envejece: si no se vuelve a ver, su posición se va haciendo más incierta.
 6. **Señuelos:** cada señuelo genera un contacto falso hasta que un sensor más fino lo descarta (D-020).
 
@@ -60,7 +60,7 @@ Para cada sensor y cada ficha enemiga dentro de su alcance:
    - Tras disparar la pieza tiene 3 min para moverse; si no, queda expuesta a la contrabatería rusa, que llega a los 3 min.
 5. **Tiro directo** (D-033): alcance = el menor entre el del arma y la línea de vista. Disparar a través de follaje tiene la mitad de acierto y el follaje no protege.
 6. **Efecto:**
-   - [propuesta] Cada impacto produce bajas según el radio letal del arma: mortero de 82 mm 35 m, de 120 mm 69 m, 155 mm 50 m.
+   - (D-045) Cada impacto produce bajas según el radio letal del arma: mortero de 82 mm 35 m, de 120 mm 69 m, 155 mm 50 m.
    - El número de bajas se reduce por la protección: posición fortificada con cubierta, vehículo, sótano. La vegetación no protege.
    - Todo fuego que cae a menos del radio letal de una ficha la deja **Suprimida** ese turno, aunque no cause bajas (D-022).
 7. **Fuego de reacción:** lo que se mueve o dispara bajo un dron enemigo con tirador disponible puede recibir fuego en el mismo turno.
@@ -73,15 +73,15 @@ Para cada sensor y cada ficha enemiga dentro de su alcance:
    - Los vehículos, según el terreno.
    - Más de un 7 % de pendiente o la vegetación densa ralentizan.
 2. **Elección del jugador cada turno:** «rápido y visible» (velocidad de marcha, firma ×3) o «lento y oculto» (1 km/h, firma normal o reducida).
-3. **Minas:** atravesar una zona minada sin paso abierto tiene una probabilidad de baja o de inmovilizar el vehículo. [propuesta] Las minas conocidas se ven en el mapa; las no detectadas, no.
+3. **Minas** (D-046): atravesar una zona minada sin paso abierto tiene una probabilidad de baja o de inmovilizar el vehículo. Las minas conocidas se ven en el mapa; las no detectadas, no.
 4. **Distancias de seguridad:** nada de más de 5 junto (plantilla M3). Agrupar fichas aumenta su firma y el efecto del fuego.
 
 ## 6. Combate próximo
 
-Solo cuando una ficha entra en una posición enemiga o a menos de [propuesta] 50 m de ella.
+Solo cuando una ficha entra en una posición enemiga o a menos de 50 m de ella (D-047).
 
 1. **Requisitos para asaltar:** el estado de moral tiene que ser **Firme**, y la ficha no puede llevar más del 20 % de bajas si es atacante (D-040).
-2. **Resolución:** [propuesta] se comparan efectivos, granadas y munición disponibles, la sorpresa (¿el defensor estaba suprimido o ciego?), la fortificación y el estado de moral de cada uno. El resultado es la toma de la posición, el rechazo o el combate que sigue al turno siguiente.
+2. **Resolución:** se comparan efectivos, granadas y munición disponibles, la sorpresa (¿el defensor estaba suprimido o ciego?), la fortificación y el estado de moral de cada uno. El resultado es la toma de la posición, el rechazo o el combate que sigue al turno siguiente.
 3. **Calibración:** con la secuencia de 7 pasos bien hecha, el atacante pierde en torno a un 5 % en terreno favorable y un 10 % en desfavorable; mal coordinado, hasta un 50 % (Watling).
 
 ## 7. Logística
@@ -114,10 +114,12 @@ Solo cuando una ficha entra en una posición enemiga o a menos de [propuesta] 50
 4. **Rotura forzada:** el defensor se rompe al 40 % de bajas; la unidad de asalto rusa rota al 30 %.
 5. **Informe del turno:** cada bando recibe lo que sabe: contactos, bajas propias, estado de sus fichas y los indicadores del paso de la operación (enemigo localizado, drones enemigos operativos y demás).
 
-## 9. Decisiones que necesito de ti
+## 9. Decisiones tomadas
 
-1. **Mapa:** rejilla de 10 m para el terreno y movimiento libre de las fichas, sin hexágonos.
-2. **Detección:** 90 % de probabilidad hasta la mitad de la distancia y bajando hasta 0 en la distancia completa.
-3. **Efecto del fuego:** bajas según el radio letal del arma, reducidas por la protección, y supresión segura dentro del radio letal.
-4. **Minas:** las no detectadas no se ven en el mapa.
-5. **Combate próximo:** empieza a 50 m y se resuelve comparando efectivos, granadas, sorpresa, fortificación y moral.
+| # | Regla | Decisión |
+|---|---|---|
+| D-043 | Mapa | Rejilla de 10 m, curvas de nivel cada 10 m y fichas libres |
+| D-044 | Detección | 90 % hasta la mitad de la distancia, 20 % en la distancia completa, 0 más allá |
+| D-045 | Efecto del fuego | Bajas por radio letal reducidas por protección; supresión dentro del radio letal |
+| D-046 | Minas | Las no detectadas no se ven |
+| D-047 | Combate próximo | Desde 50 m; efectivos, granadas, sorpresa, fortificación y moral |

@@ -17,7 +17,7 @@ CATEGORIAS = {  # fichero -> orden de presentación
     "fuegos.json": 4, "artilleria_155.json": 5, "movimiento_logistica.json": 6,
     # Apartado E de la fase 0 (5 oct 2026)
     "fpv_fibra_2026.json": 7, "apoyos_2026.json": 8, "mando_moral.json": 9,
-    "tiro_directo_terreno.json": 10,
+    "tiro_directo_terreno.json": 10, "reglas_turno.json": 11,
 }
 
 # Duplicados entre equipos de investigación: se conserva la fila indicada como canónica.
@@ -228,6 +228,15 @@ VALIDACIONES = {
     "mando.moral.umbral_rotura_defensor_pct": {"fecha": "2026-10-05", "decision": "D-040", "motivo": "Validado por Balú (apartado I, modelo de moral por cohesión)."},
     "mando.moral.umbral_suprimido": {"fecha": "2026-10-05", "decision": "D-040", "motivo": "Validado por Balú (apartado I, modelo de moral por cohesión)."},
     "mando.moral.umbral_tocado": {"fecha": "2026-10-05", "decision": "D-040", "motivo": "Validado por Balú (apartado I, modelo de moral por cohesión)."},
+    # Reglas del turno (5 oct 2026)
+    "terreno.rejilla_m": {"fecha": "2026-10-05", "decision": "D-043", "motivo": "Validado por Balú (reglas del turno)."},
+    "terreno.curvas_equidistancia_m": {"fecha": "2026-10-05", "decision": "D-043", "motivo": "Validado por Balú (reglas del turno)."},
+    "deteccion.probabilidad.cerca_pct": {"fecha": "2026-10-05", "decision": "D-044", "motivo": "Validado por Balú (reglas del turno)."},
+    "deteccion.probabilidad.lejos_pct": {"fecha": "2026-10-05", "decision": "D-044", "motivo": "Validado por Balú (reglas del turno)."},
+    "deteccion.probabilidad.fraccion_cerca": {"fecha": "2026-10-05", "decision": "D-044", "motivo": "Validado por Balú (reglas del turno)."},
+    "fuegos.efecto.supresion_en_radio_letal": {"fecha": "2026-10-05", "decision": "D-045", "motivo": "Validado por Balú (reglas del turno)."},
+    "terreno.minas.no_detectadas_visibles": {"fecha": "2026-10-05", "decision": "D-046", "motivo": "Validado por Balú (reglas del turno)."},
+    "combate.distancia_inicio_m": {"fecha": "2026-10-05", "decision": "D-047", "motivo": "Validado por Balú (reglas del turno)."},
 }
 
 def aplicar_validacion(r):
@@ -335,7 +344,7 @@ def main():
     juego = {
         "id": "ucrania-2026",
         "nombre": "Ucrania 2026",
-        "version": "0.5.0",
+        "version": "0.6.0",
         "fecha": datetime.date.today().isoformat(),
         "estado": "fase 0: todas las decisiones de parámetros validadas el 5 oct 2026 (v0.5.0); los valores no validados uno a uno son valores por defecto editables",
         "descripcion": "Juego de reglas por defecto. Valores de fuentes abiertas 2023-2026; cada fila lleva su fuente y su confianza.",

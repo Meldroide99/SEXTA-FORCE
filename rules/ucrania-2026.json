@@ -1,7 +1,7 @@
 {
   "id": "ucrania-2026",
   "nombre": "Ucrania 2026",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "fecha": "2026-10-05",
   "estado": "fase 0: todas las decisiones de parámetros validadas el 5 oct 2026 (v0.5.0); los valores no validados uno a uno son valores por defecto editables",
   "descripcion": "Juego de reglas por defecto. Valores de fuentes abiertas 2023-2026; cada fila lleva su fuente y su confianza.",
@@ -847,6 +847,75 @@
       "origen": "research/fase0/deteccion.json",
       "uso": "parametro",
       "estado": "propuesto"
+    },
+    {
+      "id": "deteccion.probabilidad.cerca_pct",
+      "categoria": "Detección y sensores",
+      "nombre": "Probabilidad de detectar por turno hasta la mitad de la distancia de detección",
+      "valor": 90,
+      "unidad": "%",
+      "rango_min": 50,
+      "rango_max": 100,
+      "fuente": "Reglas del turno de la fase 0, validadas por Balú",
+      "url": null,
+      "fecha": "2026-10",
+      "confianza": "media",
+      "fase_turno": "Sensores",
+      "nota": "Distancia ya ajustada por movimiento, ocultación, luz y meteorología (D-044).",
+      "origen": "research/fase0/reglas_turno.json",
+      "uso": "parametro",
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-044",
+        "motivo": "Validado por Balú (reglas del turno)."
+      }
+    },
+    {
+      "id": "deteccion.probabilidad.fraccion_cerca",
+      "categoria": "Detección y sensores",
+      "nombre": "Fracción de la distancia de detección hasta la que se aplica la probabilidad alta",
+      "valor": 0.5,
+      "unidad": "fracción",
+      "rango_min": 0.25,
+      "rango_max": 0.75,
+      "fuente": "Reglas del turno de la fase 0, validadas por Balú",
+      "url": null,
+      "fecha": "2026-10",
+      "confianza": "media",
+      "fase_turno": "Sensores",
+      "nota": "D-044.",
+      "origen": "research/fase0/reglas_turno.json",
+      "uso": "parametro",
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-044",
+        "motivo": "Validado por Balú (reglas del turno)."
+      }
+    },
+    {
+      "id": "deteccion.probabilidad.lejos_pct",
+      "categoria": "Detección y sensores",
+      "nombre": "Probabilidad de detectar por turno en la distancia de detección completa",
+      "valor": 20,
+      "unidad": "%",
+      "rango_min": 0,
+      "rango_max": 50,
+      "fuente": "Reglas del turno de la fase 0, validadas por Balú",
+      "url": null,
+      "fecha": "2026-10",
+      "confianza": "media",
+      "fase_turno": "Sensores",
+      "nota": "Baja en línea recta desde el 90 % en la mitad de la distancia hasta este valor en la distancia completa; más allá, 0 (D-044).",
+      "origen": "research/fase0/reglas_turno.json",
+      "uso": "parametro",
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-044",
+        "motivo": "Validado por Balú (reglas del turno)."
+      }
     },
     {
       "id": "deteccion.radar_vigilancia.personal_km",
@@ -2769,6 +2838,29 @@
       "estado": "propuesto"
     },
     {
+      "id": "combate.distancia_inicio_m",
+      "categoria": "Fuegos y efectos",
+      "nombre": "Distancia a la que empieza el combate próximo",
+      "valor": 50,
+      "unidad": "m",
+      "rango_min": 25,
+      "rango_max": 100,
+      "fuente": "Reglas del turno de la fase 0, validadas por Balú",
+      "url": null,
+      "fecha": "2026-10",
+      "confianza": "media",
+      "fase_turno": "Combate próximo",
+      "nota": "Se resuelve por efectivos, granadas y munición, sorpresa, fortificación y moral; para asaltar hay que estar Firme y, si se ataca, con menos del 20 % de bajas (D-047).",
+      "origen": "research/fase0/reglas_turno.json",
+      "uso": "parametro",
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-047",
+        "motivo": "Validado por Balú (reglas del turno)."
+      }
+    },
+    {
       "id": "fuegos.ajuste_dron.proyectiles_para_destruir",
       "categoria": "Fuegos y efectos",
       "nombre": "Proyectiles para destruir una posición de pelotón con ajuste por dron (sin dron en rango_max)",
@@ -3993,6 +4085,29 @@
       "origen": "research/fase0/fuegos.json",
       "uso": "referencia",
       "estado": "propuesto"
+    },
+    {
+      "id": "fuegos.efecto.supresion_en_radio_letal",
+      "categoria": "Fuegos y efectos",
+      "nombre": "Todo impacto dentro del radio letal deja a la ficha Suprimida ese turno",
+      "valor": 1,
+      "unidad": "0 = no, 1 = sí",
+      "rango_min": 0,
+      "rango_max": 1,
+      "fuente": "Reglas del turno de la fase 0, validadas por Balú",
+      "url": null,
+      "fecha": "2026-10",
+      "confianza": "media",
+      "fase_turno": "Fuegos",
+      "nota": "Las bajas se calculan con el radio letal del arma y se reducen por la protección (fortificación con cubierta, vehículo, sótano); la vegetación no protege (D-045).",
+      "origen": "research/fase0/reglas_turno.json",
+      "uso": "parametro",
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-045",
+        "motivo": "Validado por Balú (reglas del turno)."
+      }
     },
     {
       "id": "fuegos.fusil_asalto.alcance_eficaz_m",
@@ -5941,6 +6056,29 @@
       }
     },
     {
+      "id": "terreno.curvas_equidistancia_m",
+      "categoria": "Terreno y visibilidad",
+      "nombre": "Equidistancia de las curvas de nivel del mapa",
+      "valor": 10,
+      "unidad": "m",
+      "rango_min": 5,
+      "rango_max": 20,
+      "fuente": "Reglas del turno de la fase 0, validadas por Balú",
+      "url": null,
+      "fecha": "2026-10",
+      "confianza": "media",
+      "fase_turno": "Sensores",
+      "nota": "Curva maestra cada 50 m (D-043).",
+      "origen": "research/fase0/reglas_turno.json",
+      "uso": "parametro",
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-043",
+        "motivo": "Validado por Balú (reglas del turno)."
+      }
+    },
+    {
       "id": "terreno.los.paso_muestreo_m",
       "categoria": "Terreno y visibilidad",
       "nombre": "Paso de muestreo del rayo de línea de vista sobre el modelo digital del terreno",
@@ -5964,6 +6102,29 @@
       }
     },
     {
+      "id": "terreno.minas.no_detectadas_visibles",
+      "categoria": "Terreno y visibilidad",
+      "nombre": "Las minas no detectadas aparecen en el mapa",
+      "valor": 0,
+      "unidad": "0 = no, 1 = sí",
+      "rango_min": 0,
+      "rango_max": 1,
+      "fuente": "Reglas del turno de la fase 0, validadas por Balú",
+      "url": null,
+      "fecha": "2026-10",
+      "confianza": "media",
+      "fase_turno": "Maniobra",
+      "nota": "Cruzar zona minada sin paso abierto tiene probabilidad de baja o de vehículo inmovilizado (D-046).",
+      "origen": "research/fase0/reglas_turno.json",
+      "uso": "parametro",
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-046",
+        "motivo": "Validado por Balú (reglas del turno)."
+      }
+    },
+    {
       "id": "terreno.proteccion.tierra_frontal_cm",
       "categoria": "Terreno y visibilidad",
       "nombre": "Espesor de tierra que protege contra armas ligeras (la vegetación solo oculta)",
@@ -5984,6 +6145,29 @@
         "fecha": "2026-10-05",
         "decision": "D-036",
         "motivo": "Validado por Balú (apartado L): regla de línea de vista y capa de vegetación."
+      }
+    },
+    {
+      "id": "terreno.rejilla_m",
+      "categoria": "Terreno y visibilidad",
+      "nombre": "Tamaño de celda de la rejilla del terreno (relieve y vegetación)",
+      "valor": 10,
+      "unidad": "m",
+      "rango_min": 5,
+      "rango_max": 25,
+      "fuente": "Reglas del turno de la fase 0, validadas por Balú",
+      "url": null,
+      "fecha": "2026-10",
+      "confianza": "media",
+      "fase_turno": "Sensores",
+      "nota": "Las fichas se mueven en coordenadas continuas, sin hexágonos (D-043).",
+      "origen": "research/fase0/reglas_turno.json",
+      "uso": "parametro",
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-043",
+        "motivo": "Validado por Balú (reglas del turno)."
       }
     },
     {

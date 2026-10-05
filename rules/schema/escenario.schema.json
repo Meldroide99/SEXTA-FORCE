@@ -1,0 +1,654 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Meldroide99/SEXTA-FORCE/rules/schema/escenario.schema.json",
+  "title": "Escenario generado",
+  "description": "Lo que produce la pantalla de creación al pulsar el botón. Con la misma semilla y las mismas elecciones, el generador produce el mismo escenario.",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "version_formato": {
+      "type": "string"
+    },
+    "semilla": {
+      "type": "integer",
+      "description": "Se muestra en pantalla"
+    },
+    "creado": {
+      "type": "string",
+      "description": "Fecha y hora ISO"
+    },
+    "elecciones": {
+      "type": "object",
+      "properties": {
+        "escalon": {
+          "enum": [
+            "peloton",
+            "seccion",
+            "sgt",
+            "gt"
+          ]
+        },
+        "doctrina_propia": {
+          "enum": [
+            "ucrania-2026",
+            "rusia-2026",
+            "otan-drones"
+          ]
+        },
+        "enemigo": {
+          "type": "object",
+          "properties": {
+            "doctrina": {
+              "enum": [
+                "rusia-2026",
+                "ucrania-2026",
+                "otan-drones"
+              ]
+            },
+            "tamano": {
+              "enum": [
+                "inferior",
+                "igual",
+                "superior"
+              ]
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "doctrina",
+            "tamano"
+          ]
+        },
+        "mision": {
+          "enum": [
+            "ataque-por-fases",
+            "defensa-de-posicion",
+            "infiltracion",
+            "reconocimiento",
+            "contraataque",
+            "relevo-bajo-drones"
+          ]
+        },
+        "empezar_en_paso": {
+          "enum": [
+            1,
+            4,
+            6
+          ]
+        },
+        "aprender": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "preparar-ataque",
+              "momento-asalto",
+              "lectura-terreno",
+              "firma-dispersion",
+              "cadena-sensor-tirador",
+              "ew",
+              "logistica-evacuacion",
+              "todo"
+            ]
+          }
+        },
+        "terreno": {
+          "enum": [
+            "colinas",
+            "llanura-lesosmugas",
+            "periurbano",
+            "rio-vados",
+            "bosque",
+            "real"
+          ]
+        },
+        "meteo": {
+          "type": "object",
+          "properties": {
+            "tipo": {
+              "enum": [
+                "aleatoria",
+                "despejado",
+                "niebla",
+                "lluvia",
+                "noche"
+              ]
+            },
+            "estacion": {
+              "enum": [
+                "primavera",
+                "verano",
+                "otono",
+                "invierno"
+              ]
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "tipo",
+            "estacion"
+          ]
+        },
+        "mando_enemigo": {
+          "enum": [
+            "ia-propia",
+            "claude",
+            "companero"
+          ]
+        },
+        "recursos": {
+          "enum": [
+            "escasos",
+            "normales",
+            "abundantes"
+          ]
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "escalon",
+        "doctrina_propia",
+        "enemigo",
+        "mision",
+        "empezar_en_paso",
+        "aprender",
+        "terreno",
+        "meteo",
+        "mando_enemigo",
+        "recursos"
+      ]
+    },
+    "juego_de_reglas": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "cambios": {
+          "type": "object",
+          "description": "Parámetros cambiados en el panel: id → valor",
+          "additionalProperties": {
+            "type": "number"
+          }
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "version"
+      ]
+    },
+    "terreno": {
+      "type": "object",
+      "properties": {
+        "tipo": {
+          "type": "string"
+        },
+        "tamano_m": {
+          "type": "object",
+          "properties": {
+            "ancho": {
+              "type": "number"
+            },
+            "alto": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false
+        },
+        "rejilla_m": {
+          "type": "number"
+        },
+        "curvas_equidistancia_m": {
+          "type": "number"
+        },
+        "relieve": {
+          "type": "string",
+          "description": "Ruta al ráster de alturas (rejilla de 10 m)"
+        },
+        "vegetacion": {
+          "type": "string",
+          "description": "Ruta al ráster de clases de vegetación y obstáculos"
+        },
+        "elementos": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "tipo": {
+                "enum": [
+                  "carretera",
+                  "camino",
+                  "arroyo",
+                  "rio",
+                  "vado",
+                  "puente",
+                  "edificio",
+                  "lesosmuga",
+                  "bosque",
+                  "cultivo",
+                  "campo_minas"
+                ]
+              },
+              "nombre": {
+                "type": "string"
+              },
+              "geometria": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "x": {
+                      "type": "number",
+                      "description": "m, este"
+                    },
+                    "y": {
+                      "type": "number",
+                      "description": "m, norte"
+                    }
+                  },
+                  "additionalProperties": false,
+                  "required": [
+                    "x",
+                    "y"
+                  ]
+                }
+              },
+              "conocido_por": {
+                "type": "array",
+                "items": {
+                  "enum": [
+                    "azul",
+                    "rojo"
+                  ]
+                }
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "tipo",
+              "geometria"
+            ]
+          }
+        },
+        "toponimos": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "nombre": {
+                "type": "string"
+              },
+              "posicion": {
+                "type": "object",
+                "properties": {
+                  "x": {
+                    "type": "number",
+                    "description": "m, este"
+                  },
+                  "y": {
+                    "type": "number",
+                    "description": "m, norte"
+                  }
+                },
+                "additionalProperties": false,
+                "required": [
+                  "x",
+                  "y"
+                ]
+              },
+              "cota_m": {
+                "type": "number"
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "nombre",
+              "posicion"
+            ]
+          }
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "tipo",
+        "tamano_m",
+        "rejilla_m",
+        "relieve",
+        "vegetacion"
+      ]
+    },
+    "fuerzas": {
+      "type": "object",
+      "properties": {
+        "azul": {
+          "$ref": "#/$defs/fuerza"
+        },
+        "rojo": {
+          "$ref": "#/$defs/fuerza"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "azul",
+        "rojo"
+      ]
+    },
+    "mision": {
+      "type": "object",
+      "properties": {
+        "plantilla": {
+          "type": "string",
+          "description": "templates/misiones/<id>.json"
+        },
+        "paso_inicial": {
+          "type": "integer"
+        },
+        "objetivos": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "nombre": {
+                "type": "string"
+              },
+              "posicion": {
+                "type": "object",
+                "properties": {
+                  "x": {
+                    "type": "number",
+                    "description": "m, este"
+                  },
+                  "y": {
+                    "type": "number",
+                    "description": "m, norte"
+                  }
+                },
+                "additionalProperties": false,
+                "required": [
+                  "x",
+                  "y"
+                ]
+              },
+              "bando": {
+                "enum": [
+                  "azul",
+                  "rojo"
+                ]
+              },
+              "tipo": {
+                "enum": [
+                  "tomar",
+                  "mantener",
+                  "destruir",
+                  "reconocer",
+                  "negar"
+                ]
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "posicion",
+              "bando",
+              "tipo"
+            ]
+          }
+        },
+        "condiciones_victoria": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "limite_turnos": {
+          "type": "integer"
+        },
+        "limite_horas": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "plantilla",
+        "paso_inicial",
+        "objetivos",
+        "condiciones_victoria"
+      ]
+    },
+    "eventos": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "cuando": {
+            "type": "string",
+            "description": "Turno, hora o condición"
+          },
+          "que": {
+            "type": "string"
+          },
+          "por_que": {
+            "type": "string",
+            "description": "Qué punto de aprendizaje pone a prueba"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "cuando",
+          "que"
+        ]
+      }
+    },
+    "orden_operaciones": {
+      "type": "object",
+      "properties": {
+        "situacion": {
+          "type": "string"
+        },
+        "mision": {
+          "type": "string"
+        },
+        "ejecucion": {
+          "type": "string"
+        },
+        "apoyo_logistico": {
+          "type": "string"
+        },
+        "mando_y_transmisiones": {
+          "type": "string"
+        },
+        "redactada_por": {
+          "enum": [
+            "generador",
+            "claude"
+          ]
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "situacion",
+        "mision",
+        "ejecucion",
+        "apoyo_logistico",
+        "mando_y_transmisiones"
+      ]
+    },
+    "comprobacion": {
+      "type": "object",
+      "properties": {
+        "rutas_ok": {
+          "type": "boolean"
+        },
+        "objetivo_alcanzable": {
+          "type": "boolean"
+        },
+        "fuerzas_caben": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "version_formato",
+    "semilla",
+    "elecciones",
+    "juego_de_reglas",
+    "terreno",
+    "fuerzas",
+    "mision",
+    "orden_operaciones"
+  ],
+  "$defs": {
+    "fuerza": {
+      "type": "object",
+      "properties": {
+        "doctrina": {
+          "type": "string"
+        },
+        "plantilla": {
+          "type": "string",
+          "description": "templates/unidades/<id>.json"
+        },
+        "apoyos": {
+          "type": "string",
+          "description": "templates/apoyos/<id>.json"
+        },
+        "perfil_ia": {
+          "type": "string"
+        },
+        "fichas": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ficha_inicial"
+          }
+        },
+        "zona_despliegue": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "x": {
+                "type": "number",
+                "description": "m, este"
+              },
+              "y": {
+                "type": "number",
+                "description": "m, norte"
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "x",
+              "y"
+            ]
+          }
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "doctrina",
+        "fichas"
+      ]
+    },
+    "ficha_inicial": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "tipo": {
+          "type": "string",
+          "description": "Tipo de ficha de ai/acciones-por-ficha.json"
+        },
+        "nombre": {
+          "type": "string"
+        },
+        "app6": {
+          "type": "string",
+          "description": "Código SIDC APP-6 para milsymbol"
+        },
+        "efectivos": {
+          "type": "integer"
+        },
+        "posicion": {
+          "type": "object",
+          "properties": {
+            "x": {
+              "type": "number",
+              "description": "m, este"
+            },
+            "y": {
+              "type": "number",
+              "description": "m, norte"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "x",
+            "y"
+          ]
+        },
+        "postura": {
+          "enum": [
+            "de_pie",
+            "rodillas",
+            "tumbado",
+            "enmascarada",
+            "en_vehiculo",
+            "fortificada"
+          ]
+        },
+        "calidad": {
+          "enum": [
+            "veterana",
+            "regular",
+            "bisona"
+          ]
+        },
+        "municion": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "number"
+          }
+        },
+        "drones": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "integer"
+          }
+        },
+        "baterias": {
+          "type": "integer"
+        },
+        "tarea_permanente": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "tipo",
+        "efectivos",
+        "posicion"
+      ]
+    }
+  }
+}

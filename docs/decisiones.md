@@ -47,3 +47,8 @@ que no esté aquí no existe.
 | D-040 | 2026-10-05 | Modelo de moral por cohesión 0-100 con estados Firme, Tocado, Suprimido y Roto, umbrales y factores del apartado I | Validación de la fase 0 | Balú |
 | D-041 | 2026-10-05 | Secuencias por pasos de defensa (ucraniana y variante rusa), infiltración rusa y reconocimiento (templates/misiones) | Validación de la fase 0 | Balú |
 | D-042 | 2026-10-05 | Cierre de la validación de parámetros de la fase 0: juego de reglas «Ucrania 2026» v0.5.0 | Validación de la fase 0 | Balú |
+| D-043 | 2026-10-05 | Mapa: rejilla de 10 m y curvas de nivel cada 10 m; las fichas se mueven libremente en coordenadas continuas, sin hexágonos | Reglas del turno | Balú |
+| D-044 | 2026-10-05 | Detección: 90 % por turno hasta la mitad de la distancia de detección, bajando en línea recta hasta el 20 % en la distancia completa; más allá, 0 | Reglas del turno | Balú |
+| D-045 | 2026-10-05 | Efecto del fuego: bajas según el radio letal del arma, reducidas por la protección; todo lo que queda dentro del radio letal queda Suprimido ese turno | Reglas del turno | Balú |
+| D-046 | 2026-10-05 | Minas: las no detectadas no aparecen en el mapa | Reglas del turno | Balú |
+| D-047 | 2026-10-05 | Combate próximo: empieza a 50 m o al entrar en la posición; se resuelve por efectivos, granadas y munición, sorpresa, fortificación y moral | Reglas del turno | Balú |

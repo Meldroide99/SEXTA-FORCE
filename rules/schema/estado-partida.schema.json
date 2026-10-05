@@ -1,0 +1,568 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Meldroide99/SEXTA-FORCE/rules/schema/estado-partida.schema.json",
+  "title": "Estado de la partida",
+  "description": "Se guarda al final de cada turno. Es la verdad completa: cada bando y la IA solo reciben su vista filtrada (vista_bando). Con el escenario, la semilla y la lista de órdenes de cada turno se puede reproducir la partida entera.",
+  "type": "object",
+  "properties": {
+    "partida": {
+      "type": "string"
+    },
+    "escenario": {
+      "type": "string",
+      "description": "id del escenario"
+    },
+    "version_formato": {
+      "type": "string"
+    },
+    "global": {
+      "type": "object",
+      "properties": {
+        "turno": {
+          "type": "integer"
+        },
+        "hora": {
+          "type": "string",
+          "description": "ISO"
+        },
+        "paso_operacion": {
+          "type": "integer"
+        },
+        "duracion_turno_min": {
+          "type": "number"
+        },
+        "luz": {
+          "enum": [
+            "dia",
+            "crepusculo",
+            "noche"
+          ]
+        },
+        "meteo": {
+          "type": "string"
+        },
+        "cruce_termico": {
+          "type": "boolean"
+        },
+        "estado_rng": {
+          "type": "string",
+          "description": "Estado del generador de números aleatorios"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "turno",
+        "hora",
+        "paso_operacion",
+        "duracion_turno_min"
+      ]
+    },
+    "fichas": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/ficha"
+      }
+    },
+    "bandos": {
+      "type": "object",
+      "properties": {
+        "azul": {
+          "$ref": "#/$defs/bando"
+        },
+        "rojo": {
+          "$ref": "#/$defs/bando"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "azul",
+        "rojo"
+      ]
+    },
+    "zonas": {
+      "type": "object",
+      "properties": {
+        "perturbacion": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "emisor": {
+                "type": "string"
+              },
+              "centro": {
+                "type": "object",
+                "properties": {
+                  "x": {
+                    "type": "number",
+                    "description": "m, este"
+                  },
+                  "y": {
+                    "type": "number",
+                    "description": "m, norte"
+                  }
+                },
+                "additionalProperties": false,
+                "required": [
+                  "x",
+                  "y"
+                ]
+              },
+              "radio_m": {
+                "type": "number"
+              },
+              "bandas": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "minas": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "geometria": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "x": {
+                      "type": "number",
+                      "description": "m, este"
+                    },
+                    "y": {
+                      "type": "number",
+                      "description": "m, norte"
+                    }
+                  },
+                  "additionalProperties": false,
+                  "required": [
+                    "x",
+                    "y"
+                  ]
+                }
+              },
+              "tipo": {
+                "type": "string"
+              },
+              "conocida_por": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "paso_abierto": {
+                "type": "boolean"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "humo": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "centro": {
+                "type": "object",
+                "properties": {
+                  "x": {
+                    "type": "number",
+                    "description": "m, este"
+                  },
+                  "y": {
+                    "type": "number",
+                    "description": "m, norte"
+                  }
+                },
+                "additionalProperties": false,
+                "required": [
+                  "x",
+                  "y"
+                ]
+              },
+              "radio_m": {
+                "type": "number"
+              },
+              "hasta": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "indicadores": {
+      "type": "object",
+      "properties": {
+        "enemigo_localizado_pct": {
+          "type": "number"
+        },
+        "abastecimiento_enemigo_ratio": {
+          "type": "number"
+        },
+        "pc_depositos_destruidos": {
+          "type": "integer"
+        },
+        "drones_enemigos_operativos": {
+          "type": "integer"
+        },
+        "bajas_propias_pct": {
+          "type": "number"
+        },
+        "bajas_referencia_watling_pct": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "registro": {
+      "type": "array",
+      "description": "Lo ocurrido este turno, fase a fase: la materia prima del AAR",
+      "items": {
+        "type": "object",
+        "properties": {
+          "turno": {
+            "type": "integer"
+          },
+          "fase": {
+            "enum": [
+              "ordenes",
+              "sensores",
+              "ew",
+              "fuegos",
+              "maniobra",
+              "combate_proximo",
+              "logistica",
+              "mando_y_moral"
+            ]
+          },
+          "bando": {
+            "type": "string"
+          },
+          "ficha": {
+            "type": "string"
+          },
+          "suceso": {
+            "type": "string"
+          },
+          "datos": {
+            "type": "object"
+          },
+          "parametros": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Parámetros que decidieron el resultado"
+          }
+        },
+        "additionalProperties": false,
+        "required": [
+          "turno",
+          "fase",
+          "suceso"
+        ]
+      }
+    }
+  },
+  "additionalProperties": false,
+  "required": [
+    "partida",
+    "escenario",
+    "global",
+    "fichas",
+    "bandos"
+  ],
+  "$defs": {
+    "ficha": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "bando": {
+          "enum": [
+            "azul",
+            "rojo"
+          ]
+        },
+        "tipo": {
+          "type": "string"
+        },
+        "app6": {
+          "type": "string"
+        },
+        "posicion": {
+          "type": "object",
+          "properties": {
+            "x": {
+              "type": "number",
+              "description": "m, este"
+            },
+            "y": {
+              "type": "number",
+              "description": "m, norte"
+            }
+          },
+          "additionalProperties": false,
+          "required": [
+            "x",
+            "y"
+          ]
+        },
+        "efectivos": {
+          "type": "integer"
+        },
+        "efectivos_iniciales": {
+          "type": "integer"
+        },
+        "heridos_sin_evacuar": {
+          "type": "integer"
+        },
+        "postura": {
+          "type": "string"
+        },
+        "movimiento": {
+          "enum": [
+            "quieta",
+            "rapido_visible",
+            "lento_oculto"
+          ]
+        },
+        "firma": {
+          "type": "number",
+          "description": "Multiplicador sobre la distancia de detección"
+        },
+        "cohesion": {
+          "type": "number",
+          "description": "0-100"
+        },
+        "estado_moral": {
+          "enum": [
+            "firme",
+            "tocado",
+            "suprimido",
+            "roto"
+          ]
+        },
+        "suprimida_este_turno": {
+          "type": "boolean"
+        },
+        "jefe_presente": {
+          "type": "boolean"
+        },
+        "enlace": {
+          "type": "boolean"
+        },
+        "dias_en_posicion": {
+          "type": "number"
+        },
+        "municion": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "number"
+          }
+        },
+        "drones": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "integer"
+          }
+        },
+        "baterias": {
+          "type": "number"
+        },
+        "orden_actual": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "tarea_permanente": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "destruida": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "bando",
+        "tipo",
+        "posicion",
+        "efectivos",
+        "cohesion",
+        "estado_moral",
+        "enlace"
+      ]
+    },
+    "bando": {
+      "type": "object",
+      "properties": {
+        "contactos": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "tipo_estimado": {
+                "type": "string"
+              },
+              "posicion": {
+                "type": "object",
+                "properties": {
+                  "x": {
+                    "type": "number",
+                    "description": "m, este"
+                  },
+                  "y": {
+                    "type": "number",
+                    "description": "m, norte"
+                  }
+                },
+                "additionalProperties": false,
+                "required": [
+                  "x",
+                  "y"
+                ]
+              },
+              "incertidumbre_m": {
+                "type": "number"
+              },
+              "certeza": {
+                "enum": [
+                  "detectado",
+                  "reconocido",
+                  "identificado",
+                  "solo_ew",
+                  "falso"
+                ]
+              },
+              "visto_turno": {
+                "type": "integer"
+              },
+              "fuente": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "posicion",
+              "certeza",
+              "visto_turno"
+            ]
+          }
+        },
+        "puntos_referencia": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "posicion": {
+                "type": "object",
+                "properties": {
+                  "x": {
+                    "type": "number",
+                    "description": "m, este"
+                  },
+                  "y": {
+                    "type": "number",
+                    "description": "m, norte"
+                  }
+                },
+                "additionalProperties": false,
+                "required": [
+                  "x",
+                  "y"
+                ]
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "corredores_ew": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "bandas": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "desde_turno": {
+                "type": "integer"
+              },
+              "hasta_turno": {
+                "type": "integer"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "depositos": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "posicion": {
+                "type": "object",
+                "properties": {
+                  "x": {
+                    "type": "number",
+                    "description": "m, este"
+                  },
+                  "y": {
+                    "type": "number",
+                    "description": "m, norte"
+                  }
+                },
+                "additionalProperties": false,
+                "required": [
+                  "x",
+                  "y"
+                ]
+              },
+              "contenido": {
+                "type": "object"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "bajas_acumuladas": {
+          "type": "integer"
+        },
+        "fpv_gastados": {
+          "type": "integer"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AAR del instructor",
+  "type": "object",
+  "required": [
+    "resumen",
+    "resultado",
+    "errores",
+    "criterios"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "resumen": {
+      "type": "string",
+      "maxLength": 800
+    },
+    "resultado": {
+      "enum": [
+        "cumplida",
+        "parcial",
+        "no cumplida"
+      ]
+    },
+    "puntos_fuertes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "turno",
+          "hecho"
+        ],
+        "properties": {
+          "turno": {
+            "type": "integer"
+          },
+          "hecho": {
+            "type": "string"
+          },
+          "por_que": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "errores": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "turno",
+          "hecho",
+          "consecuencia",
+          "que_hacer"
+        ],
+        "properties": {
+          "turno": {
+            "type": "integer"
+          },
+          "hecho": {
+            "type": "string"
+          },
+          "consecuencia": {
+            "type": "string"
+          },
+          "que_hacer": {
+            "type": "string"
+          },
+          "fuente": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "criterios": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "criterio",
+          "nota",
+          "evidencia"
+        ],
+        "properties": {
+          "criterio": {
+            "type": "string"
+          },
+          "nota": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 5
+          },
+          "evidencia": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "bajas": {
+      "type": "object",
+      "properties": {
+        "propias_pct": {
+          "type": "number"
+        },
+        "referencia_pct": {
+          "type": "number"
+        },
+        "lectura": {
+          "type": "string"
+        }
+      }
+    },
+    "siguiente_ejercicio": {
+      "type": "object",
+      "properties": {
+        "elecciones": {
+          "type": "object"
+        },
+        "por_que": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

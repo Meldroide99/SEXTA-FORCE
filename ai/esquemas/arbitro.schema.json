@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Respuesta del árbitro",
+  "type": "object",
+  "required": [
+    "parte_azul",
+    "parte_rojo"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "parte_azul": {
+      "type": "string",
+      "maxLength": 2000
+    },
+    "parte_rojo": {
+      "type": "string",
+      "maxLength": 2000
+    },
+    "respuestas": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "bando",
+          "consulta",
+          "respuesta"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "bando": {
+            "enum": [
+              "azul",
+              "rojo"
+            ]
+          },
+          "consulta": {
+            "type": "string"
+          },
+          "respuesta": {
+            "type": "string"
+          },
+          "parametros": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "huecos": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "situacion",
+          "propuesta"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "situacion": {
+            "type": "string"
+          },
+          "propuesta": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}
