@@ -81,14 +81,15 @@
     {
       "id": "carro",
       "nombre": "Carro",
-      "cantidad": "0-1, en tiro indirecto",
+      "cantidad": "0-1, en fuego directo desde un escondite (línea de vista)",
       "controla": "Brigada",
       "pasos_watling": [
         5
       ],
       "empleo": "",
       "parametros": [
-        "apoyos.carros.distancia_tiro_indirecto_km"
+        "fuegos.carro_125.alcance_eficaz_dia_m",
+        "apoyos.carros.distancia_escondite_km"
       ],
       "origen_cantidad": "E"
     },

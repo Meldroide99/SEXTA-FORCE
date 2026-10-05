@@ -170,7 +170,7 @@ No hay escenarios fijos: cada partida se genera a partir de lo que eliges en los
 **Cómo se genera la partida al pulsar el botón:**
 
 1. **Semilla.** Se sortea y se muestra. Misma semilla y mismas opciones dan la misma partida.
-2. **Terreno.** El generador lo construye a partir de la red de drenaje, como el de la Loma del Cuervo, según el tipo elegido.
+2. **Terreno.** El generador lo construye a partir de la red de drenaje, como el de la Loma del Cuervo, según el tipo elegido, y le añade una capa de vegetación y obstáculos: bosque por tipo, lesosmugas, cultivos según la estación y edificios. Esa capa, junto con el relieve, corta la línea de vista y por tanto el alcance del tiro directo (D-033).
 3. **Fuerzas.** Salen de las plantillas del escalón y la doctrina elegidos.
 4. **Despliegue enemigo.** Lo colocan las reglas de su perfil doctrinal sobre el terreno real del mapa: núcleos pequeños, huecos vigilados por drones, señuelos, puestos de observación con vista, morteros por piezas y pilotos tras la cresta.
 5. **Misión.** Objetivos y condiciones de victoria según la plantilla de misión.

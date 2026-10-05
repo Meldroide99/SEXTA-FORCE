@@ -17,6 +17,7 @@ CATEGORIAS = {  # fichero -> orden de presentación
     "fuegos.json": 4, "artilleria_155.json": 5, "movimiento_logistica.json": 6,
     # Apartado E de la fase 0 (5 oct 2026)
     "fpv_fibra_2026.json": 7, "apoyos_2026.json": 8, "mando_moral.json": 9,
+    "tiro_directo_terreno.json": 10,
 }
 
 # Duplicados entre equipos de investigación: se conserva la fila indicada como canónica.
@@ -64,6 +65,11 @@ REFERENCIA = {
     "apoyos.asalto.ratio_apoyo_por_asaltante",
     "mando.moral.bajas_en_retaguardia_pct", "mando.moral.dotacion_brigadas_ua_pct", "mando.moral.supresion_por_impacto_s",
     "mando.moral.prisioneros_defensor_abierto_pct",
+    # Tiro directo y terreno (5 oct 2026): calibración, no reglas del motor
+    "fuegos.carro.apoyo_directo_ucrania_m", "fuegos.carro.carro_contra_carro_ucrania_m", "fuegos.carro.combate_bosque_m",
+    "fuegos.carro.historico_2gm_m", "fuegos.carro.indirecto_alcance_reportado_m", "fuegos.carro.indirecto_dispersion_m",
+    "terreno.visibilidad.plos_ondulado_boscoso", "terreno.visibilidad.plos_llano_setos",
+    "terreno.visibilidad.los_max_posicion_elegida_m", "terreno.visibilidad.urbano_blancos_50m_pct",
 }
 
 # Decisiones de Balú (validación de la fase 0). Cada entrada fija el estado «validado» y, si procede, el valor.
@@ -151,6 +157,9 @@ VALIDACIONES = {
     # Apartado E (5 oct 2026)
     "mando.ordenes.retardo_min": {"fecha": "2026-10-05", "decision": "D-032",
         "motivo": "Decisión de Balú: las órdenes son inmediatas (se ejecutan el mismo turno). Una unidad sin enlace sigue sin recibir órdenes nuevas."},
+    # Corrección de Balú sobre los carros (5 oct 2026)
+    "apoyos.carros.distancia_tiro_indirecto_km": {"fecha": "2026-10-05", "decision": "D-034", "estado": "rechazado", "uso": "referencia",
+        "motivo": "Rechazado por Balú: los carros no tiran tan lejos. El tiro directo depende del terreno y la vegetación (D-033); el tiro indirecto de carro queda como opción excepcional desactivada por defecto."},
 }
 
 def aplicar_validacion(r):
@@ -159,7 +168,7 @@ def aplicar_validacion(r):
         for k in ("valor", "rango_min", "rango_max", "nombre", "unidad", "uso"):
             if k in v:
                 r[k] = v[k]
-        r["estado"] = "validado"
+        r["estado"] = v.get("estado", "validado")
         r["validacion"] = {"fecha": v["fecha"], "decision": v["decision"], "motivo": v["motivo"]}
     return r
 

@@ -1,4 +1,4 @@
-# Fase 0 · Decisiones de validación (A-F cerradas el 2026-10-05; G-K propuestas)
+# Fase 0 · Decisiones de validación (A-F cerradas el 2026-10-05; G-L propuestas)
 
 Cruce de la matriz de parámetros (`docs/fase0/matriz-parametros.md`): conflictos entre fuentes, asimetrías
 físicas y valores de confianza baja que cambian el resultado del juego. Para cada punto hay una propuesta;
@@ -88,7 +88,7 @@ Ninguna fuente publica plantillas de apoyo por compañía (RUSI omite a propósi
 | Bombarderos pesados | 2-4, de noche | Batallón UAS | 2, 3, 7 | 20-30 kg, unos 20 km; desmontan lindes antes del asalto |
 | Artillería de 155 | 2-4 piezas sueltas | Brigada | 3, 4, 5 | Máx. 10 disparos por misión; 8-10 para destruir un blanco blando (RUSI) |
 | Morteros | 4 tubos | Jefe de compañía | 4, 5 | Por piezas sueltas |
-| Carros | 1-2 | Compañía de carros de brigada | 5, 6 | Tiro indirecto a unos 9 km o salida desde escondite a menos de 3 km; aguantan 10-15 FPV (RUSI) |
+| Carros | 1-2 | Compañía de carros de brigada | 5, 6 | Fuego directo hasta donde dé la línea de vista (apartado L): apoyo a unos 2 km y carro contra carro a 1 km o menos (RUSI); salen desde escondites a menos de 3 km; aguantan 10-15 FPV |
 | Transportes o VCI | 2-4 | Batallón | 6 | Dejan a la tropa y se retiran |
 | UGV logísticos y de evacuación | 6-10 | Pelotón UGV de brigada | 7 | A 2-5 km, de noche, 300 kg (RUSI; TerMIT) |
 | UGV armado | 1-2 | Batallón | 4, 6 | Unos 300 m de alcance eficaz |
@@ -97,7 +97,7 @@ Ninguna fuente publica plantillas de apoyo por compañía (RUSI omite a propósi
 | Ingenieros | 1 equipo de 3-4 + UGV de desminado | Batallón | 2, 6, 7 | UGV guiado a 0,5-3 km |
 | Evacuación | Por UGV y de noche | Grupo de abastecimiento | 7 | Puesto médico a más de 7 km |
 
-**Ataque de sección** (grupo de 20 sobre 1-2 posiciones): 1-2 drones de reconocimiento, 10-20 FPV al día, 1 bombardero, 2 morteros, 1 pieza a demanda, 0-1 carro en tiro indirecto, 2-3 UGV logísticos y 0-1 armado, 1 inhibidor por escuadra, 1 zapador y 1 UGV de evacuación reservado.
+**Ataque de sección** (grupo de 20 sobre 1-2 posiciones): 1-2 drones de reconocimiento, 10-20 FPV al día, 1 bombardero, 2 morteros, 1 pieza a demanda, 0-1 carro en fuego directo desde un escondite, 2-3 UGV logísticos y 0-1 armado, 1 inhibidor por escuadra, 1 zapador y 1 UGV de evacuación reservado.
 
 Referencias de escala: los drones hacen el 70-95 % de los golpes (TWZ, sep 2026); 25.143 misiones de UGV en agosto de 2026 (MoD); los asaltos mecanizados rusos pierden en torno al 87 % de los blindados (ISW, dic 2025).
 
@@ -142,3 +142,32 @@ Detalle, duraciones y fuentes en `templates/misiones/`.
 ## K. Órdenes de la IA enemiga
 
 No tienes que dar nada técnico. Lo único que necesito es que revises **qué acciones puede hacer cada ficha** (`ai/acciones-por-ficha.md`): el juego solo acepta órdenes de esa lista, y sirve igual para ti, para la IA del juego y para Claude. Hay 19 acciones (moverse rápido o oculto, ocultarse, observar, fuego, suprimir, asaltar, lanzar dron, emboscar con fibra, perturbar, detectar, minar, desminar, fortificar, abastecer, evacuar, relevar, replegarse y esperar) repartidas en 18 tipos de ficha. Dime si quitas o añades alguna.
+
+## L. Tiro directo, terreno y vegetación (corrección de Balú, 2026-10-05)
+
+**Decisión de Balú (D-033):** el alcance del tiro directo depende sobre todo del terreno, y los árboles y la vegetación también lo limitan. **D-034:** los 9 km de «carro como artillería» quedan rechazados.
+
+**Regla propuesta.** Alcance de tiro = el menor entre el alcance eficaz del arma y la distancia hasta donde llega la línea de vista. La línea de vista se calcula con un rayo sobre el mapa de curvas de nivel, entre el ojo del tirador y el punto más alto visible del blanco, comprobando cada 20 m el relieve más la altura de lo que haya encima (bosque, lesosmuga, cultivo, edificio).
+
+| Elemento | Efecto en la línea de vista | Fuente |
+|---|---|---|
+| Relieve | Lo calcula el mapa: crestas, vaguadas y contrapendientes | — |
+| Bosque caducifolio con hoja (mayo-octubre) | Se ve 30 m dentro (23-38) | Natick Labs, 1967 |
+| Bosque caducifolio sin hoja (noviembre-abril) | Se ve 65 m dentro (56-76) | Natick Labs, 1967 |
+| Conífera densa / abierta | 25 m / 100 m todo el año | Natick Labs, 1964 |
+| Linde del bosque | Quien está a 10 m o menos del borde ve y tira hacia fuera | Estimación |
+| Lesosmuga (11 m de ancho, 15 m de alto, cada 700 m) | Con hoja corta siempre; sin hoja deja ver si mide 15 m o menos, con la detección a la mitad | IUAF; Kovalenko 2021; altura estimada |
+| Maíz y girasol (2 m, julio-septiembre) | Tapan a la infantería en cualquier postura; un carro ve por encima, pero de otro carro solo ve la torre | FAO-56 |
+| Trigo (1 m, mayo-julio) | Tapa al tumbado y al de rodillas | FAO-56 |
+| Zona urbana | Edificios opacos; a pie, 100 m como máximo; el 90 % de los blancos a 50 m o menos | FM 3-06.11 |
+| Disparar a través de follaje | Oculta pero no protege: fuego de zona con impacto ×0,5 sobre un blanco ya detectado | FM 90-5; factor estimado |
+
+Alturas del ojo: visor de carro 2,2 m, VCI 2,0 m; a pie, de pie 1,6, de rodillas 1,0, tumbado 0,4. Blanco carro 2,2 m; en desenfilada de casco solo 1,0 m.
+
+**Alcance del arma (techo, no lo normal):** 125 mm 2.500 m de día y 1.000 m de noche sin térmica; 120 mm 3.000 m; 30 mm del BMP-2 1.500 m contra blindaje ligero; misiles contracarro hasta 5.000 m, pero solo si la línea de vista dura todo el vuelo.
+
+**Comprobación del motor:** con puntos al azar, la probabilidad de línea de vista en llanura con setos debe salir en torno a 0,18 y el tramo visible medio en unos 180 m; en terreno ondulado y boscoso, 0,39 y unos 370 m (estudios TETAM de AMSAA). En Ucrania los carros apoyan a unos 2 km y combaten entre sí a 1 km o menos (RUSI). Si el motor da a menudo combates a más de 2,5 km, la capa de vegetación está mal.
+
+**Tiro indirecto de carro:** desactivado por defecto. Si un escenario lo activa: dron propio sobre el blanco, carro parado y oculto, 4 km por defecto (máximo 8), error del primer disparo de 50-100 m, 2-4 disparos de corrección, efecto de supresión como un mortero de 120 y desgaste del tubo (unos 1.000 disparos de vida).
+
+**Consecuencia para el generador de terreno:** cada mapa necesita, además de las curvas de nivel, una capa de vegetación y obstáculos (bosque por tipo, lesosmugas, cultivos según la estación, poblaciones) y la estación del año entre los desplegables de la pantalla de creación.

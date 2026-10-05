@@ -37,3 +37,5 @@ que no esté aquí no existe.
 | D-030 | 2026-10-05 | Fuentes de EW de 2022-2023 (Pole-21, Silok, Kropyva): se mantienen con confianza media hasta tener fuentes de 2025-2026 | Validación de la fase 0 | Balú |
 | D-031 | 2026-10-05 | Cierre de la validación de parámetros de la fase 0: juego de reglas «Ucrania 2026» v0.3.0; los valores no validados uno a uno quedan como valores por defecto editables | Validación de la fase 0 | Balú |
 | D-032 | 2026-10-05 | Órdenes inmediatas: se ejecutan el mismo turno; una unidad sin enlace sigue sin recibir órdenes nuevas | Decisión de Balú (apartado E) | Balú |
+| D-033 | 2026-10-05 | El alcance del tiro directo es el menor entre el alcance eficaz del arma y la línea de vista calculada sobre el terreno, con la vegetación (bosque, lesosmugas, cultivos según estación) y los edificios | Corrección de Balú | Balú |
+| D-034 | 2026-10-05 | Rechazado el «carro como artillería» a 9 km como valor de juego; el tiro indirecto de carro queda como opción excepcional desactivada por defecto | Corrección de Balú | Balú |

@@ -103,11 +103,12 @@
         5,
         6
       ],
-      "empleo": "Tiro indirecto a unos 9 km o salidas a tiro directo desde un escondite a menos de 3 km; aguantan 10-15 impactos FPV",
+      "empleo": "Fuego directo hasta donde llegue la línea de vista sobre el terreno y la vegetación (D-033): en Ucrania, apoyo a unos 2 km y carro contra carro a 1 km o menos; desde escondites a menos de 3 km; aguantan 10-15 impactos FPV. Tiro indirecto solo si el escenario lo habilita (D-034).",
       "parametros": [
-        "apoyos.carros.distancia_tiro_indirecto_km",
+        "fuegos.carro_125.alcance_eficaz_dia_m",
         "apoyos.carros.distancia_escondite_km",
-        "apoyos.carros.impactos_fpv_soportados"
+        "apoyos.carros.impactos_fpv_soportados",
+        "fuegos.carro.indirecto_habilitado"
       ],
       "origen_cantidad": "E"
     },
