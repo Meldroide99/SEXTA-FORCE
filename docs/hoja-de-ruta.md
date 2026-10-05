@@ -111,7 +111,7 @@ Los dos bandos dan órdenes a la vez y en secreto. Después el motor resuelve si
 - **Maniobra.** El movimiento aumenta la firma; lo que se mueve bajo un dron enemigo recibe **fuego de reacción** en el mismo turno.
 - **Combate próximo.** Solo cuando hay contacto: asalto, granadas y limpieza de posiciones.
 - **Logística.** Consumo de baterías, drones, munición, agua y víveres; abastecimiento por UGV, vehículo o a pie; evacuación de bajas.
-- **Mando y moral.** Las órdenes tardan según el medio (cable, radio, mensajero); la unidad sin enlace sigue su última orden. Supresión, bajas e informe del turno con lo que cada bando sabe.
+- **Mando y moral.** Las órdenes son inmediatas (D-032); la unidad sin enlace sigue su última orden. Cohesión y estados de moral, supresión, bajas e informe del turno con lo que cada bando sabe. El detalle de cada fase está en `docs/fase0/reglas-del-turno.md`.
 
 ## 6. Orgánica y plantillas
 
