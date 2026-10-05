@@ -474,6 +474,60 @@
             "generador",
             "claude"
           ]
+        },
+        "plan_pace": {
+          "type": "object",
+          "description": "Principal, alternativo, contingencia y emergencia",
+          "properties": {
+            "principal": {
+              "enum": [
+                "radio_mano",
+                "vhf",
+                "hf",
+                "starlink",
+                "mesh",
+                "fibra_cable",
+                "a_pie"
+              ]
+            },
+            "alternativo": {
+              "enum": [
+                "radio_mano",
+                "vhf",
+                "hf",
+                "starlink",
+                "mesh",
+                "fibra_cable",
+                "a_pie"
+              ]
+            },
+            "contingencia": {
+              "enum": [
+                "radio_mano",
+                "vhf",
+                "hf",
+                "starlink",
+                "mesh",
+                "fibra_cable",
+                "a_pie"
+              ]
+            },
+            "emergencia": {
+              "enum": [
+                "radio_mano",
+                "vhf",
+                "hf",
+                "starlink",
+                "mesh",
+                "fibra_cable",
+                "a_pie"
+              ]
+            }
+          },
+          "required": [
+            "principal"
+          ],
+          "additionalProperties": false
         }
       },
       "additionalProperties": false,

@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Partida guardada (para repetir y ramificar)",
+  "description": "Con el escenario, la semilla y las órdenes de cada turno el motor reconstruye cualquier turno. Una rama arranca desde el estado de un turno de otra partida, que se conserva intacta (D-050).",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "escenario",
+    "juego_de_reglas",
+    "semilla",
+    "turnos"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "escenario": {
+      "type": "string",
+      "description": "Ruta o id del escenario"
+    },
+    "juego_de_reglas": {
+      "type": "object",
+      "required": [
+        "id",
+        "version"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "version": {
+          "type": "string"
+        },
+        "cambios": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "number"
+          }
+        }
+      }
+    },
+    "semilla": {
+      "type": "integer"
+    },
+    "rama": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false,
+      "required": [
+        "partida_origen",
+        "desde_turno"
+      ],
+      "properties": {
+        "partida_origen": {
+          "type": "string"
+        },
+        "desde_turno": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "nota": {
+          "type": "string"
+        }
+      }
+    },
+    "turnos": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "turno",
+          "ordenes",
+          "huella_estado"
+        ],
+        "properties": {
+          "turno": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "ordenes": {
+            "type": "object",
+            "properties": {
+              "azul": {
+                "type": "array"
+              },
+              "rojo": {
+                "type": "array"
+              }
+            },
+            "required": [
+              "azul",
+              "rojo"
+            ]
+          },
+          "huella_estado": {
+            "type": "string",
+            "description": "Resumen (hash) del estado al final del turno; si al repetir no coincide, el motor avisa"
+          },
+          "estado_guardado": {
+            "type": "boolean",
+            "description": "Si se guardó el estado completo de este turno para abrir ramas sin recalcular"
+          }
+        }
+      }
+    },
+    "aar": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}

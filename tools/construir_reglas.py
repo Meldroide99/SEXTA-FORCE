@@ -38,6 +38,7 @@ DUPLICADOS = {
 
 # Datos que no son un parámetro del motor sino referencia para calibrar resultados y corregir en el AAR.
 REFERENCIA = {
+    "com.cadena_enemiga_min", "com.antena_remota_m",
     "drones.fpv_fibra.coste_relativo", "drones.consumo.ucrania_dia", "drones.consumo.fpv_brigada_mes",
     "drones.efecto.bajas_atribuidas_pct", "drones.fpv.impactos_para_destruir_carro",
     "ew.uav.perdidas_mes_ucrania_2023", "ew.rus.densidad_sistemas_km_frente", "com.starlink.corte_ruso_adaptacion_meses",
@@ -344,7 +345,7 @@ def main():
     juego = {
         "id": "ucrania-2026",
         "nombre": "Ucrania 2026",
-        "version": "0.6.0",
+        "version": "0.7.0",
         "fecha": datetime.date.today().isoformat(),
         "estado": "fase 0: todas las decisiones de parámetros validadas el 5 oct 2026 (v0.5.0); los valores no validados uno a uno son valores por defecto editables",
         "descripcion": "Juego de reglas por defecto. Valores de fuentes abiertas 2023-2026; cada fila lleva su fuente y su confianza.",

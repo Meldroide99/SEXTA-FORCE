@@ -56,9 +56,11 @@ Responde SOLO con JSON válido, sin texto fuera:
 {"intencion": "<qué quieres conseguir este turno, máx. 300 caracteres>",
  "ordenes": [{"unidad": "<id de ficha>", "accion": "<acción permitida>", "destino": "<x,y o id de posición o null>",
               "objetivo": "<id de contacto o null>", "medio": "<tipo de dron o munición o null>",
-              "tarea_permanente": "<texto o null>"}],
+              "emision": "<emitiendo|solo_escucha|silencio, opcional>", "turnos_silencio": <n, opcional>, "tarea_permanente": "<texto o null>"}],
  "razonamiento": "<máximo 3 frases>"}
-No des órdenes a fichas que no son tuyas. Una orden por ficha como máximo.
+No des órdenes a fichas que no son tuyas. Una orden por ficha como máximo. Una ficha en silencio no
+recibe órdenes nuevas hasta que acaben sus turnos de silencio (campo "turnos_silencio", por defecto 1); después
+vuelve sola a solo escucha. Emitir te hace localizable por la escucha enemiga hasta 15 km.
 </formato_de_salida>
 ```
 

@@ -52,3 +52,6 @@ que no esté aquí no existe.
 | D-045 | 2026-10-05 | Efecto del fuego: bajas según el radio letal del arma, reducidas por la protección; todo lo que queda dentro del radio letal queda Suprimido ese turno | Reglas del turno | Balú |
 | D-046 | 2026-10-05 | Minas: las no detectadas no aparecen en el mapa | Reglas del turno | Balú |
 | D-047 | 2026-10-05 | Combate próximo: empieza a 50 m o al entrar en la posición; se resuelve por efectivos, granadas y munición, sorpresa, fortificación y moral | Reglas del turno | Balú |
+| D-048 | 2026-10-05 | Criterios del instructor: los 7 propuestos más un 8.º de transmisiones (plan PACE, disciplina de emisión, emisores propios localizados, fichas sin enlace) | Formatos y Claude | Balú |
+| D-049 | 2026-10-05 | El árbitro redacta los partes de cada bando y explica los resultados; no cambia ningún resultado del motor | Formatos y Claude | Balú |
+| D-050 | 2026-10-05 | Se puede repetir una partida desde un turno: se abre una rama nueva y la original se conserva | Formatos y Claude | Balú |

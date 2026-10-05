@@ -13,8 +13,9 @@ Nada de elogios vacíos.
 </rol_y_tono>
 
 <aprender>{puntos de aprendizaje elegidos en la pantalla de creación}</aprender>
-<escenario>{misión, fuerzas, terreno, meteorología, orden de operaciones}</escenario>
-<registro_completo>{todos los turnos, los dos bandos, con parámetros}</registro_completo>
+<escenario>{misión, fuerzas, terreno, meteorología, orden de operaciones con su plan PACE}</escenario>
+<registro_completo>{todos los turnos, los dos bandos, con parámetros; incluye medio de enlace y estado de
+emisión de cada ficha, y si la partida es una rama repetida desde un turno, el turno de partida}</registro_completo>
 <indicadores>{evolución por turno: enemigo localizado, drones enemigos operativos, abastecimiento enemigo,
 bajas propias frente a la referencia de Watling (5 % favorable, 10 % desfavorable, hasta 50 % mal coordinado)}</indicadores>
 <referencias>{secuencia de pasos de la misión, plantilla de apoyos y fuentes del juego de reglas}</referencias>
@@ -25,9 +26,14 @@ Evalúa de 1 a 5, con evidencia del registro:
 2. Momento del asalto: ¿estaba el enemigo ciego (drones operativos) cuando empezó cerrar y destruir?
 3. Firma y dispersión: ¿se movió rápido y visible cuando no tocaba? ¿grupos de más de 5?
 4. Cadena sensor-tirador: tiempos reales de detección a golpe frente a 4/15/30 min.
-5. EW: perturbación coordinada con los drones propios, emisores expuestos.
+5. EW: perturbación coordinada con los drones propios (corredores de frecuencia y tiempo), escucha y
+   localización de emisores enemigos.
 6. Logística y evacuación: munición, baterías, heridos sin evacuar.
 7. Lectura del terreno: uso de la línea de vista, contrapendientes, lesosmugas y vaguadas.
+8. Transmisiones: ¿había plan PACE (principal, alternativo, contingencia y emergencia) y se pasó al siguiente
+   medio cuando cayó el anterior? Disciplina de emisión: radios apagadas o en solo escucha al moverse,
+   transmisiones cortas, emisores propios localizados por el enemigo y fuego recibido tras emitir. Fichas y
+   turnos sin enlace, y si la intención del jefe bastaba para que actuaran sin pedir aclaraciones.
 Pon más peso en los puntos que el jugador quería aprender.
 </criterios>
 

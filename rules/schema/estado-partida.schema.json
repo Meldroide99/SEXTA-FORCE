@@ -47,6 +47,22 @@
         "estado_rng": {
           "type": "string",
           "description": "Estado del generador de números aleatorios"
+        },
+        "rama": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "partida_origen": {
+              "type": "string"
+            },
+            "desde_turno": {
+              "type": "integer"
+            }
+          },
+          "additionalProperties": false,
+          "description": "Si la partida es una repetición desde un turno (D-050)"
         }
       },
       "additionalProperties": false,
@@ -397,6 +413,31 @@
         },
         "destruida": {
           "type": "boolean"
+        },
+        "medio_enlace": {
+          "enum": [
+            "radio_mano",
+            "vhf",
+            "hf",
+            "starlink",
+            "mesh",
+            "fibra_cable",
+            "a_pie",
+            "ninguno"
+          ],
+          "description": "Medio en uso, según el plan PACE"
+        },
+        "emision": {
+          "enum": [
+            "emitiendo",
+            "solo_escucha",
+            "silencio"
+          ],
+          "description": "Elegida con la orden cada turno"
+        },
+        "turnos_en_silencio": {
+          "type": "integer",
+          "minimum": 0
         }
       },
       "additionalProperties": false,

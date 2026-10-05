@@ -3,7 +3,7 @@
 Simulador táctico por turnos para instrucción en táctica contemporánea (drones, EW, fuegos y logística),
 de pelotón a grupo táctico, basado en la práctica rusa y ucraniana de 2025-2026 y en fuentes abiertas.
 
-**Estado:** fase 0 (especificación). Todas las decisiones de parámetros validadas el 5 oct 2026 (juego de reglas «Ucrania 2026» v0.6.0, D-010 a D-047), reglas del turno validadas. Propuestos y pendientes de aprobar: formatos de escenario y estado y prompts de Claude (jefe enemigo, árbitro e instructor). Aún no hay motor ni interfaz.
+**Estado:** fase 0 (especificación). Parámetros, reglas del turno, formatos y papeles de Claude validados el 5 oct 2026 (juego de reglas «Ucrania 2026» v0.7.0, D-010 a D-050). Pendiente de confirmar: la regla de transmisiones (medio de enlace según el plan PACE y estado de emisión). Aún no hay motor ni interfaz.
 
 ## Principios
 
@@ -39,5 +39,5 @@ de pelotón a grupo táctico, basado en la práctica rusa y ucraniana de 2025-20
 ## Documentos clave
 
 - `docs/hoja-de-ruta.md`: qué se construye y en qué fases.
-- `docs/fase0/matriz-parametros.md`: los 332 valores de la fase 0 con sus fuentes (juego de reglas «Ucrania 2026» v0.6.0).
+- `docs/fase0/matriz-parametros.md`: los 336 valores de la fase 0 con sus fuentes (juego de reglas «Ucrania 2026» v0.7.0).
 - `docs/fase0/pendientes-validacion.md`: conflictos y asimetrías a decidir antes de programar.
