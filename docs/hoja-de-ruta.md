@@ -273,4 +273,4 @@ Cada fase termina con algo que puedes probar y un criterio de aceptación. No se
 1. ~~GitHub~~: hecho, `Meldroide99/SEXTA-FORCE`.
 2. ~~Visto bueno a la hoja de ruta~~: aprobada el 4 de octubre de 2026.
 3. ~~Dispositivo principal~~: ordenador; tableta como uso secundario. El móvil queda fuera del diseño.
-4. **Validar la matriz de parámetros de la fase 0** (pestaña “Fase 0 · Parámetros”): sobre todo las decisiones marcadas como pendientes.
+4. ~~Validar la fase 0~~: parámetros, reglas del turno, formatos y prompts aprobados; fase 0 cerrada el 5 de octubre de 2026 (D-052).

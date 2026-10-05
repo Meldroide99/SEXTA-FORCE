@@ -55,3 +55,5 @@ que no esté aquí no existe.
 | D-048 | 2026-10-05 | Criterios del instructor: los 7 propuestos más un 8.º de transmisiones (plan PACE, disciplina de emisión, emisores propios localizados, fichas sin enlace) | Formatos y Claude | Balú |
 | D-049 | 2026-10-05 | El árbitro redacta los partes de cada bando y explica los resultados; no cambia ningún resultado del motor | Formatos y Claude | Balú |
 | D-050 | 2026-10-05 | Se puede repetir una partida desde un turno: se abre una rama nueva y la original se conserva | Formatos y Claude | Balú |
+| D-051 | 2026-10-05 | Transmisiones: medio de enlace según el plan PACE de la orden de operaciones (paso al siguiente medio en 1 turno) y emisión por ficha elegida con la orden (emitiendo, solo escucha, silencio por N turnos; el silencio no resta cohesión el primer turno) | Formatos y Claude | Balú |
+| D-052 | 2026-10-05 | Cierre de la fase 0 (especificación): parámetros, reglas del turno, formatos y prompts de Claude aprobados; juego de reglas «Ucrania 2026» v0.7.0 | Fase 0 | Balú |

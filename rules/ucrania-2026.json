@@ -2380,7 +2380,12 @@
       "nota": "Estados de emisión: emitiendo (recibe, transmite y es localizable), solo escucha (recibe; no informa contactos ni pide fuego; no localizable) y silencio (ni recibe ni transmite; no localizable). El silencio cuenta como sin enlace para las órdenes.",
       "origen": "research/fase0/reglas_turno.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-051",
+        "motivo": "Validado por Balú (regla de transmisiones)."
+      }
     },
     {
       "id": "com.hf_mochila.alcance_km",
@@ -2416,7 +2421,12 @@
       "nota": "PACE: principal, alternativo, contingencia y emergencia. Si cae el medio en uso (perturbado, destruido o fuera de alcance), la ficha pasa al siguiente del plan al turno siguiente; sin medios, queda sin enlace.",
       "origen": "research/fase0/reglas_turno.json",
       "uso": "parametro",
-      "estado": "propuesto"
+      "estado": "validado",
+      "validacion": {
+        "fecha": "2026-10-05",
+        "decision": "D-051",
+        "motivo": "Validado por Balú (regla de transmisiones)."
+      }
     },
     {
       "id": "com.radio_mano.alcance_km",

@@ -1,6 +1,6 @@
 # Fase 0 · Formatos de partida y papel de Claude
 
-Qué guarda el juego y qué hace Claude en cada uno de sus tres papeles. Los formatos técnicos están en el repositorio (`rules/schema/` y `ai/`); aquí va lo que importa para jugar.
+Qué guarda el juego y qué hace Claude en cada uno de sus tres papeles. **Aprobado por Balú el 5 de octubre de 2026 (D-048 a D-051).** Los formatos técnicos están en el repositorio (`rules/schema/` y `ai/`); aquí va lo que importa para jugar.
 
 ## 1. El escenario: lo que sale de la pantalla de creación
 
@@ -56,7 +56,7 @@ En los tres casos Claude recibe un texto con etiquetas fijas y responde solo con
 
 Los textos completos de los tres prompts están en `ai/prompts/` y sus formatos de respuesta en `ai/esquemas/`.
 
-## 4. Transmisiones en el juego (propuesta para confirmar)
+## 4. Transmisiones en el juego (D-051)
 
 Para poder corregir el criterio 8, cada ficha lleva dos datos más:
 

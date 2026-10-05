@@ -1,6 +1,6 @@
 # Fase 0 · Reglas del turno
 
-Cómo resuelve el motor cada turno, en lenguaje claro. Todas las cifras salen del juego de reglas «Ucrania 2026» v0.6.0 y se pueden cambiar en el panel de parámetros. **Validado por Balú el 5 de octubre de 2026 (D-043 a D-047).**
+Cómo resuelve el motor cada turno, en lenguaje claro. Todas las cifras salen del juego de reglas «Ucrania 2026» v0.7.0 y se pueden cambiar en el panel de parámetros. **Validado por Balú el 5 de octubre de 2026 (D-043 a D-047).**
 
 ## 0. Fundamentos
 
@@ -99,6 +99,7 @@ Solo cuando una ficha entra en una posición enemiga o a menos de 50 m de ella (
 1. **Enlace:**
    - Radio de mano 4 km, VHF portátil 10 km; Starlink y fibra no tienen límite de distancia, pero Starlink se puede perturbar en zona.
    - Una ficha sin enlace pierde cohesión y no recibe órdenes.
+   - **Medio de enlace y emisión** (D-051): cada ficha usa el medio que toca según el plan PACE de la orden de operaciones y, si cae, pasa al siguiente en 1 turno. Con la orden eliges su emisión: emitiendo (la escucha enemiga la puede localizar), solo escucha (recibe órdenes pero no informa ni pide fuego) o silencio durante los turnos que digas (ni recibe ni emite; no resta cohesión el primer turno). Detalle en «Formatos y Claude».
 2. **Cohesión 0-100** (D-040):
    - Resta: bajas del turno, fuego supresor, pérdida del jefe, sin enlace, heridos sin evacuar, dron encima sin defensa, días en posición por encima de 60.
    - Suma: turno sin contacto, reabastecimiento y relevo.

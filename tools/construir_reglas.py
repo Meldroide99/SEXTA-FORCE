@@ -238,6 +238,8 @@ VALIDACIONES = {
     "fuegos.efecto.supresion_en_radio_letal": {"fecha": "2026-10-05", "decision": "D-045", "motivo": "Validado por Balú (reglas del turno)."},
     "terreno.minas.no_detectadas_visibles": {"fecha": "2026-10-05", "decision": "D-046", "motivo": "Validado por Balú (reglas del turno)."},
     "combate.distancia_inicio_m": {"fecha": "2026-10-05", "decision": "D-047", "motivo": "Validado por Balú (reglas del turno)."},
+    "com.pace.turnos_cambio_medio": {"fecha": "2026-10-05", "decision": "D-051", "motivo": "Validado por Balú (regla de transmisiones)."},
+    "com.emision.silencio_turnos_sin_penal": {"fecha": "2026-10-05", "decision": "D-051", "motivo": "Validado por Balú (regla de transmisiones)."},
 }
 
 def aplicar_validacion(r):
