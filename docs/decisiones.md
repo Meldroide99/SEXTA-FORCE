@@ -36,3 +36,4 @@ que no esté aquí no existe.
 | D-029 | 2026-10-05 | Detección térmica: ×3 en movimiento (750 m) y ×0,3-0,5 en el cruce térmico | Validación de la fase 0 | Balú |
 | D-030 | 2026-10-05 | Fuentes de EW de 2022-2023 (Pole-21, Silok, Kropyva): se mantienen con confianza media hasta tener fuentes de 2025-2026 | Validación de la fase 0 | Balú |
 | D-031 | 2026-10-05 | Cierre de la validación de parámetros de la fase 0: juego de reglas «Ucrania 2026» v0.3.0; los valores no validados uno a uno quedan como valores por defecto editables | Validación de la fase 0 | Balú |
+| D-032 | 2026-10-05 | Órdenes inmediatas: se ejecutan el mismo turno; una unidad sin enlace sigue sin recibir órdenes nuevas | Decisión de Balú (apartado E) | Balú |

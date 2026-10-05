@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Órdenes de un bando para un turno",
+  "description": "Lo que devuelve el jefe enemigo (IA de utilidad, Claude o compañero). El motor comprueba cada orden contra las acciones permitidas de la ficha y las restricciones físicas.",
+  "type": "object",
+  "required": [
+    "intencion",
+    "ordenes"
+  ],
+  "properties": {
+    "intencion": {
+      "type": "string",
+      "maxLength": 300
+    },
+    "ordenes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "unidad",
+          "accion"
+        ],
+        "properties": {
+          "unidad": {
+            "type": "string"
+          },
+          "accion": {
+            "enum": [
+              "mover_rapido",
+              "mover_oculto",
+              "ocultarse",
+              "observar",
+              "fuego",
+              "suprimir",
+              "asaltar",
+              "lanzar_dron",
+              "emboscar_fibra",
+              "perturbar",
+              "detectar",
+              "minar",
+              "desminar",
+              "fortificar",
+              "abastecer",
+              "evacuar",
+              "relevar",
+              "replegar",
+              "esperar"
+            ]
+          },
+          "destino": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Coordenada o id de posición"
+          },
+          "objetivo": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Id de contacto conocido por el bando"
+          },
+          "medio": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "description": "Tipo de dron, munición o carga (p. ej. fpv_fibra, he, excalibur)"
+          },
+          "tarea_permanente": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "razonamiento": {
+      "type": "string",
+      "maxLength": 500
+    }
+  },
+  "additionalProperties": false
+}

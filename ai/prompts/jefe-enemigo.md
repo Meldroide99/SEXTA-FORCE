@@ -37,6 +37,6 @@ Responde SOLO con JSON válido:
 
 ## Pendiente en fase 0
 
-- Esquema JSON formal de la respuesta (`ai/esquemas/ordenes.schema.json`).
+- ~~Esquema JSON formal de la respuesta~~: hecho en `ai/esquemas/ordenes.schema.json` (propuesto).
 - Prompts de árbitro (modo compañero) e instructor (AAR).
-- Lista de acciones permitidas por tipo de ficha.
+- ~~Lista de acciones permitidas por tipo de ficha~~: propuesta en `ai/acciones-por-ficha.md`.

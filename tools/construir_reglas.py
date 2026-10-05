@@ -15,6 +15,8 @@ RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CATEGORIAS = {  # fichero -> orden de presentación
     "drones.json": 1, "ew_comunicaciones.json": 2, "deteccion.json": 3,
     "fuegos.json": 4, "artilleria_155.json": 5, "movimiento_logistica.json": 6,
+    # Apartado E de la fase 0 (5 oct 2026)
+    "fpv_fibra_2026.json": 7, "apoyos_2026.json": 8, "mando_moral.json": 9,
 }
 
 # Duplicados entre equipos de investigación: se conserva la fila indicada como canónica.
@@ -29,6 +31,8 @@ DUPLICADOS = {
     "fuegos.art155.objetivo_seccion.disparos_sin_dron_n": "fuegos.ajuste_dron.proyectiles_para_destruir",
     "ew.localizacion_a_fuego.tiempo_min": "fuegos.art155.rusia.contrabateria_ciclo_min",
     "c2.kropyva.mision_no_planificada_min": "fuegos.art155.kropyva.deteccion_a_fuego_s",
+    # Apartado E (5 oct 2026)
+    "apoyos.asalto.perdidas_con_metodo_pct": "fuegos.asalto.tasa_bajas_terreno_favorable_pct",
 }
 
 # Datos que no son un parámetro del motor sino referencia para calibrar resultados y corregir en el AAR.
@@ -48,6 +52,18 @@ REFERENCIA = {
     "fuegos.art155.rusia.proyectiles_dia_2025_n", "fuegos.art155.rusia.proyectiles_dia_2026_n",
     "fuegos.art155.ucrania.proyectiles_155_dia_n", "fuegos.art155.lancet.ataques_contra_artilleria_pct",
     "fuegos.art155.drones.bajas_sistemas_pct",
+    # Apartado E (5 oct 2026)
+    "drones.fpv_fibra.alcance_efectivo_2026_km", "drones.fpv_fibra.bobina_max_km", "drones.fpv_fibra.coste_usd",
+    "drones.fpv_fibra.cuota_fpv_pct", "drones.fpv_fibra.redes_carretera_km", "drones.fpv_fibra.barrera_cortacables_pct",
+    "apoyos.carros.fpv_para_neutralizar_carro", "apoyos.carros.carros_asalto_compania_ru",
+    "apoyos.blindados.perdidas_asalto_mecanizado_ru_pct", "apoyos.blindados.distancia_reserva_km",
+    "apoyos.ugv.misiones_mes", "apoyos.ugv.contratados_2026", "apoyos.ugv.reparto_logistica_pct",
+    "apoyos.ugv.cuota_logistica_frontal_pct", "apoyos.ugv.carga_semanal_brigada_t",
+    "apoyos.artilleria.obuses_brigada_18km", "apoyos.artilleria.cuota_golpes_drones_pct",
+    "apoyos.drones.fpv_dia_ucrania", "apoyos.drones.drones_sobre_blanco_hora", "apoyos.ew.inhibidores_grupo_moto_ru",
+    "apoyos.asalto.ratio_apoyo_por_asaltante",
+    "mando.moral.bajas_en_retaguardia_pct", "mando.moral.dotacion_brigadas_ua_pct", "mando.moral.supresion_por_impacto_s",
+    "mando.moral.prisioneros_defensor_abierto_pct",
 }
 
 # Decisiones de Balú (validación de la fase 0). Cada entrada fija el estado «validado» y, si procede, el valor.
@@ -132,6 +148,9 @@ VALIDACIONES = {
         "motivo": "Validado por Balú: una persona en movimiento se detecta a ×3 la distancia base (750 m)."},
     "deteccion.termica_dron.factor_cruce_termico": {"fecha": "2026-10-05", "decision": "D-029",
         "motivo": "Validado por Balú: en el cruce térmico (amanecer y atardecer) la detección térmica baja a ×0,3-0,5."},
+    # Apartado E (5 oct 2026)
+    "mando.ordenes.retardo_min": {"fecha": "2026-10-05", "decision": "D-032",
+        "motivo": "Decisión de Balú: las órdenes son inmediatas (se ejecutan el mismo turno). Una unidad sin enlace sigue sin recibir órdenes nuevas."},
 }
 
 def aplicar_validacion(r):
@@ -239,9 +258,9 @@ def main():
     juego = {
         "id": "ucrania-2026",
         "nombre": "Ucrania 2026",
-        "version": "0.3.0",
+        "version": "0.4.0-propuesta",
         "fecha": datetime.date.today().isoformat(),
-        "estado": "validación de parámetros de la fase 0 cerrada (5 oct 2026): decisiones clave validadas; el resto son valores por defecto propuestos y editables",
+        "estado": "fase 0: validación de parámetros cerrada el 5 oct 2026 (v0.3.0); apartado E (fibra, apoyos, moral) propuesto y pendiente de validar",
         "descripcion": "Juego de reglas por defecto. Valores de fuentes abiertas 2023-2026; cada fila lleva su fuente y su confianza.",
         "duplicados_eliminados": DUPLICADOS,
         "parametros": salida,

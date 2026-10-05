@@ -1,4 +1,4 @@
-# Fase 0 · Decisiones de validación (validación cerrada el 2026-10-05; queda el apartado E)
+# Fase 0 · Decisiones de validación (A-F cerradas el 2026-10-05; G-K propuestas)
 
 Cruce de la matriz de parámetros (`docs/fase0/matriz-parametros.md`): conflictos entre fuentes, asimetrías
 físicas y valores de confianza baja que cambian el resultado del juego. Para cada punto hay una propuesta;
@@ -50,10 +50,95 @@ Pole-21, Silok, Kropyva, densidad de EW rusa y supresión de radios (RUSI *Meatg
 como orden de magnitud, pero la EW ha cambiado mucho desde entonces. Propuesta: mantenerlas con confianza
 media y buscar fuentes de 2025-2026 en la fase 0. **Decidido (D-030).**
 
-## E. Lo que falta por investigar
+## E. Lo que faltaba por investigar (investigado el 2026-10-05)
 
-- Autonomía y velocidad del FPV de fibra.
-- Retardo de órdenes por cable, radio y mensajero.
-- Moral: efecto de bajas, aislamiento y supresión.
-- Fuerzas del GT (apoyos de batallón para que ataque una compañía).
-- Secuencias de pasos para defensa, infiltración y reconocimiento.
+| Tema | Estado |
+|---|---|
+| Autonomía y velocidad del FPV de fibra | Investigado: apartado G |
+| Retardo de órdenes por cable, radio y mensajero | **Decidido por Balú (D-032): órdenes inmediatas** |
+| Moral: bajas, aislamiento y supresión | Modelo propuesto: apartado I |
+| Apoyos del GT a la compañía que ataca | Paquetes de apoyo propuestos: apartado H |
+| Secuencias de defensa, infiltración y reconocimiento | Propuestas: apartado J |
+| Qué órdenes puede dar la IA a cada ficha | Propuesta: apartado K |
+
+## G. FPV de fibra óptica (fuentes 2025-2026)
+
+| # | Tema | Lo que dicen las fuentes | Propuesta |
+|---|---|---|---|
+| G1 | Radio eficaz | Tu valor validado es 10 km (D-011). En 2026 las fuentes dan 15-25 km como típico (Ukrainska Pravda, ene 2026) y bobinas de 40-50 km en nicho (TWZ, oct 2025) | Mantener **10 km** por defecto en compañía y dejar **15 km** como opción del escenario «Ucrania 2026 avanzado» |
+| G2 | Autonomía con carga | 8-12 min el KVN ruso con 2-4 kg; 16-21 min los ucranianos de 10 pulgadas; 35 min con bobina de 50 km | **20 min** (rango 8-35) |
+| G3 | Velocidad | Crucero 50-85 km/h; ataque 80-110 km/h (fabricantes) | **65 km/h** de crucero y **90 km/h** en ataque; una misión de 10 km tarda unos 9 min |
+| G4 | Emboscada posado junto a la ruta | De horas a más de un día (Oboronka, nov 2025); hasta 48 h según un fabricante | **12 h** por defecto, máximo 24 h |
+| G5 | Probabilidad de impacto | 40-50 % con buenas tripulaciones (Defense News, nov 2025; TWZ) | **45 %**, sin efecto de la EW; frente al 30 % del FPV por radio |
+| G6 | Cuántos FPV son de fibra | Ucrania 10-15 % en todo el frente (ene 2026); 70 % en la Guardia Nacional (sep 2026); Rusia por delante | Ucrania **15 %**, Rusia **30 %** (estimación), editable por escenario |
+| G7 | Contramedidas | 1.170 km de carreteras con redes en mayo de 2026; barreras cortacables sin datos de combate | Red o barrera **reduce** la probabilidad de impacto a la mitad (estimación), no la anula |
+
+Lo que no publica nadie: cuántas misiones fallan por cable enganchado o roto. Va metido en el 45 % de G5.
+
+## H. Paquete de apoyos tipo
+
+Ninguna fuente publica plantillas de apoyo por compañía (RUSI omite a propósito esas cifras). Las cantidades son estimaciones; las distancias, tiempos y cargas tienen fuente. Detalle en `templates/apoyos/`.
+
+**Ataque de compañía** (2 grupos de asalto de 20 en escuadras de 5 o menos; 5-10 días):
+
+| Apoyo | Cantidad propuesta | Quién lo controla | Pasos | Cómo se emplea (con fuente) |
+|---|---|---|---|---|
+| Drones de reconocimiento | 2-3 en el aire continuamente | Célula UAS + batallón | 1, 2, 7 | Vigilan hasta 15 km |
+| FPV de radio y fibra | 30-60 salidas al día | Compañía UAS de brigada o USF | 3, 5, 6 | Más de 15 por blindado y más de 30 por carro (Kofman, abr 2026) |
+| Bombarderos pesados | 2-4, de noche | Batallón UAS | 2, 3, 7 | 20-30 kg, unos 20 km; desmontan lindes antes del asalto |
+| Artillería de 155 | 2-4 piezas sueltas | Brigada | 3, 4, 5 | Máx. 10 disparos por misión; 8-10 para destruir un blanco blando (RUSI) |
+| Morteros | 4 tubos | Jefe de compañía | 4, 5 | Por piezas sueltas |
+| Carros | 1-2 | Compañía de carros de brigada | 5, 6 | Tiro indirecto a unos 9 km o salida desde escondite a menos de 3 km; aguantan 10-15 FPV (RUSI) |
+| Transportes o VCI | 2-4 | Batallón | 6 | Dejan a la tropa y se retiran |
+| UGV logísticos y de evacuación | 6-10 | Pelotón UGV de brigada | 7 | A 2-5 km, de noche, 300 kg (RUSI; TerMIT) |
+| UGV armado | 1-2 | Batallón | 4, 6 | Unos 300 m de alcance eficaz |
+| EW | 1 inhibidor por escuadra + 1 vehicular | Célula EW | 1-6 | No sirve contra fibra; pasillos para los drones propios |
+| Antidrón | Interceptores + torreta o escopetas | Equipo antiaéreo | 5-7 | Torreta hasta 1 km |
+| Ingenieros | 1 equipo de 3-4 + UGV de desminado | Batallón | 2, 6, 7 | UGV guiado a 0,5-3 km |
+| Evacuación | Por UGV y de noche | Grupo de abastecimiento | 7 | Puesto médico a más de 7 km |
+
+**Ataque de sección** (grupo de 20 sobre 1-2 posiciones): 1-2 drones de reconocimiento, 10-20 FPV al día, 1 bombardero, 2 morteros, 1 pieza a demanda, 0-1 carro en tiro indirecto, 2-3 UGV logísticos y 0-1 armado, 1 inhibidor por escuadra, 1 zapador y 1 UGV de evacuación reservado.
+
+Referencias de escala: los drones hacen el 70-95 % de los golpes (TWZ, sep 2026); 25.143 misiones de UGV en agosto de 2026 (MoD); los asaltos mecanizados rusos pierden en torno al 87 % de los blindados (ISW, dic 2025).
+
+## I. Modelo de moral (propuesta)
+
+Cada unidad tiene una **cohesión de 0 a 100** que se recalcula en la fase de mando y moral. Inicial: veterana 80, regular 65, bisoña 50.
+
+| Estado | Cuándo | Fuego | Movimiento y órdenes |
+|---|---|---|---|
+| **Firme** | Cohesión 60 o más | ×1 | Todo |
+| **Tocado** | 40-59, o 10 % de bajas en un turno, o pérdida del jefe | ×0,75 | No puede asaltar. Atacante con 20 % de bajas acumuladas: solo defiende o se repliega |
+| **Suprimido** | 20-39, o fuego supresor ese turno (se le pasa al siguiente) | ×0,25 | Solo ocultarse, esperar o replegarse |
+| **Roto** | Menos de 20, o defensor con 40 % de bajas acumuladas | ×0,1 | Se repliega e ignora órdenes 1 turno. Rodeado: se rinde (urbano 35 %, abierto 8 %; ruso de asalto casi nunca) |
+
+| Resta cohesión | Puntos |
+|---|---|
+| Cada 1 % de bajas en el turno | −2 |
+| Recibir fuego supresor | −10 |
+| Perder al jefe | −15 (una vez) |
+| Turno sin enlace / heridos sin evacuar más de 24 h / dron encima sin defensa antidrón | −5 / −5 / −3 |
+| Cada día en posición por encima de 60 | −1 |
+
+| Suma cohesión | Puntos |
+|---|---|
+| Turno sin contacto y con enlace | +5 |
+| Reabastecida y heridos evacuados | +10 |
+| Relevo | Vuelve a la inicial menos 10 por cada 10 % de bajas |
+
+Umbrales con fuente: 40 % defensor y 20 % atacante (FM 105-5 vía Dupuy Institute), rotación rusa al 30 % (RUSI, feb 2025), por debajo del 50 % solo defiende y del 30 % sale del combate (C-WAM, US Army), 60 días de permanencia (orden de Syrskyi, abr 2026). Los puntos y los factores de fuego son estimación: no hay estudio público que diga cuánto reduce la supresión el fuego.
+
+## J. Secuencias por tipo de operación (propuesta)
+
+| Operación | Pasos |
+|---|---|
+| **Defensa** (modelo ucraniano) | 1 Vigilar en profundidad · 2 Desgastar en la aproximación · 3 Obstaculizar · 4 Contener en posiciones · 5 Aislar la penetración · 6 Contraatacar · 7 Limpiar y reconstituir |
+| **Defensa** (variante rusa) | 1 Fortificar y minar · 2 Vigilar y tirar · 3 Interdicción de rutas con fibra · 4 Bombardeo de zona · 5 Contraataque inmediato · 6 Contraofensiva |
+| **Infiltración** (modelo ruso) | 1 Buscar huecos · 2 Filtrarse en grupos de 1-3 · 3 Ocultarse y acumular · 4 Golpear la retaguardia · 5 Asaltar desde dentro · 6 Consolidar o quedar aislados |
+| **Reconocimiento** | 1 Planificar sensores · 2 Aire primero · 3 Espectro · 4 Confirmación terrestre · 5 Fusionar · 6 Entregar el objetivo (3-5 min) · 7 Valorar el daño · 8 Exfiltrar |
+
+Detalle, duraciones y fuentes en `templates/misiones/`.
+
+## K. Órdenes de la IA enemiga
+
+No tienes que dar nada técnico. Lo único que necesito es que revises **qué acciones puede hacer cada ficha** (`ai/acciones-por-ficha.md`): el juego solo acepta órdenes de esa lista, y sirve igual para ti, para la IA del juego y para Claude. Hay 19 acciones (moverse rápido o oculto, ocultarse, observar, fuego, suprimir, asaltar, lanzar dron, emboscar con fibra, perturbar, detectar, minar, desminar, fortificar, abastecer, evacuar, relevar, replegarse y esperar) repartidas en 18 tipos de ficha. Dime si quitas o añades alguna.

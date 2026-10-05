@@ -1,0 +1,114 @@
+{
+  "id": "reconocimiento-por-fases",
+  "nombre": "Reconocimiento por fases (compañía o sección en campo saturado de drones)",
+  "estado": "propuesto",
+  "principio": "Primero el aire y el espectro; la tierra solo confirma lo que el aire no ve. Cada contacto se entrega a un tirador en minutos.",
+  "pasos": [
+    {
+      "n": 1,
+      "id": "planificar",
+      "nombre": "Planificar sensores",
+      "que": "Zonas de interés y reparto de drones y equipos",
+      "medios": [
+        "puesto de mando"
+      ],
+      "duracion": "1-2 h",
+      "fuentes": [
+        "propuesta"
+      ]
+    },
+    {
+      "n": 2,
+      "id": "aire",
+      "nombre": "Reconocimiento aéreo",
+      "que": "Barrido con drones: transparencia total a 3 km y decreciente hasta 15 km",
+      "medios": [
+        "drones ISR"
+      ],
+      "duracion": "minutos a horas",
+      "fuentes": [
+        "https://static.rusi.org/tactical-developments-third-year-russo-ukrainian-war-february-2205.pdf"
+      ]
+    },
+    {
+      "n": 3,
+      "id": "espectro",
+      "nombre": "Detección electromagnética",
+      "que": "Interceptar radios y enlaces de drones; fusionar en Delta",
+      "medios": [
+        "EW",
+        "SIGINT"
+      ],
+      "duracion": "continuo",
+      "fuentes": [
+        "https://english.nv.ua/nation/ukraine-cuts-drone-strike-loop-to-3-5-minutes-50635975.html"
+      ]
+    },
+    {
+      "n": 4,
+      "id": "tierra",
+      "nombre": "Confirmación terrestre",
+      "que": "Equipos de 2-4 con dron propio confirman posiciones, minas y refugios",
+      "medios": [
+        "equipos de exploración"
+      ],
+      "duracion": "horas a días",
+      "fuentes": [
+        "https://www.twz.com/land/new-scout-unit-that-heavily-leverages-drones-electronic-warfare-tested-by-u-s-army"
+      ]
+    },
+    {
+      "n": 5,
+      "id": "fusionar",
+      "nombre": "Fusionar y clasificar",
+      "que": "Todo entra en el sistema de mando (Delta detectó en 2,2 s en Hedgehog 2025)",
+      "medios": [
+        "Delta"
+      ],
+      "duracion": "segundos a minutos",
+      "fuentes": [
+        "https://euromaidanpress.com/2026/02/13/nato-exercise-reveals-alliance-cant-survive-ukraine-style-drone-warfare/"
+      ]
+    },
+    {
+      "n": 6,
+      "id": "entregar",
+      "nombre": "Entregar el objetivo",
+      "que": "A FPV o artillería; el ciclo bajó de unos 20 min a 3-5 min",
+      "medios": [
+        "FPV",
+        "artillería"
+      ],
+      "duracion": "3-5 min",
+      "fuentes": [
+        "https://english.nv.ua/nation/ukraine-cuts-drone-strike-loop-to-3-5-minutes-50635975.html"
+      ]
+    },
+    {
+      "n": 7,
+      "id": "valorar",
+      "nombre": "Valorar el daño",
+      "que": "Un dron comprueba el resultado y se reasigna",
+      "medios": [
+        "drones ISR"
+      ],
+      "duracion": "minutos",
+      "fuentes": [
+        "propuesta"
+      ]
+    },
+    {
+      "n": 8,
+      "id": "exfiltrar",
+      "nombre": "Exfiltrar o mantener el contacto",
+      "que": "Gestión de firma; en EW intensa un dron sobrevive unos 2 min",
+      "medios": [
+        "equipos de exploración"
+      ],
+      "duracion": "horas",
+      "fuentes": [
+        "https://smallwarsjournal.com/2025/12/09/the-reconnaissance-reality-gap-western-doctrine-vs-the-ukrainian-battlefield/"
+      ]
+    }
+  ]
+}

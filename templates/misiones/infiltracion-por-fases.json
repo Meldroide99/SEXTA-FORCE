@@ -1,0 +1,92 @@
+{
+  "id": "infiltracion-por-fases",
+  "nombre": "Infiltración por fases (modelo ruso 2025-2026)",
+  "estado": "propuesto",
+  "principio": "Muchos grupos de 1-3 que se filtran por los huecos, se acumulan en la retaguardia y golpean los puestos de drones y la logística; se asumen pérdidas muy altas.",
+  "pasos": [
+    {
+      "n": 1,
+      "id": "buscar_huecos",
+      "nombre": "Buscar huecos",
+      "que": "Reconocimiento con drones de los huecos entre posiciones",
+      "medios": [
+        "drones ISR"
+      ],
+      "duracion": "días",
+      "fuentes": [
+        "https://www.criticalthreats.org/analysis/russian-offensive-campaign-assessment-august-12-2025"
+      ]
+    },
+    {
+      "n": 2,
+      "id": "filtrarse",
+      "nombre": "Filtrarse",
+      "que": "Grupos de 1-3 a pie o en moto, con capas antitérmicas, de noche o con niebla; muere el 60-70 %",
+      "medios": [
+        "infantería ligera",
+        "motos"
+      ],
+      "duracion": "horas",
+      "fuentes": [
+        "https://www.criticalthreats.org/analysis/russian-offensive-campaign-assessment-august-12-2025",
+        "https://euromaidanpress.com/2026/07/03/ukraines-eastern-kill-zone-is-25-km-deep-corps-commander-expects-30-by-years-end/"
+      ]
+    },
+    {
+      "n": 3,
+      "id": "acumular",
+      "nombre": "Ocultarse y acumular",
+      "que": "Se esconden en sótanos y se reabastecen por dron hasta reunir masa (Pokrovsk: unos 200)",
+      "medios": [
+        "logística por dron"
+      ],
+      "duracion": "días a semanas",
+      "fuentes": [
+        "https://militarnyi.com/en/blogs/diffusion-of-troops-russian-infiltration-tactics/",
+        "https://kyivindependent.com/hundreds-of-russian-troops-inside-pokrovsk-military-reports/"
+      ]
+    },
+    {
+      "n": 4,
+      "id": "golpear_retaguardia",
+      "nombre": "Golpear la retaguardia",
+      "que": "Fibra en emboscada junto a las rutas, minas, ataques a puestos de drones y de fuegos",
+      "medios": [
+        "FPV de fibra",
+        "minas"
+      ],
+      "duracion": "días",
+      "fuentes": [
+        "https://www.criticalthreats.org/analysis/russian-offensive-campaign-assessment-august-12-2025",
+        "https://euromaidanpress.com/2026/01/28/russian-forces-intensify-infiltration-attempts-on-pokrovsk-front-ukrainian-officer-says-maps/"
+      ]
+    },
+    {
+      "n": 5,
+      "id": "asaltar_desde_dentro",
+      "nombre": "Asaltar desde dentro",
+      "que": "Con masa suficiente atacan y mantienen puntos clave hasta que llegan refuerzos",
+      "medios": [
+        "infantería"
+      ],
+      "duracion": "horas",
+      "fuentes": [
+        "https://www.criticalthreats.org/analysis/russian-offensive-campaign-assessment-august-12-2025"
+      ]
+    },
+    {
+      "n": 6,
+      "id": "consolidar_o_aislados",
+      "nombre": "Consolidar o quedar aislados",
+      "que": "Suele fallar: en Dobropillia penetraron unos 10 km sin consolidar y el contraataque causó unos 5.000 muertos",
+      "medios": [
+        "reservas"
+      ],
+      "duracion": "semanas",
+      "fuentes": [
+        "https://www.criticalthreats.org/analysis/russian-offensive-campaign-assessment-august-12-2025",
+        "https://www.twz.com/news-features/inside-the-fight-to-stop-russias-biggest-advance-in-a-year"
+      ]
+    }
+  ]
+}

@@ -3,7 +3,7 @@
 Simulador táctico por turnos para instrucción en táctica contemporánea (drones, EW, fuegos y logística),
 de pelotón a grupo táctico, basado en la práctica rusa y ucraniana de 2025-2026 y en fuentes abiertas.
 
-**Estado:** fase 0 (especificación). Validación de parámetros cerrada el 5 oct 2026 (v0.3.0); quedan el contrato JSON de la IA y los temas por investigar. Aún no hay motor ni interfaz.
+**Estado:** fase 0 (especificación). Parámetros A-F validados el 5 oct 2026 (v0.3.0). Propuestos y pendientes de validar (v0.4.0): FPV de fibra, paquetes de apoyo, modelo de moral, secuencias de defensa, infiltración y reconocimiento, y acciones por ficha de la IA. Aún no hay motor ni interfaz.
 
 ## Principios
 
@@ -22,7 +22,7 @@ de pelotón a grupo táctico, basado en la práctica rusa y ucraniana de 2025-20
 | `docs/` | Hoja de ruta, registro de decisiones y documentación de la fase 0 |
 | `research/fase0/` | Investigación en bruto por categoría (no se edita a mano) |
 | `rules/` | Juegos de reglas en JSON y su esquema (`rules/schema/`) |
-| `templates/` | Plantillas de unidad, misiones (secuencias de pasos) y perfiles doctrinales |
+| `templates/` | Plantillas de unidad, paquetes de apoyo, misiones (secuencias de pasos) y perfiles doctrinales |
 | `ai/` | IA de utilidad y contratos con Claude (prompts y esquemas de respuesta) |
 | `engine/` | Motor de reglas (fase 1) |
 | `generator/` | Generador de partidas y terrenos (fase 1) |
@@ -39,5 +39,5 @@ de pelotón a grupo táctico, basado en la práctica rusa y ucraniana de 2025-20
 ## Documentos clave
 
 - `docs/hoja-de-ruta.md`: qué se construye y en qué fases.
-- `docs/fase0/matriz-parametros.md`: los 200 valores de la fase 0 con sus fuentes (juego de reglas «Ucrania 2026» v0.3.0, validación cerrada).
+- `docs/fase0/matriz-parametros.md`: los 277 valores de la fase 0 con sus fuentes (juego de reglas «Ucrania 2026» v0.4.0-propuesta).
 - `docs/fase0/pendientes-validacion.md`: conflictos y asimetrías a decidir antes de programar.

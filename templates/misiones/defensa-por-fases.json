@@ -1,0 +1,158 @@
+{
+  "id": "defensa-por-fases",
+  "nombre": "Defensa por fases (modelo ucraniano 2025-2026)",
+  "estado": "propuesto",
+  "principio": "Ceder terreno a cambio de bajas: la zona de muerte de drones desgasta al atacante antes del contacto; posiciones de 2-3 hombres muy dispersas; contraataque con reservas cuando el enemigo culmina.",
+  "pasos": [
+    {
+      "n": 1,
+      "id": "vigilar",
+      "nombre": "Vigilar en profundidad",
+      "que": "Drones de reconocimiento 24 h sobre la zona de muerte (20-25 km en 2026)",
+      "medios": [
+        "drones ISR",
+        "Delta"
+      ],
+      "duracion": "continuo",
+      "fuentes": [
+        "https://euromaidanpress.com/2026/07/03/ukraines-eastern-kill-zone-is-25-km-deep-corps-commander-expects-30-by-years-end/"
+      ],
+      "indicador": {
+        "id": "ind.cobertura_vigilancia_pct",
+        "nombre": "% de la zona de muerte vigilada"
+      }
+    },
+    {
+      "n": 2,
+      "id": "desgastar",
+      "nombre": "Desgastar en la aproximación",
+      "que": "FPV, bombarderos, fibra en emboscada y artillería sobre todo lo que se acerque; muere el 60-70 % de los infiltradores",
+      "medios": [
+        "FPV",
+        "bombarderos",
+        "artillería"
+      ],
+      "duracion": "horas a días",
+      "fuentes": [
+        "https://euromaidanpress.com/2026/07/03/ukraines-eastern-kill-zone-is-25-km-deep-corps-commander-expects-30-by-years-end/"
+      ],
+      "indicador": {
+        "id": "ind.bajas_enemigas_aproximacion",
+        "nombre": "Bajas enemigas antes del contacto"
+      }
+    },
+    {
+      "n": 3,
+      "id": "obstaculizar",
+      "nombre": "Obstaculizar",
+      "que": "Campos de minas, minado remoto con drones y fuegos preparados en los pasos obligados",
+      "medios": [
+        "ingenieros",
+        "drones minadores",
+        "EW"
+      ],
+      "duracion": "antes del contacto",
+      "fuentes": [
+        "https://static.rusi.org/tactical-developments-third-year-russo-ukrainian-war-february-2205.pdf"
+      ]
+    },
+    {
+      "n": 4,
+      "id": "contener",
+      "nombre": "Contener en posiciones",
+      "que": "Equipos de 2-3 a unos 50 m entre sí; sección en 70-200 m; compañía en 3 km de profundidad; permanencia de hasta 60 días",
+      "medios": [
+        "infantería",
+        "drones de escolta"
+      ],
+      "duracion": "minutos u horas por asalto",
+      "fuentes": [
+        "https://static.rusi.org/tactical-developments-third-year-russo-ukrainian-war-february-2205.pdf",
+        "https://www.defensenews.com/global/europe/2026/04/30/ukraines-army-chief-shakes-up-troop-rotations-after-outcry/"
+      ]
+    },
+    {
+      "n": 5,
+      "id": "aislar_penetracion",
+      "nombre": "Aislar la penetración",
+      "que": "Se acepta perder posiciones; se corta por el fuego la logística del infiltrado, que queda a merced del reabastecimiento por dron",
+      "medios": [
+        "drones de interdicción"
+      ],
+      "duracion": "días a semanas",
+      "fuentes": [
+        "https://militarnyi.com/en/blogs/diffusion-of-troops-russian-infiltration-tactics/",
+        "https://www.criticalthreats.org/analysis/russian-offensive-campaign-assessment-december-12-2025"
+      ]
+    },
+    {
+      "n": 6,
+      "id": "contraatacar",
+      "nombre": "Contraatacar",
+      "que": "Mando unificado, reservas de asalto, drones y 2-3 carros cuando el enemigo culmina (Kupiansk, nov-dic 2025: unos 200 rusos rodeados)",
+      "medios": [
+        "reservas",
+        "carros",
+        "drones"
+      ],
+      "duracion": "unas 4 semanas",
+      "fuentes": [
+        "https://www.criticalthreats.org/analysis/russian-offensive-campaign-assessment-december-12-2025",
+        "https://www.twz.com/news-features/inside-the-fight-to-stop-russias-biggest-advance-in-a-year"
+      ]
+    },
+    {
+      "n": 7,
+      "id": "reconstituir",
+      "nombre": "Limpiar y reconstituir",
+      "que": "Limpieza de grupos infiltrados, relevo, reabastecimiento con UGV y drones pesados, evacuación",
+      "medios": [
+        "grupos de limpieza",
+        "UGV"
+      ],
+      "duracion": "días a semanas",
+      "fuentes": [
+        "https://kyivindependent.com/hundreds-of-russian-troops-inside-pokrovsk-military-reports/"
+      ]
+    }
+  ],
+  "variante_rusa": [
+    {
+      "n": 1,
+      "nombre": "Fortificar y minar",
+      "que": "2-3 líneas; fajas de obstáculos de 700 m a 1 km; minas lanzadas por cohete",
+      "fuente": "https://static.rusi.org/403-SR-Russian-Tactics-web-final.pdf",
+      "nota": "Dato de 2023"
+    },
+    {
+      "n": 2,
+      "nombre": "Vigilar y tirar de forma reactiva",
+      "que": "25-50 drones por cada 10 km dirigen artillería y morteros de 120 mm",
+      "fuente": "https://static.rusi.org/403-SR-Russian-Tactics-web-final.pdf"
+    },
+    {
+      "n": 3,
+      "nombre": "Interdicción de rutas",
+      "que": "FPV de fibra del centro Rubikon con cable de hasta 30 km; zonas de muerte de 15-20 km",
+      "fuente": "https://www.criticalthreats.org/analysis/russian-offensive-campaign-assessment-july-7-2025"
+    },
+    {
+      "n": 4,
+      "nombre": "Bombardeo de zona",
+      "que": "Bombas planeadoras contra los puntos fuertes",
+      "fuente": "https://static.rusi.org/tactical-developments-third-year-russo-ukrainian-war-february-2205.pdf"
+    },
+    {
+      "n": 5,
+      "nombre": "Contraataque inmediato",
+      "que": "Las reservas recuperan rápido las posiciones perdidas",
+      "fuente": "https://static.rusi.org/403-SR-Russian-Tactics-web-final.pdf"
+    },
+    {
+      "n": 6,
+      "nombre": "Contraofensiva",
+      "que": "Asfixia logística y asalto (Kursk, marzo 2025)",
+      "fuente": "https://euromaidanpress.com/2025/03/09/forbes-russia-deploys-elite-rubicon-drone-unit-and-fresh-north-koreans-to-cut-ukraines-supply-lines-in-kursk/"
+    }
+  ]
+}

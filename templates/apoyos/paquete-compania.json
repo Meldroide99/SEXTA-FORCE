@@ -1,0 +1,226 @@
+{
+  "id": "paquete-apoyos-compania-ucrania-2026",
+  "nombre": "Paquete de apoyos tipo para un ataque de compañía (SGT de asalto)",
+  "estado": "propuesto",
+  "doctrina": "ucrania-2026",
+  "principio": "Mucha menos gente y mucho apoyo: la compañía asalta con 2 grupos de 20 en escuadras de 5 o menos; el resto del efecto lo ponen drones, artillería por piezas sueltas, carros a distancia, UGV, EW e ingenieros.",
+  "nota": "Estimación de la fase 0 a partir de RUSI (oct 2025, feb 2025), ISW, TWZ, MoD de Ucrania y LLAA BRIPAC; ninguna fuente publica plantillas de apoyo por compañía (RUSI omite a propósito las cifras de planeamiento)",
+  "duracion_dias": [
+    5,
+    10
+  ],
+  "elementos": [
+    {
+      "id": "drones_reco",
+      "nombre": "Drones de reconocimiento (Mavic y ala fija)",
+      "cantidad": "2-3 en el aire de forma continua",
+      "controla": "Célula UAS de la compañía + batallón",
+      "pasos_watling": [
+        1,
+        2,
+        7
+      ],
+      "empleo": "Vigilancia hasta 15 km; Mavic con radio de trabajo de 6 km",
+      "parametros": [
+        "drones.reco_multirrotor.radio_trabajo_km"
+      ],
+      "origen_cantidad": "E"
+    },
+    {
+      "id": "fpv",
+      "nombre": "FPV de radio y de fibra",
+      "cantidad": "30-60 salidas al día; más de 15 por blindado y más de 30 por carro",
+      "controla": "Compañía UAS de brigada o USF",
+      "pasos_watling": [
+        3,
+        5,
+        6
+      ],
+      "empleo": "Impactos entre 3 km dentro y 3 km fuera de la línea; fibra hasta el radio validado",
+      "parametros": [
+        "drones.fpv.tasa_eficacia_pct",
+        "drones.fpv_fibra.alcance_km",
+        "drones.fpv_fibra.prob_impacto_pct",
+        "apoyos.carros.fpv_para_neutralizar_carro"
+      ],
+      "origen_cantidad": "E"
+    },
+    {
+      "id": "bombarderos",
+      "nombre": "Bombarderos pesados (tipo Vampire o Heavy Shot)",
+      "cantidad": "2-4 aparatos, de noche",
+      "controla": "Batallón UAS",
+      "pasos_watling": [
+        2,
+        3,
+        7
+      ],
+      "empleo": "20-30 kg de carga y unos 20 km; minado de rutas y reabastecimiento",
+      "parametros": [
+        "apoyos.drones.bombardero_pesado_carga_kg"
+      ],
+      "origen_cantidad": "E"
+    },
+    {
+      "id": "artilleria",
+      "nombre": "Artillería de 155 mm por piezas sueltas",
+      "cantidad": "2-4 piezas a demanda",
+      "controla": "Grupo de artillería de la brigada",
+      "pasos_watling": [
+        3,
+        4,
+        5
+      ],
+      "empleo": "Baterías a unos 15 km; máximo 10 disparos por misión; 8-10 para destruir un blanco blando",
+      "parametros": [
+        "apoyos.artilleria.disparos_por_mision",
+        "apoyos.artilleria.disparos_destruir_blanco_blando",
+        "fuegos.art155.ucrania.distancia_piezas_frente_km"
+      ],
+      "origen_cantidad": "E"
+    },
+    {
+      "id": "morteros",
+      "nombre": "Morteros de 82 y 120 mm",
+      "cantidad": "4 tubos (2 orgánicos + 2 del batallón)",
+      "controla": "Jefe de la compañía",
+      "pasos_watling": [
+        4,
+        5
+      ],
+      "empleo": "Por piezas sueltas; los sirvientes llegan a pie desde 10-15 km",
+      "parametros": [
+        "apoyos.logistica.marcha_a_pie_apoyos_km"
+      ],
+      "origen_cantidad": "E"
+    },
+    {
+      "id": "carros",
+      "nombre": "Carros de combate",
+      "cantidad": "1-2",
+      "controla": "Compañía de carros de la brigada",
+      "pasos_watling": [
+        5,
+        6
+      ],
+      "empleo": "Tiro indirecto a unos 9 km o salidas a tiro directo desde un escondite a menos de 3 km; aguantan 10-15 impactos FPV",
+      "parametros": [
+        "apoyos.carros.distancia_tiro_indirecto_km",
+        "apoyos.carros.distancia_escondite_km",
+        "apoyos.carros.impactos_fpv_soportados"
+      ],
+      "origen_cantidad": "E"
+    },
+    {
+      "id": "transportes",
+      "nombre": "Transportes acorazados o VCI de ruedas",
+      "cantidad": "2-4; dejan a la tropa y se retiran",
+      "controla": "Batallón",
+      "pasos_watling": [
+        6
+      ],
+      "empleo": "Desembarco a 1-3 km (estimación); preferible ruedas por velocidad",
+      "parametros": [
+        "apoyos.blindados.vci_por_asalto_30h"
+      ],
+      "origen_cantidad": "E"
+    },
+    {
+      "id": "ugv_log",
+      "nombre": "UGV logísticos y de evacuación",
+      "cantidad": "6-10",
+      "controla": "Pelotón UGV de la brigada",
+      "pasos_watling": [
+        7
+      ],
+      "empleo": "Estacionados a 2-5 km, 12-15 km/h, solo de noche; 300 kg",
+      "parametros": [
+        "logistica.ugv.distancia_espera_km",
+        "logistica.ugv.carga_util_kg",
+        "apoyos.ugv.autonomia_h"
+      ],
+      "origen_cantidad": "E"
+    },
+    {
+      "id": "ugv_armado",
+      "nombre": "UGV armado (ametralladora o lanzagranadas)",
+      "cantidad": "1-2",
+      "controla": "Batallón",
+      "pasos_watling": [
+        4,
+        6
+      ],
+      "empleo": "Alcance eficaz de unos 300 m",
+      "parametros": [
+        "fuegos.ugv_armado.alcance_eficaz_m"
+      ],
+      "origen_cantidad": "E"
+    },
+    {
+      "id": "ew",
+      "nombre": "Guerra electrónica",
+      "cantidad": "1 inhibidor portátil por escuadra + 1 vehicular",
+      "controla": "Célula EW de la compañía (4)",
+      "pasos_watling": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "empleo": "No sirve contra la fibra; hay que abrir pasillos para los drones propios",
+      "parametros": [
+        "drones.fpv_fibra.vulnerabilidad_ew_pct"
+      ],
+      "origen_cantidad": "E"
+    },
+    {
+      "id": "antidron",
+      "nombre": "Defensa antidrón",
+      "cantidad": "FPV interceptores + 1 torreta automática o escopetas",
+      "controla": "Equipo antiaéreo de la compañía (3)",
+      "pasos_watling": [
+        5,
+        6,
+        7
+      ],
+      "empleo": "Torreta hasta 1 km",
+      "parametros": [
+        "apoyos.aa.torreta_anti_fpv_alcance_km"
+      ],
+      "origen_cantidad": "E"
+    },
+    {
+      "id": "ingenieros",
+      "nombre": "Ingenieros",
+      "cantidad": "1 equipo de 3-4 + 1 UGV de desminado",
+      "controla": "Batallón; guían a distancia",
+      "pasos_watling": [
+        2,
+        6,
+        7
+      ],
+      "empleo": "UGV controlado a 0,5-3 km",
+      "parametros": [
+        "apoyos.ingenieros.ugv_desminado_control_km"
+      ],
+      "origen_cantidad": "E"
+    },
+    {
+      "id": "evacuacion",
+      "nombre": "Evacuación de bajas",
+      "cantidad": "Por UGV y de noche",
+      "controla": "Grupo de abastecimiento y evacuación de la compañía",
+      "pasos_watling": [
+        7
+      ],
+      "empleo": "Puesto médico a más de 7 km; 2-3 h en el mejor caso",
+      "parametros": [
+        "apoyos.logistica.puesto_medico_km",
+        "mando.moral.retraso_casevac_h"
+      ],
+      "origen_cantidad": "E"
+    }
+  ]
+}

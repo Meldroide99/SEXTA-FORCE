@@ -1,0 +1,155 @@
+{
+  "id": "paquete-apoyos-seccion-ucrania-2026",
+  "nombre": "Paquete de apoyos tipo para un ataque de sección (grupo de asalto de 20 sobre 1-2 posiciones)",
+  "estado": "propuesto",
+  "doctrina": "ucrania-2026",
+  "nota": "Estimación de la fase 0 a partir de RUSI (oct 2025, feb 2025), ISW, TWZ, MoD de Ucrania y LLAA BRIPAC; ninguna fuente publica plantillas de apoyo por compañía (RUSI omite a propósito las cifras de planeamiento)",
+  "elementos": [
+    {
+      "id": "drones_reco",
+      "nombre": "Drones de reconocimiento",
+      "cantidad": "1-2 en el aire",
+      "controla": "Célula UAS de la compañía",
+      "pasos_watling": [
+        1,
+        7
+      ],
+      "empleo": "",
+      "parametros": [
+        "drones.reco_multirrotor.radio_trabajo_km"
+      ],
+      "origen_cantidad": "E"
+    },
+    {
+      "id": "fpv",
+      "nombre": "FPV",
+      "cantidad": "10-20 salidas al día",
+      "controla": "Célula UAS de la compañía",
+      "pasos_watling": [
+        3,
+        5,
+        6
+      ],
+      "empleo": "",
+      "parametros": [
+        "drones.fpv.tasa_eficacia_pct"
+      ],
+      "origen_cantidad": "E"
+    },
+    {
+      "id": "bombardero",
+      "nombre": "Bombardero",
+      "cantidad": "1 aparato, 2-4 salidas nocturnas",
+      "controla": "Batallón UAS",
+      "pasos_watling": [
+        3,
+        7
+      ],
+      "empleo": "",
+      "parametros": [
+        "apoyos.drones.bombardero_pesado_carga_kg"
+      ],
+      "origen_cantidad": "E"
+    },
+    {
+      "id": "morteros",
+      "nombre": "Morteros",
+      "cantidad": "2 tubos de la compañía",
+      "controla": "Jefe de la compañía",
+      "pasos_watling": [
+        4,
+        5
+      ],
+      "empleo": "",
+      "parametros": [],
+      "origen_cantidad": "E"
+    },
+    {
+      "id": "artilleria",
+      "nombre": "Artillería",
+      "cantidad": "1 pieza a demanda (máx. 10 disparos)",
+      "controla": "Brigada",
+      "pasos_watling": [
+        5
+      ],
+      "empleo": "",
+      "parametros": [
+        "apoyos.artilleria.disparos_por_mision"
+      ],
+      "origen_cantidad": "E"
+    },
+    {
+      "id": "carro",
+      "nombre": "Carro",
+      "cantidad": "0-1, en tiro indirecto",
+      "controla": "Brigada",
+      "pasos_watling": [
+        5
+      ],
+      "empleo": "",
+      "parametros": [
+        "apoyos.carros.distancia_tiro_indirecto_km"
+      ],
+      "origen_cantidad": "E"
+    },
+    {
+      "id": "ugv",
+      "nombre": "UGV",
+      "cantidad": "2-3 logísticos y 0-1 armado",
+      "controla": "Batallón",
+      "pasos_watling": [
+        6,
+        7
+      ],
+      "empleo": "",
+      "parametros": [
+        "logistica.ugv.distancia_espera_km"
+      ],
+      "origen_cantidad": "E"
+    },
+    {
+      "id": "ew",
+      "nombre": "Guerra electrónica",
+      "cantidad": "1 inhibidor portátil por escuadra + mochila en la vanguardia",
+      "controla": "Célula EW",
+      "pasos_watling": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "empleo": "",
+      "parametros": [],
+      "origen_cantidad": "E"
+    },
+    {
+      "id": "ingenieros",
+      "nombre": "Ingenieros",
+      "cantidad": "1 zapador agregado + 1 dron minador",
+      "controla": "Batallón",
+      "pasos_watling": [
+        2,
+        6
+      ],
+      "empleo": "",
+      "parametros": [],
+      "origen_cantidad": "E"
+    },
+    {
+      "id": "evacuacion",
+      "nombre": "Evacuación",
+      "cantidad": "1 UGV reservado, de noche",
+      "controla": "Compañía",
+      "pasos_watling": [
+        7
+      ],
+      "empleo": "",
+      "parametros": [
+        "mando.moral.retraso_casevac_h"
+      ],
+      "origen_cantidad": "E"
+    }
+  ]
+}
