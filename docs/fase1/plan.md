@@ -1,6 +1,6 @@
 # Fase 1 · Primera partida · Plan propuesto
 
-Propuesta del 5 de octubre de 2026, pendiente del visto bueno de Balú. Objetivo de la fase (hoja de ruta, apartado 10): jugar una operación completa desde el paso 1, con la misma semilla y las mismas órdenes dando el mismo resultado, y con toda cifra que influye visible en el panel.
+Aprobado por Balú el 6 de octubre de 2026 (D-053). Entrega 1 hecha: ver `entrega-1-terreno.md`. Objetivo de la fase (hoja de ruta, apartado 10): jugar una operación completa desde el paso 1, con la misma semilla y las mismas órdenes dando el mismo resultado, y con toda cifra que influye visible en el panel.
 
 La fase se hace en 5 entregas. Cada una termina con una página en claude.ai que se puede abrir y probar.
 

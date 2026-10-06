@@ -57,3 +57,4 @@ que no esté aquí no existe.
 | D-050 | 2026-10-05 | Se puede repetir una partida desde un turno: se abre una rama nueva y la original se conserva | Formatos y Claude | Balú |
 | D-051 | 2026-10-05 | Transmisiones: medio de enlace según el plan PACE de la orden de operaciones (paso al siguiente medio en 1 turno) y emisión por ficha elegida con la orden (emitiendo, solo escucha, silencio por N turnos; el silencio no resta cohesión el primer turno) | Formatos y Claude | Balú |
 | D-052 | 2026-10-05 | Cierre de la fase 0 (especificación): parámetros, reglas del turno, formatos y prompts de Claude aprobados; juego de reglas «Ucrania 2026» v0.7.0 | Fase 0 | Balú |
+| D-053 | 2026-10-06 | Plan de la fase 1 en 5 entregas (terreno; fichas, órdenes y sensores; drones, EW, fuegos y transmisiones; combate, logística, moral e IA enemiga; partida completa) | Fase 1 | Balú |

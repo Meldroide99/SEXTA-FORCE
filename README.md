@@ -3,7 +3,7 @@
 Simulador táctico por turnos para instrucción en táctica contemporánea (drones, EW, fuegos y logística),
 de pelotón a grupo táctico, basado en la práctica rusa y ucraniana de 2025-2026 y en fuentes abiertas.
 
-**Estado:** fase 0 (especificación) cerrada el 5 oct 2026 (D-052): parámetros, reglas del turno, formatos y papeles de Claude aprobados (juego de reglas «Ucrania 2026» v0.7.0, D-010 a D-051). Siguiente: fase 1, primera partida jugable. Aún no hay motor ni interfaz.
+**Estado:** fase 1 (primera partida), entrega 1 de 5 hecha el 6 oct 2026: generador de terreno de colinas y línea de vista, con página de prueba (`docs/fase1/entrega-1-terreno.md`). Fase 0 cerrada el 5 oct 2026 (D-052). Juego de reglas «Ucrania 2026» v0.8.0, decisiones D-001 a D-053.
 
 ## Principios
 
@@ -28,6 +28,14 @@ de pelotón a grupo táctico, basado en la práctica rusa y ucraniana de 2025-20
 | `generator/` | Generador de partidas y terrenos (fase 1) |
 | `app/` | Interfaz web (fase 1) |
 | `tools/` | Scripts de construcción y validación |
+
+## Cómo se prueba
+
+Hace falta Node 22. `npm install` y después:
+
+- `npm test`: pruebas automáticas del motor y del generador.
+- `npm run typecheck`: comprobación de tipos.
+- `npm run build`: genera `dist/terreno.html`, la página de prueba en un solo fichero.
 
 ## Cómo se cambia una regla o un parámetro
 

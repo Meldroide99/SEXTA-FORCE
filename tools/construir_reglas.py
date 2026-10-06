@@ -240,6 +240,7 @@ VALIDACIONES = {
     "combate.distancia_inicio_m": {"fecha": "2026-10-05", "decision": "D-047", "motivo": "Validado por Balú (reglas del turno)."},
     "com.pace.turnos_cambio_medio": {"fecha": "2026-10-05", "decision": "D-051", "motivo": "Validado por Balú (regla de transmisiones)."},
     "com.emision.silencio_turnos_sin_penal": {"fecha": "2026-10-05", "decision": "D-051", "motivo": "Validado por Balú (regla de transmisiones)."},
+    "terreno.vegetacion.lesosmuga_paso_sin_hoja_m": {"fecha": "2026-10-05", "decision": "D-036", "motivo": "Umbral de 15 m incluido en la regla de línea de vista validada (apartado L)."},
 }
 
 def aplicar_validacion(r):
@@ -347,7 +348,7 @@ def main():
     juego = {
         "id": "ucrania-2026",
         "nombre": "Ucrania 2026",
-        "version": "0.7.0",
+        "version": "0.8.0",
         "fecha": datetime.date.today().isoformat(),
         "estado": "fase 0: todas las decisiones de parámetros validadas el 5 oct 2026 (v0.5.0); los valores no validados uno a uno son valores por defecto editables",
         "descripcion": "Juego de reglas por defecto. Valores de fuentes abiertas 2023-2026; cada fila lleva su fuente y su confianza.",
