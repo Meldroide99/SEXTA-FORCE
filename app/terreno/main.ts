@@ -13,6 +13,7 @@ import { NOMBRE_VEG, Veg, cota, vegEn, type Estacion, type Punto, type Terreno }
 import { generarColinas } from "../../generator/terreno/colinas";
 import { CONFIG_COLINAS, EXPLICACION_COLINAS } from "../../generator/terreno/config-colinas";
 import { curvasDeNivel, type Segmento } from "../mapa/curvas";
+import { rasterSuave, rellenarConVecinos, type RGBA } from "../mapa/suavizado";
 
 const $ = <T extends HTMLElement>(id: string) => document.getElementById(id) as T;
 const fmt = (v: number, dec = 0) => v.toLocaleString("es-ES", { minimumFractionDigits: dec, maximumFractionDigits: dec });
@@ -57,6 +58,8 @@ let zona: { nx: number; ny: number; paso: number; datos: Uint8Array; hecho: numb
 let trabajoZona = 0;
 const base = document.createElement("canvas");
 const capaZona = document.createElement("canvas");
+const FACTOR_BASE = 4; // 2,5 m por píxel en la hoja base
+const COLORES_ZONA: Record<number, RGBA> = { 0: [24, 28, 40, 125], 1: [60, 170, 80, 24], 2: [235, 170, 20, 115], 255: [0, 0, 0, 0] };
 const lienzo = $<HTMLCanvasElement>("lienzo");
 const ctx = lienzo.getContext("2d")!;
 const vista = { escala: 1, ox: 0, oy: 0 };
@@ -96,30 +99,29 @@ function dibujarBase() {
   const { nx, ny } = t;
   const g = t.rejilla_m;
   const hoja = t.estacional.hoja[estacion];
-  base.width = nx;
-  base.height = ny;
-  const pc = base.getContext("2d")!;
-  const img = pc.createImageData(nx, ny);
+  // sombreado del relieve por celda (luz del noroeste, suave)
+  const luz = new Float32Array(nx * ny);
   for (let j = 0; j < ny; j++) {
     for (let i = 0; i < nx; i++) {
-      const k = j * nx + i;
       const zl = t.z[j * nx + Math.max(0, i - 1)];
       const zr = t.z[j * nx + Math.min(nx - 1, i + 1)];
       const zd = t.z[Math.max(0, j - 1) * nx + i];
       const zu = t.z[Math.min(ny - 1, j + 1) * nx + i];
       const gx = (zr - zl) / (2 * g);
       const gy = (zu - zd) / (2 * g);
-      // luz del noroeste, sombreado suave
-      const luz = Math.max(0.74, Math.min(1.1, 0.95 + (-gx * 0.7 + gy * 0.7) * 1.4));
-      const [r, gg, b] = colorVeg(t.veg[k], estacion, hoja);
-      const p = ((ny - 1 - j) * nx + i) * 4;
-      img.data[p] = Math.min(255, r * luz);
-      img.data[p + 1] = Math.min(255, gg * luz);
-      img.data[p + 2] = Math.min(255, b * luz);
-      img.data[p + 3] = 255;
+      luz[j * nx + i] = Math.max(0.74, Math.min(1.1, 0.95 + (-gx * 0.7 + gy * 0.7) * 1.4));
     }
   }
-  pc.putImageData(img, 0, 0);
+  // lesosmugas, arroyos y casas se dibujan como líneas y símbolos encima
+  const superficie = rellenarConVecinos(t.veg, nx, ny, new Set([Veg.Lesosmuga, Veg.Agua, Veg.Edificio]));
+  const colores: Record<number, RGBA> = {};
+  for (const c of [Veg.Abierto, Veg.Trigo, Veg.CultivoAlto, Veg.CultivoBajo, Veg.BosqueHoja, Veg.BosqueConifera]) {
+    colores[c] = [...colorVeg(c, estacion, hoja), 255] as RGBA;
+  }
+  const r = rasterSuave(superficie, nx, ny, FACTOR_BASE, colores, { luz, pasadas: 1, borde: 0.14 });
+  base.width = r.ancho;
+  base.height = r.alto;
+  base.getContext("2d")!.putImageData(new ImageData(r.datos, r.ancho, r.alto), 0, 0);
 }
 
 // ---------- capas de líneas en metros (se dibujan nítidas a cualquier zoom) ----------
@@ -134,6 +136,7 @@ interface Vectores {
   lesosmugas: Path2D;
   puentes: Punto[];
   vados: Punto[];
+  casas: Path2D;
 }
 let vec: Vectores;
 
@@ -141,7 +144,7 @@ function prepararVectores() {
   const linea = (path: Path2D, pts: Punto[]) => pts.forEach((p, q) => (q ? path.lineTo(p.x, p.y) : path.moveTo(p.x, p.y)));
   const v: Vectores = {
     curvas: new Path2D(), maestras: new Path2D(), rotulosCurva: [], arroyos: new Path2D(), caminos: new Path2D(),
-    calles: new Path2D(), carretera: new Path2D(), lesosmugas: new Path2D(), puentes: [], vados: [],
+    calles: new Path2D(), carretera: new Path2D(), lesosmugas: new Path2D(), puentes: [], vados: [], casas: new Path2D(),
   };
   for (const [nivel, segs] of curvas) {
     const maestra = nivel % 50 === 0;
@@ -161,6 +164,13 @@ function prepararVectores() {
     else if (e.tipo === "lesosmuga") linea(v.lesosmugas, e.geometria);
     else if (e.tipo === "puente") v.puentes.push(e.geometria[0]);
     else if (e.tipo === "vado") v.vados.push(e.geometria[0]);
+  }
+  const g = terreno.rejilla_m;
+  for (let k = 0; k < terreno.veg.length; k++) {
+    if (terreno.veg[k] !== Veg.Edificio) continue;
+    const x = (k % terreno.nx) * g;
+    const y = Math.floor(k / terreno.nx) * g;
+    v.casas.roundRect(x + 0.6, y + 0.6, g - 1.2, g - 1.2, 1.5);
   }
   vec = v;
 }
@@ -186,8 +196,10 @@ function dibujarVectores(dpr: number) {
   ctx.stroke(vec.lesosmugas);
   ctx.lineCap = "round";
   ctx.strokeStyle = "rgb(52, 118, 196)";
-  ctx.lineWidth = px(1.8);
+  ctx.lineWidth = Math.max(px(1.8), 5);
   ctx.stroke(vec.arroyos);
+  ctx.fillStyle = "rgb(44, 40, 38)";
+  ctx.fill(vec.casas);
   ctx.strokeStyle = "rgb(110, 70, 36)";
   ctx.lineWidth = px(1.3);
   ctx.setLineDash([px(6), px(4)]);
@@ -324,20 +336,10 @@ function calcularZona() {
 function pintarCapaZona() {
   if (!zona) return;
   const { nx, ny, datos } = zona;
-  capaZona.width = nx;
-  capaZona.height = ny;
-  const c = capaZona.getContext("2d")!;
-  const img = c.createImageData(nx, ny);
-  for (let j = 0; j < ny; j++) {
-    for (let i = 0; i < nx; i++) {
-      const v = datos[j * nx + i];
-      const p = ((ny - 1 - j) * nx + i) * 4;
-      if (v === 0) { img.data[p] = 24; img.data[p + 1] = 28; img.data[p + 2] = 40; img.data[p + 3] = 120; }
-      else if (v === 2) { img.data[p] = 235; img.data[p + 1] = 170; img.data[p + 2] = 20; img.data[p + 3] = 110; }
-      else if (v === 1) { img.data[p] = 60; img.data[p + 1] = 170; img.data[p + 2] = 80; img.data[p + 3] = 26; }
-    }
-  }
-  c.putImageData(img, 0, 0);
+  const r = rasterSuave(datos, nx, ny, 4, COLORES_ZONA, { pasadas: 1, borde: 0.18 });
+  capaZona.width = r.ancho;
+  capaZona.height = r.alto;
+  capaZona.getContext("2d")!.putImageData(new ImageData(r.datos, r.ancho, r.alto), 0, 0);
 }
 
 // ---------- dibujo del lienzo ----------
@@ -367,11 +369,12 @@ function dibujar() {
   ctx.clearRect(0, 0, r.width, r.height);
   ctx.fillStyle = "#e8e6da";
   ctx.fillRect(0, 0, r.width, r.height);
-  ctx.imageSmoothingEnabled = false;
+  ctx.imageSmoothingEnabled = true;
+  ctx.imageSmoothingQuality = "high";
   ctx.drawImage(base, vista.ox, vista.oy, anchoM() * vista.escala, altoM() * vista.escala);
   dibujarVectores(window.devicePixelRatio || 1);
   if (zona) {
-    ctx.imageSmoothingEnabled = false;
+    ctx.imageSmoothingEnabled = true;
     ctx.drawImage(capaZona, vista.ox, vista.oy, zona.nx * zona.paso * vista.escala, zona.ny * zona.paso * vista.escala);
   }
   // anillos de distancia alrededor del observador

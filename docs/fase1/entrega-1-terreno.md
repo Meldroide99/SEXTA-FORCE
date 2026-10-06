@@ -32,9 +32,9 @@ Entregada el 6 de octubre de 2026. Página de prueba: «Terreno SEXTA-FORCE» en
 - Línea de vista: llano, loma, curvatura, bosque con y sin hoja, pinar, linde, lesosmuga perpendicular y oblicua, trigo y girasol, edificio, dron sobre bosque y sobre lesosmuga, simetría y zona vista.
 - Generador: misma semilla y mismo mapa, tamaño, desnivel, que en 5 semillas haya de todo, que los arroyos bajen y que las lesosmugas no tengan huecos diagonales por los que se cuele la vista.
 
-## Pendiente de tu visto bueno
+## Valores aprobados (D-054)
 
-Valores nuevos de esta entrega (estado «propuesto» en el juego de reglas v0.8.0):
+Valores nuevos de esta entrega, validados por Balú el 6 de octubre de 2026:
 
 | Parámetro | Valor | Por qué |
 |---|---|---|
@@ -47,6 +47,10 @@ Valores nuevos de esta entrega (estado «propuesto» en el juego de reglas v0.8.
 `terreno.vegetacion.lesosmuga_paso_sin_hoja_m` (15 m) ya estaba en la regla validada (D-036) y se ha sacado como parámetro.
 
 Valores de forma del mapa (no son reglas de combate, están en `generator/terreno/config-colinas.ts`): mapa de 4 × 4 km, desnivel de unos 55 m entre lomas, balkas de hasta 24 m de profundidad y 230 m de ancho, cultivos al 35 % trigo, 35 % girasol o maíz, 12 % colza o remolacha y 18 % pasto, 1 o 2 pueblos.
+
+## Visualización (D-055)
+
+El motor calcula con celdas de 10 m, pero la página dibuja el mapa y la zona vista con bordes redondeados y finos: cada clase se suaviza, se interpola entre celdas y en el borde hay una transición de un par de píxeles. Las lesosmugas, los arroyos, las casas, las curvas y las vías se dibujan como líneas y símbolos nítidos a cualquier zoom. Solo cambia el dibujo; el cálculo es el mismo.
 
 ## Observación
 

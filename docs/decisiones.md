@@ -58,3 +58,5 @@ que no esté aquí no existe.
 | D-051 | 2026-10-05 | Transmisiones: medio de enlace según el plan PACE de la orden de operaciones (paso al siguiente medio en 1 turno) y emisión por ficha elegida con la orden (emitiendo, solo escucha, silencio por N turnos; el silencio no resta cohesión el primer turno) | Formatos y Claude | Balú |
 | D-052 | 2026-10-05 | Cierre de la fase 0 (especificación): parámetros, reglas del turno, formatos y prompts de Claude aprobados; juego de reglas «Ucrania 2026» v0.7.0 | Fase 0 | Balú |
 | D-053 | 2026-10-06 | Plan de la fase 1 en 5 entregas (terreno; fichas, órdenes y sensores; drones, EW, fuegos y transmisiones; combate, logística, moral e IA enemiga; partida completa) | Fase 1 | Balú |
+| D-054 | 2026-10-06 | Entrega 1 de la fase 1 aprobada: casas de 6 m, trigo de 0,5 m en primavera, colza o remolacha de 0,6 m, girasol o maíz sin cosechar en otoño (2 m), sin hoja solo en invierno; mapa de 4 × 4 km y reparto de cultivos 35/35/12/18 | Fase 1 | Balú |
+| D-055 | 2026-10-06 | Visualización suave: el motor sigue con celdas de 10 m, pero el mapa y la zona vista se dibujan con bordes redondeados y finos (sin escalones) | Fase 1 | Balú |

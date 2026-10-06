@@ -240,6 +240,12 @@ VALIDACIONES = {
     "combate.distancia_inicio_m": {"fecha": "2026-10-05", "decision": "D-047", "motivo": "Validado por Balú (reglas del turno)."},
     "com.pace.turnos_cambio_medio": {"fecha": "2026-10-05", "decision": "D-051", "motivo": "Validado por Balú (regla de transmisiones)."},
     "com.emision.silencio_turnos_sin_penal": {"fecha": "2026-10-05", "decision": "D-051", "motivo": "Validado por Balú (regla de transmisiones)."},
+    "terreno.edificio.altura_m": {"fecha": "2026-10-06", "decision": "D-054", "motivo": "Validado por Balú (entrega 1 de la fase 1)."},
+    "terreno.cultivo.trigo_primavera_m": {"fecha": "2026-10-06", "decision": "D-054", "motivo": "Validado por Balú (entrega 1 de la fase 1)."},
+    "terreno.cultivo.bajo_m": {"fecha": "2026-10-06", "decision": "D-054", "motivo": "Validado por Balú (entrega 1 de la fase 1)."},
+    "terreno.cultivo.alto_otono_m": {"fecha": "2026-10-06", "decision": "D-054", "motivo": "Validado por Balú (entrega 1 de la fase 1)."},
+    "terreno.vegetacion.hoja_primavera": {"fecha": "2026-10-06", "decision": "D-054", "motivo": "Validado por Balú (entrega 1 de la fase 1)."},
+    "terreno.vegetacion.hoja_otono": {"fecha": "2026-10-06", "decision": "D-054", "motivo": "Validado por Balú (entrega 1 de la fase 1)."},
     "terreno.vegetacion.lesosmuga_paso_sin_hoja_m": {"fecha": "2026-10-05", "decision": "D-036", "motivo": "Umbral de 15 m incluido en la regla de línea de vista validada (apartado L)."},
 }
 
